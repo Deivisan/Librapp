@@ -50,12 +50,12 @@
             }
           ],
           "braille": "⠞⠑⠎⠳⠗⠁",
-          "hints": [
-            "Usa para cortar papel",
-            "Tem duas lâminas que se cruzam",
-            "Encontra na caixa de lápis"
-          ],
-          "audio_file": "assets/audio/tesoura.mp3"
+          "audio_file": "assets/audio/tesoura.mp3?v=2",
+          "context_sentences": [
+            "A professora usa na sala de aula para cortar papel colorido.",
+            "Na hora de fazer artesanato, você abre e fecha as lâminas assim.",
+            "Fica dentro da caixa de lápis ao lado da borracha."
+          ]
         },
         {
           "word": "Lápis",
@@ -91,12 +91,12 @@
             }
           ],
           "braille": "⠇⠁⠏⠊⠎",
-          "hints": [
-            "Escreve no papel",
-            "Tem ponta de grafite",
-            "Usa borracha na ponta"
-          ],
-          "audio_file": "assets/audio/lapis.mp3"
+          "audio_file": "assets/audio/lapis.mp3?v=2",
+          "context_sentences": [
+            "Quando você vai escrever no caderno, segura ele assim.",
+            "Tem ponta de grafite que a professora sempre afia.",
+            "Na ponta tem uma borracha para apagar o erro."
+          ]
         },
         {
           "word": "Borracha",
@@ -142,12 +142,12 @@
             }
           ],
           "braille": "⠃⠕⠗⠗⠁⠉⠓",
-          "hints": [
-            "Apaga o que você escreveu errado",
-            "Geralmente é rosa ou branca",
-            "Fica na ponta do lápis"
-          ],
-          "audio_file": "assets/audio/borracha.mp3"
+          "audio_file": "assets/audio/borracha.mp3?v=2",
+          "context_sentences": [
+            "Quando você erra a letra, passa ela no papel para sumir.",
+            "Geralmente é rosa ou branca e fica na ponta do lápis.",
+            "Serve para apagar o que foi escrito errado."
+          ]
         },
         {
           "word": "Caderno",
@@ -193,12 +193,12 @@
             }
           ],
           "braille": "⠉⠁⠙⠑⠗⠝⠕",
-          "hints": [
-            "Tem páginas para escrever",
-            "Costuma ter capa dura",
-            "Você carrega na mochila"
-          ],
-          "audio_file": "assets/audio/caderno.mp3"
+          "audio_file": "assets/audio/caderno.mp3?v=2",
+          "context_sentences": [
+            "Você abre ele na mesa e escreve as lições da escola.",
+            "Tem capa dura e muitas páginas para anotar.",
+            "Vai junto na mochila para carregar para a aula."
+          ]
         },
         {
           "word": "Régua",
@@ -234,12 +234,12 @@
             }
           ],
           "braille": "⠗⠑⠛⠥⠁",
-          "hints": [
-            "Mede coisas retas",
-            "Tem marcações de números",
-            "Usa para traçar linha sem onda"
-          ],
-          "audio_file": "assets/audio/regua.mp3"
+          "audio_file": "assets/audio/regua.mp3?v=2",
+          "context_sentences": [
+            "Para desenhar uma linha reta sem fazer onda, você passa ele.",
+            "Tem números e marcações de centímetros na lateral.",
+            "Usa junto com o lápis para traçar no caderno."
+          ]
         }
       ]
     },
@@ -277,12 +277,12 @@
             }
           ],
           "braille": "⠍⠁⠉⠁",
-          "hints": [
-            "Fruta vermelha ou verde",
-            "Cachorro comeu uma no desenho",
-            "Tem uma casca fina e crocante"
-          ],
-          "audio_file": "assets/audio/maca.mp3"
+          "audio_file": "assets/audio/maca.mp3?v=2",
+          "context_sentences": [
+            "É uma fruta vermelha ou verde que a professora traz no lanche.",
+            "No desenho, o cachorro comeu uma igual a essa.",
+            "Tem casca fina e crocante quando você morde."
+          ]
         },
         {
           "word": "Banana",
@@ -323,12 +323,12 @@
             }
           ],
           "braille": "⠃⠁⠝⠁⠝⠁",
-          "hints": [
-            "Fruta amarela e comprida",
-            "Tem casca que você descasca",
-            "Macaco adora comer"
-          ],
-          "audio_file": "assets/audio/banana.mp3"
+          "audio_file": "assets/audio/banana.mp3?v=2",
+          "context_sentences": [
+            "É uma fruta amarela e comprida que você descasca antes de comer.",
+            "O macaco no desenho adora pular atrás dela.",
+            "Tem uma casca doce que a gente tira com as mãos."
+          ]
         }
       ]
     },
@@ -381,12 +381,12 @@
             }
           ],
           "braille": "⠉⠁⠉⠓⠕⠗⠗",
-          "hints": [
-            "Melhor amigo do homem",
-            "Faz au au",
-            "Tem pelagem e rabo"
-          ],
-          "audio_file": "assets/audio/cachorro.mp3"
+          "audio_file": "assets/audio/cachorro.mp3?v=2",
+          "context_sentences": [
+            "É o animal que faz au au e balança o rabo de felicidade.",
+            "É conhecido como o melhor amigo do ser humano.",
+            "Tem pelagem, orelhas e gosta de brincar de buscar a bola."
+          ]
         },
         {
           "word": "Gato",
@@ -417,12 +417,12 @@
             }
           ],
           "braille": "⠛⠁⠞⠕",
-          "hints": [
-            "Faz miau",
-            "Tem bigodes",
-            "Adora dormir no sol"
-          ],
-          "audio_file": "assets/audio/gato.mp3"
+          "audio_file": "assets/audio/gato.mp3?v=2",
+          "context_sentences": [
+            "É o animal que faz miau e tem bigodes no rosto.",
+            "Gosta de dormir no sol e se espreguiçar no sofá.",
+            "Quando está bravo, arranha e mostra as garras."
+          ]
         }
       ]
     }

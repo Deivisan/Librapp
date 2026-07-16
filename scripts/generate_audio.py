@@ -61,8 +61,10 @@ async def main():
                 skipped += 1
                 continue
 
-            # Texto do áudio (mais natural para TTS)
-            audio_text = f"{word}. {description}"
+            # Texto do áudio: APENAS a descrição do sinal (NÃO revelar a palavra!)
+            # O áudio é a audiodescrição para quem vai fazer o sinal,
+            # mas não deve dar a resposta (senão quebra o jogo de adivinhação)
+            audio_text = description
 
             try:
                 await generate_audio(audio_text, output_path)

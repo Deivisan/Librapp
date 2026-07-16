@@ -26,13 +26,13 @@ class CardEditor {
       audio_file: '',
       fingerspelling: [],
       braille: '',
-      hints: ['', '', '']
+      context_sentences: ['', '', '']
     };
   }
 
   async loadCards() {
     try {
-      const response = await fetch('../data/cards.json');
+      const response = await fetch('../data/cards.json?v=2');
       const data = await response.json();
       this.allCards = data.categories;
     } catch (error) {
@@ -125,11 +125,11 @@ class CardEditor {
         </div>
 
         <div class="editor-field">
-          <label class="editor-label">Dicas (Fase 2)</label>
-          ${card.hints.map((hint, i) => `
+          <label class="editor-label">Frases Contextualizadas (Fase 2)</label>
+          ${card.context_sentences.map((sentence, i) => `
             <input type="text" class="editor-input mb-sm" 
-                   id="card-hint-${i}" value="${hint}" 
-                   placeholder="Dica ${i + 1}">
+                   id="card-sentence-${i}" value="${sentence}" 
+                   placeholder="Frase contextualizada ${i + 1}">
           `).join('')}
         </div>
 
@@ -197,11 +197,12 @@ class CardEditor {
     this.currentCard.audio_file = document.getElementById('card-audio-file').value;
     this.currentCard.braille = document.getElementById('card-braille').value;
 
-    // Coletar dicas
+    // Coletar frases contextualizadas
+    this.currentCard.context_sentences = [];
     for (let i = 0; i < 3; i++) {
-      const hintInput = document.getElementById(`card-hint-${i}`);
-      if (hintInput) {
-        this.currentCard.hints[i] = hintInput.value;
+      const sentenceInput = document.getElementById(`card-sentence-${i}`);
+      if (sentenceInput && sentenceInput.value.trim()) {
+        this.currentCard.context_sentences.push(sentenceInput.value.trim());
       }
     }
 
@@ -280,8 +281,8 @@ class CardEditor {
               </div>
             ` : ''}
             <div class="preview-hints">
-              <div style="font-weight: bold; margin-bottom: 8px;">Dicas:</div>
-              ${card.hints.map(h => `<div class="preview-hint">${h}</div>`).join('')}
+              <div style="font-weight: bold; margin-bottom: 8px;">Frases Contextualizadas:</div>
+              ${(card.context_sentences || []).map(s => `<div class="preview-hint">${s}</div>`).join('')}
             </div>
           </div>
         </div>

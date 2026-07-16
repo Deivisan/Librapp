@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Librapp — Jogo de LIBRAS | deivi.tech/libras</title>
-  <meta name="description" content="Librapp: um jogo para aprender e praticar Língua Brasileira de Sinais (LIBRAS) de forma divertida. Cartas interativas com sinal, datilologia e Braille.">
+  <meta name="description" content="Librapp: um jogo para aprender e praticar Língua Brasileira de Sinais (LIBRAS) de forma divertida. Cartas interativas com sinal, frases contextualizadas e datilologia.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
@@ -282,7 +282,186 @@
       padding: 8px 16px;
       background: var(--surface);
     }
-    
+
+    /* Como Funciona */
+    .how-it-works {
+      max-width: 800px;
+      margin: var(--space-2xl) auto 0;
+      width: 100%;
+    }
+
+    .how-it-works h2 {
+      font-family: var(--display);
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-md);
+      text-align: center;
+    }
+
+    .how-intro {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto var(--space-xl);
+    }
+
+    .rules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: var(--space-md);
+      margin-bottom: var(--space-xl);
+    }
+
+    .rule-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      text-align: center;
+      transition: all var(--duration) var(--ease);
+    }
+
+    .rule-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .rule-number {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto var(--space-md);
+      border-radius: 50%;
+      background: var(--grad);
+      color: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 1.2rem;
+    }
+
+    .rule-card h3 {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: var(--space-sm);
+    }
+
+    .rule-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .rules-btn {
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Modal */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: var(--space-md);
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-xl);
+      max-width: 600px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: var(--space-md);
+      right: var(--space-md);
+      background: var(--elevated);
+      border: 1px solid var(--border);
+      color: var(--fg);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all var(--duration) var(--ease);
+    }
+
+    .modal-close:hover {
+      background: var(--border-light);
+      transform: rotate(90deg);
+    }
+
+    .modal-content h2 {
+      font-family: var(--display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: var(--space-lg);
+      letter-spacing: -0.02em;
+    }
+
+    .modal-content h3 {
+      font-family: var(--display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: var(--space-lg) 0 var(--space-sm);
+      color: var(--accent);
+    }
+
+    .modal-content ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .modal-content li {
+      padding: var(--space-sm) 0 var(--space-sm) var(--space-lg);
+      border-bottom: 1px solid var(--border);
+      color: var(--fg-soft);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    .modal-content li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .modal-content li strong {
+      color: var(--fg);
+    }
+
+    .modal-content .btn {
+      margin-top: var(--space-lg);
+      width: 100%;
+      justify-content: center;
+    }
+
     /* Footer */
     footer {
       padding: 20px 24px;
@@ -328,7 +507,7 @@
     
     <p class="lead">
       Aprenda e pratique a Língua Brasileira de Sinais (LIBRAS) de forma divertida 
-      com cartas interativas. Cada carta traz imagem, sinal, datilologia e Braille.
+      com cartas interativas. Cada carta traz imagem, sinal, frases contextualizadas e datilologia.
     </p>
 
     <!-- Preview dos Cards -->
@@ -372,7 +551,7 @@
       </div>
       <div class="chip">
         ⠿ Braille
-        <small>Escrita tátil para cegos</small>
+        <small>Texto de referência na tela</small>
       </div>
       <div class="chip">
         🎮 3 Fases
@@ -389,11 +568,111 @@
       </a>
     </div>
 
+    <!-- Como Funciona -->
+    <div class="how-it-works">
+      <h2>📖 Como Funciona</h2>
+      <p class="how-intro">
+        O Librapp é um jogo de cartas para aprender LIBRAS de forma divertida.
+        Inspirado no jogo "Mímica", mas adaptado para a Língua Brasileira de Sinais.
+      </p>
+
+      <div class="rules-grid">
+        <div class="rule-card">
+          <div class="rule-number">1</div>
+          <h3>👥 Dois Grupos</h3>
+          <p>Os jogadores se dividem em dois times. Cada um tenta fazer o sinal em LIBRAS para os colegas adivinharem.</p>
+        </div>
+
+        <div class="rule-card">
+          <div class="rule-number">2</div>
+          <h3>🃏 Cartas com Palavras</h3>
+          <p>Cada carta traz uma palavra com imagem, sinal em LIBRAS, frases contextualizadas e datilologia.</p>
+        </div>
+
+        <div class="rule-card">
+          <div class="rule-number">3</div>
+          <h3>🎯 3 Fases</h3>
+          <p>O jogador tem 3 tentativas progressivas: Sinal → Pistas → Datilologia.</p>
+        </div>
+
+        <div class="rule-card">
+          <div class="rule-number">4</div>
+          <h3>🔇 Sem Falar</h3>
+          <p>Nas pistas, só pode usar gestos e frases sem a palavra proibida. Quem fala, perde o ponto!</p>
+        </div>
+      </div>
+
+      <button class="btn btn-secondary rules-btn" onclick="toggleRules()">
+        📋 Ver Regras Completas
+      </button>
+    </div>
+
+    <!-- Modal de Regras -->
+    <div id="rules-modal" class="modal" onclick="if(event.target===this) toggleRules()">
+      <div class="modal-content">
+        <button class="modal-close" onclick="toggleRules()">✕</button>
+        <h2>📋 Regras do Librapp</h2>
+
+        <h3>🎮 Preparação</h3>
+        <ul>
+          <li>Divida o grupo em 2 times (mínimo 2 pessoas por time)</li>
+          <li>Imprimam ou abram as cartas no celular/computador</li>
+          <li>Definam um tempo (ex: 1 minuto por rodada)</li>
+        </ul>
+
+        <h3>🃏 Como Jogar</h3>
+        <ul>
+          <li><strong>Fase 1:</strong> O jogador vê apenas a imagem e tenta fazer o sinal em LIBRAS</li>
+          <li><strong>Fase 2:</strong> Se não acertarem, o jogador lê frases contextualizadas (sem revelar a palavra)</li>
+          <li><strong>Fase 3:</strong> Revela a datilologia (letra por letra) e o texto Braille de referência</li>
+          <li>O time ganha 1 ponto se acertar em cada fase</li>
+        </ul>
+
+        <h3>🚫 Regras de Conduta</h3>
+        <ul>
+          <li>Proibido falar a palavra da carta</li>
+          <li>Proibido apontar para a escrita</li>
+          <li>Quem trapaceia, perde o ponto da rodada</li>
+          <li>Ganha quem fizer mais pontos no final</li>
+        </ul>
+
+        <h3>♿ Acessibilidade</h3>
+        <ul>
+          <li>Modo Acessível (botão ♿): audiodescrição para quem faz o sinal — <strong>use fones</strong> para não vazar a resposta</li>
+          <li>Braille exibido como texto de referência na tela (app sem relevo físico)</li>
+          <li>QR Codes individuais: só quem escaneia ouve/vê o sinal — acessibilidade personalizada</li>
+          <li>LIBRAS como língua central do jogo</li>
+        </ul>
+
+        <button class="btn btn-primary" onclick="toggleRules()">
+          Entendi! Vamos Jogar
+        </button>
+      </div>
+    </div>
+
     <div class="status">🚀 Em construção — novos temas em breve!</div>
   </main>
 
   <footer>
     Librapp faz parte do ecossistema <a href="https://deivi.tech/">deivi.tech</a> · DeiviTech
   </footer>
+
+  <script>
+    function toggleRules() {
+      const modal = document.getElementById('rules-modal');
+      modal.classList.toggle('show');
+      document.body.style.overflow = modal.classList.contains('show') ? 'hidden' : '';
+    }
+
+    // Fechar com ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const modal = document.getElementById('rules-modal');
+        if (modal.classList.contains('show')) {
+          toggleRules();
+        }
+      }
+    });
+  </script>
 </body>
 </html>

@@ -12,6 +12,7 @@ class LibrappGame {
     this.score = 0;
     this.totalCards = 0;
     this.answeredCards = [];
+    this.accessibleMode = false;
     
     this.init();
   }
@@ -19,7 +20,7 @@ class LibrappGame {
   async init() {
     try {
       const baseUrl = window.location.pathname.includes('/game/') ? '../' : '';
-      const response = await fetch(baseUrl + 'data/cards.json');
+      const response = await fetch(baseUrl + 'data/cards.json?v=2');
       this.cardsData = await response.json();
       this.renderCategories();
     } catch (error) {
@@ -158,25 +159,24 @@ class LibrappGame {
             <strong>Audiodescrição do sinal:</strong><br>
             ${this.currentCard.sign_description}
           </div>
-          <button class="btn btn-secondary btn-sm audio-play-btn" onclick="game.playAudio()" aria-label="Ouvir audiodescrição">
-            🔊 Ouvir
-          </button>
         </div>
+        ${this.renderAccessibleButton()}
       </div>
     `;
   }
 
   renderPhase2() {
+    const sentences = this.currentCard.context_sentences || [];
     return `
       <div class="phase-panel phase-2">
-        <h3>Fase 2 - Pistas</h3>
-        <p class="text-muted">Ainda não acertou? Aqui vão algumas pistas!</p>
+        <h3>Fase 2 - Frases Contextualizadas</h3>
+        <p class="text-muted">Ainda não acertou? Leia estas frases para entender o contexto!</p>
         
         <div class="hints-panel">
-          ${this.currentCard.hints.map((hint, i) => `
+          ${sentences.map((sentence, i) => `
             <div class="hint-item">
               <span class="hint-number">${i + 1}</span>
-              <span class="hint-text">${hint}</span>
+              <span class="hint-text">${sentence}</span>
             </div>
           `).join('')}
         </div>
@@ -184,7 +184,7 @@ class LibrappGame {
         <div class="audio-desc mt-md">
           <div class="audio-desc-icon">🔊</div>
           <div class="audio-desc-text">
-            <strong>Audio:</strong> Faça mímica dos movimentos sem usar a palavra!
+            <strong>Dica:</strong> Use mímica e o sinal em LIBRAS — não fale a palavra!
           </div>
         </div>
       </div>
@@ -208,8 +208,9 @@ class LibrappGame {
         </div>
         
         <div class="braille-section mt-lg">
-          <div class="braille-label">Braille</div>
+          <div class="braille-label">Braille (texto para leitura na tela)</div>
           <div class="braille-text">${this.currentCard.braille}</div>
+          <p class="text-muted small">⚠️ App sem relevo físico — Braille apenas como referência visual.</p>
         </div>
         
         <div class="audio-desc mt-md">
@@ -218,12 +219,35 @@ class LibrappGame {
             <strong>QR Code:</strong> Escaneie para ver vídeo do sinal<br>
             <strong>Audio QR:</strong> Escaneie para ouvir a audiodescrição
           </div>
-          <button class="btn btn-secondary btn-sm audio-play-btn" onclick="game.playAudio()" aria-label="Ouvir audiodescrição">
-            🔊 Ouvir Sinal
-          </button>
         </div>
+        ${this.renderAccessibleButton()}
       </div>
     `;
+  }
+
+  renderAccessibleButton() {
+    if (this.accessibleMode) {
+      return `
+        <div class="accessible-bar">
+          <span class="accessible-warning">🎧 Use fones — áudio só para quem faz o sinal</span>
+          <button class="btn btn-secondary btn-sm audio-play-btn" onclick="game.playAudio()" aria-label="Ouvir audiodescrição">
+            🔊 Ouvir Sinal (com fone)
+          </button>
+        </div>
+      `;
+    }
+    return `
+      <div class="accessible-toggle">
+        <button class="btn btn-ghost btn-sm" onclick="game.toggleAccessible()" aria-label="Ativar modo acessível">
+          ♿ Acessível
+        </button>
+      </div>
+    `;
+  }
+
+  toggleAccessible() {
+    this.accessibleMode = !this.accessibleMode;
+    this.renderGameCard();
   }
 
   updatePhaseIndicator() {
@@ -343,15 +367,41 @@ class LibrappGame {
     const prefix = needsUp ? '../' : '';
     const url = prefix + audioFile;
 
-    // Parar áudio anterior se existir
+    // Parar áudio anterior silenciosamente (sem disparar erro)
     if (this.currentAudio) {
-      this.currentAudio.pause();
+      this.currentAudio.onerror = null;
+      this.currentAudio.onabort = null;
+      try {
+        this.currentAudio.pause();
+      } catch (e) {
+        // ignora
+      }
+      this.currentAudio = null;
     }
 
-    this.currentAudio = new Audio(url);
-    this.currentAudio.play().catch(err => {
+    const audio = new Audio(url);
+    this.currentAudio = audio;
+
+    // Tratar erros específicos sem falsos alertas
+    audio.play().catch(err => {
+      // AbortError: áudio anterior foi interrompido — não é erro real
+      // NotAllowedError: política de autoplay — mas geralmente toca após clique
+      if (err && err.name === 'AbortError') {
+        console.log('Áudio anterior interrompido (esperado)');
+        return;
+      }
+      // Outros erros: verificar se o arquivo existe
       console.error('Erro ao reproduzir áudio:', err);
-      alert('Não foi possível reproduzir o áudio. Verifique se o arquivo existe.');
+      fetch(url, { method: 'HEAD' })
+        .then(resp => {
+          if (!resp.ok) {
+            alert('Arquivo de áudio não encontrado. Verifique o caminho: ' + url);
+          }
+          // Se resp.ok, o erro foi de autoplay e o áudio pode tocar após interação
+        })
+        .catch(() => {
+          alert('Não foi possível carregar o áudio. Verifique sua conexão.');
+        });
     });
   }
 

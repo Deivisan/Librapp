@@ -537,6 +537,40 @@ a:hover {
   flex-shrink: 0;
 }
 
+/* Modo Acessível - botão discreto */
+.accessible-toggle {
+  margin-top: var(--space-md);
+  text-align: right;
+}
+
+.accessible-toggle .btn {
+  font-size: 0.75rem;
+  opacity: 0.6;
+  padding: 4px 10px;
+}
+
+.accessible-toggle .btn:hover {
+  opacity: 1;
+}
+
+.accessible-bar {
+  margin-top: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid var(--roxo);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+}
+
+.accessible-warning {
+  font-size: 0.8rem;
+  color: var(--roxo-claro);
+  font-weight: 600;
+}
+
 /* ============================================
    Editor
    ============================================ */
