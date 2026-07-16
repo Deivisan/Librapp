@@ -346,4 +346,4 @@ class CardEditor {
 }
 
 // Inicializar editor
-const editor = new CardEditor();
+window.editor = new CardEditor();

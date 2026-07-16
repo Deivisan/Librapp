@@ -365,4 +365,4 @@ class LibrappGame {
 }
 
 // Inicializar jogo
-const game = new LibrappGame();
+window.game = new LibrappGame();
