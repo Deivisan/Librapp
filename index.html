@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Librapp — Jogo de LIBRAS | deivi.tech/libras</title>
+  <meta name="description" content="Librapp: um jogo para aprender e praticar Língua Brasileira de Sinais (LIBRAS) de forma divertida. Em breve no ar.">
+  <style>
+    :root {
+      --bg: #0b0e14;
+      --surface: #141925;
+      --elevated: #1c2333;
+      --border: #2a3346;
+      --fg: #e8edf6;
+      --muted: #8b97ad;
+      --accent: #06d6a0;
+      --ciano: #38bdf8;
+      --roxo: #a78bfa;
+      --ambar: #fbbf24;
+      --rosa: #f472b6;
+      --grad: linear-gradient(90deg, var(--accent), var(--ciano), var(--roxo));
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --display: "Segoe UI", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: radial-gradient(1200px 600px at 50% -10%, rgba(6,214,160,0.12), transparent), var(--bg);
+      color: var(--fg);
+      font-family: var(--font);
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+    header {
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 14px;
+    }
+    .logo { font-family: var(--display); font-weight: 800; font-size: 1.05rem; letter-spacing: -0.02em; }
+    .logo b { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .back { margin-left: auto; color: var(--muted); text-decoration: none; font-size: 0.85rem; }
+    .back:hover { color: var(--accent); }
+    main {
+      flex: 1;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 40px 22px; gap: 22px;
+    }
+    .badge {
+      font-family: var(--display); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em;
+      color: var(--accent); border: 1px solid var(--border); border-radius: 999px;
+      padding: 7px 15px; background: var(--surface);
+    }
+    h1 {
+      font-family: var(--display); font-size: clamp(2.4rem, 8vw, 4.4rem); font-weight: 800; line-height: 1.02;
+      letter-spacing: -0.03em;
+    }
+    h1 .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    p.lead { max-width: 560px; color: var(--muted); font-size: 1.02rem; line-height: 1.6; }
+    .features {
+      display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 6px;
+    }
+    .chip {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+      padding: 12px 16px; font-size: 0.85rem; color: var(--fg); min-width: 150px;
+    }
+    .chip small { display: block; color: var(--muted); font-size: 0.74rem; margin-top: 3px; }
+    .status {
+      margin-top: 4px; font-family: var(--display); font-size: 0.82rem; color: var(--ambar);
+      border: 1px solid var(--border); border-radius: 999px; padding: 8px 16px; background: var(--surface);
+    }
+    footer {
+      padding: 18px 22px; border-top: 1px solid var(--border); text-align: center;
+      color: var(--muted); font-size: 0.8rem;
+    }
+    footer a { color: var(--ciano); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="logo">&lt;Deivi<b>Tech</b>/libras&gt;</span>
+    <a class="back" href="https://deivi.tech/">voltar ao hub</a>
+  </header>
+
+  <main>
+    <span class="badge">em construção</span>
+    <h1>Librapp — <span class="grad">jogo de LIBRAS</span></h1>
+    <p class="lead">
+      Um jogo para aprender e praticar a Língua Brasileira de Sinais (LIBRAS) de forma
+      divertida e acessível. Aqui você vai jogar, treinar sinais e acompanhar seu progresso.
+    </p>
+
+    <div class="features">
+      <div class="chip">Desafios de sinais<small>associe imagem ao sinal</small></div>
+      <div class="chip">Modo prática<small>repita e receba feedback</small></div>
+      <div class="chip">Ranking<small>compare com outros jogadores</small></div>
+      <div class="chip">Acessível<small>foco em inclusão e LIBRAS</small></div>
+    </div>
+
+    <div class="status">Placeholder — o jogo será construído em iteracoes com os agentes de IA</div>
+  </main>
+
+  <footer>
+    Librapp faz parte do ecossistema <a href="https://deivi.tech/">deivi.tech</a> · DeiviTech
+  </footer>
+</body>
+</html>
