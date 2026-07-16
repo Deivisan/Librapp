@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Librapp — Editor de Cartas | deivi.tech/libras</title>
+  <meta name="description" content="Crie e edite cartas para o jogo de LIBRAS.">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="editor.css">
+</head>
+<body>
+  <header class="header">
+    <a href="../index.html" class="logo">&lt;Deivi<b>Tech</b>/libras&gt;</a>
+    <nav class="header-nav">
+      <a href="../index.html">Início</a>
+      <a href="../game/index.html">🎮 Jogar</a>
+      <a href="editor.html" class="btn btn-ghost">✏️ Editor</a>
+    </nav>
+  </header>
+
+  <div class="editor-layout">
+    <!-- Sidebar -->
+    <aside class="editor-sidebar">
+      <div class="sidebar-header">
+        <span class="sidebar-title">Categorias</span>
+        <button class="btn btn-ghost btn-sm" onclick="editor.createNewCategory()">
+          + Nova
+        </button>
+      </div>
+
+      <div class="categories-list" id="categories-list">
+        <!-- Categorias serão renderizadas via JS -->
+      </div>
+
+      <div class="cards-section">
+        <div class="cards-section-title">Cartas</div>
+        <div class="cards-list" id="cards-list">
+          <!-- Cartas serão listadas via JS -->
+        </div>
+        <button class="btn btn-secondary btn-sm mt-sm" onclick="editor.addNewCard()">
+          + Nova Carta
+        </button>
+      </div>
+
+      <div class="mt-auto">
+        <button class="btn btn-primary" onclick="editor.saveToFile()">
+          💾 Salvar Tudo
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Editor -->
+    <main class="editor-main">
+      <h2>✏️ Editor de Cartas</h2>
+      <p class="text-muted">
+        Crie e edite cartas para o jogo de LIBRAS. Cada carta representa uma palavra 
+        com imagem, sinal, datilologia e Braille.
+      </p>
+
+      <div id="card-form">
+        <div class="editor-panel">
+          <p class="text-muted text-center">
+            Selecione uma categoria e carta ao lado para editar, 
+            ou crie uma nova categoria/carta.
+          </p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <button class="btn btn-secondary print-btn" onclick="window.print()">
+    🖨️ Imprimir
+  </button>
+
+  <script src="editor.js"></script>
+</body>
+</html>

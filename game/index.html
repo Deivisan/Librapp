@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Librapp — Jogar | deivi.tech/libras</title>
+  <meta name="description" content="Jogo de LIBRAS: aprenda sinais de forma divertida com cartas interativas.">
+  <base href="./">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="game.css">
+</head>
+<body>
+  <header class="header">
+    <a href="../index.html" class="logo">&lt;Deivi<b>Tech</b>/libras&gt;</a>
+    <nav class="header-nav">
+      <a href="../index.html">Início</a>
+      <a href="../cards/editor.html">Editor</a>
+      <a href="index.html" class="btn btn-ghost">🎮 Jogar</a>
+    </nav>
+  </header>
+
+  <div class="game-container">
+    <!-- Tela de Categorias -->
+    <div id="categories-screen">
+      <div class="categories-header">
+        <span class="badge">Escolha uma categoria</span>
+        <h1>Jogo de <span class="grad">LIBRAS</span></h1>
+        <p>Selecione uma categoria para começar a jogar</p>
+      </div>
+      
+      <div class="categories-grid" id="categories">
+        <!-- Categorias serão renderizadas via JS -->
+      </div>
+    </div>
+
+    <!-- Tela do Jogo -->
+    <div id="game-screen" class="hidden">
+      <div class="game-header">
+        <span class="game-title" id="category-name"></span>
+        <div class="phase-dots">
+          <span class="phase-dot active" data-phase="1"></span>
+          <span class="phase-dot" data-phase="2"></span>
+          <span class="phase-dot" data-phase="3"></span>
+        </div>
+        <span class="game-score" id="score">0/0</span>
+      </div>
+      
+      <div class="game-progress">
+        <div class="game-progress-bar" id="progress" style="width: 0%"></div>
+      </div>
+
+      <div class="game-main">
+        <div id="game-card-container">
+          <!-- Card do jogo será renderizado via JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

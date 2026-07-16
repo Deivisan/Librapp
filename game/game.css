@@ -1,0 +1,215 @@
+/* ============================================
+   Librapp - Game Styles
+   ============================================ */
+
+.game-container {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Categories Screen */
+.categories-header {
+  text-align: center;
+  padding: var(--space-2xl) var(--space-lg);
+}
+
+.categories-header h1 {
+  font-family: var(--display);
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-sm);
+}
+
+.categories-header p {
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+  padding: 0 var(--space-lg) var(--space-2xl);
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.category-btn {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  cursor: pointer;
+  transition: all var(--duration) var(--ease);
+  text-align: center;
+}
+
+.category-btn:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+.category-icon {
+  font-size: 3rem;
+}
+
+.category-name {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--fg);
+}
+
+.category-count {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Game Screen */
+.game-header {
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.game-title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.game-score {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+.game-progress {
+  height: 4px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.game-progress-bar {
+  height: 100%;
+  background: var(--accent);
+  transition: width var(--duration) var(--ease);
+}
+
+.game-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-xl);
+  gap: var(--space-lg);
+}
+
+/* Phase Panel */
+.phase-panel {
+  width: 100%;
+  max-width: 500px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+
+.phase-panel h3 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: var(--space-sm);
+}
+
+/* Game Controls */
+.game-controls {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  padding: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+/* Phase Dots */
+.phase-dots {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+/* Results */
+.results-card {
+  background: var(--surface);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.results-card h2 {
+  font-family: var(--display);
+  font-size: 2rem;
+  margin-bottom: var(--space-md);
+}
+
+.score-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: var(--space-xl) 0;
+}
+
+.score-number {
+  font-family: var(--display);
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.score-label {
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin-top: var(--space-sm);
+}
+
+.results-actions {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .game-main {
+    padding: var(--space-md);
+  }
+  
+  .phase-panel {
+    padding: var(--space-md);
+  }
+  
+  .game-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .game-controls .btn {
+    justify-content: center;
+  }
+}

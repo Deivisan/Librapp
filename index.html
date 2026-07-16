@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Librapp — Jogo de LIBRAS | deivi.tech/libras</title>
-  <meta name="description" content="Librapp: um jogo para aprender e praticar Língua Brasileira de Sinais (LIBRAS) de forma divertida. Em breve no ar.">
+  <meta name="description" content="Librapp: um jogo para aprender e praticar Língua Brasileira de Sinais (LIBRAS) de forma divertida. Cartas interativas com sinal, datilologia e Braille.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #0b0e14;
@@ -18,85 +21,375 @@
       --roxo: #a78bfa;
       --ambar: #fbbf24;
       --rosa: #f472b6;
-      --grad: linear-gradient(90deg, var(--accent), var(--ciano), var(--roxo));
-      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      --display: "Segoe UI", system-ui, sans-serif;
+      --grad: linear-gradient(135deg, var(--accent), var(--ciano), var(--roxo));
+      --font: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      --display: "Space Grotesk", system-ui, sans-serif;
     }
+    
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    
     body {
-      background: radial-gradient(1200px 600px at 50% -10%, rgba(6,214,160,0.12), transparent), var(--bg);
+      background: radial-gradient(1200px 600px at 50% -10%, rgba(6,214,160,0.12), transparent),
+                  radial-gradient(800px 400px at 80% 50%, rgba(56,189,248,0.08), transparent),
+                  var(--bg);
       color: var(--fg);
       font-family: var(--font);
       min-height: 100vh;
-      display: flex; flex-direction: column;
+      display: flex;
+      flex-direction: column;
       -webkit-font-smoothing: antialiased;
     }
+    
+    /* Header */
     header {
-      padding: 18px 22px;
+      padding: 18px 24px;
       border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; gap: 14px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
     }
-    .logo { font-family: var(--display); font-weight: 800; font-size: 1.05rem; letter-spacing: -0.02em; }
-    .logo b { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .back { margin-left: auto; color: var(--muted); text-decoration: none; font-size: 0.85rem; }
-    .back:hover { color: var(--accent); }
+    
+    .logo {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+    
+    .logo b {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .nav {
+      margin-left: auto;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    
+    .nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+    
+    .nav a:hover {
+      color: var(--fg);
+      background: var(--elevated);
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(6,214,160,0.3);
+    }
+    
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--fg);
+      border: 1px solid var(--border);
+    }
+    
+    .btn-secondary:hover {
+      background: var(--elevated);
+      border-color: var(--accent);
+    }
+    
+    /* Hero */
     main {
       flex: 1;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center; padding: 40px 22px; gap: 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 24px;
+      gap: 24px;
     }
+    
     .badge {
-      font-family: var(--display); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em;
-      color: var(--accent); border: 1px solid var(--border); border-radius: 999px;
-      padding: 7px 15px; background: var(--surface);
+      font-family: var(--display);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 16px;
+      background: var(--surface);
     }
+    
     h1 {
-      font-family: var(--display); font-size: clamp(2.4rem, 8vw, 4.4rem); font-weight: 800; line-height: 1.02;
+      font-family: var(--display);
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.02;
       letter-spacing: -0.03em;
     }
-    h1 .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    p.lead { max-width: 560px; color: var(--muted); font-size: 1.02rem; line-height: 1.6; }
+    
+    .grad {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    p.lead {
+      max-width: 580px;
+      color: var(--muted);
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    
+    /* Cards Preview */
+    .cards-preview {
+      display: flex;
+      gap: 16px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .preview-card {
+      width: 160px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .preview-card:hover {
+      transform: translateY(-8px) rotate(-2deg);
+      border-color: var(--accent);
+      box-shadow: 0 12px 32px rgba(6,214,160,0.2);
+    }
+    
+    .preview-card:nth-child(2):hover {
+      transform: translateY(-8px) rotate(2deg);
+    }
+    
+    .preview-card-header {
+      padding: 12px;
+      background: var(--elevated);
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    
+    .preview-card-image {
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      background: var(--bg);
+    }
+    
+    .preview-card-footer {
+      padding: 12px;
+      text-align: center;
+    }
+    
+    .preview-card-word {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    
+    .preview-card-braille {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    
+    /* Features */
     .features {
-      display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 8px;
     }
+    
     .chip {
-      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
-      padding: 12px 16px; font-size: 0.85rem; color: var(--fg); min-width: 150px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-size: 0.9rem;
+      color: var(--fg);
+      min-width: 160px;
+      text-align: left;
     }
-    .chip small { display: block; color: var(--muted); font-size: 0.74rem; margin-top: 3px; }
+    
+    .chip small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.75rem;
+      margin-top: 4px;
+    }
+    
+    /* CTA */
+    .cta {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .btn-lg {
+      padding: 14px 28px;
+      font-size: 1.1rem;
+      border-radius: 14px;
+    }
+    
+    /* Status */
     .status {
-      margin-top: 4px; font-family: var(--display); font-size: 0.82rem; color: var(--ambar);
-      border: 1px solid var(--border); border-radius: 999px; padding: 8px 16px; background: var(--surface);
+      margin-top: 8px;
+      font-family: var(--display);
+      font-size: 0.82rem;
+      color: var(--ambar);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 16px;
+      background: var(--surface);
     }
+    
+    /* Footer */
     footer {
-      padding: 18px 22px; border-top: 1px solid var(--border); text-align: center;
-      color: var(--muted); font-size: 0.8rem;
+      padding: 20px 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8rem;
     }
-    footer a { color: var(--ciano); text-decoration: none; }
+    
+    footer a {
+      color: var(--ciano);
+      text-decoration: none;
+    }
+    
+    /* Responsive */
+    @media (max-width: 600px) {
+      .cards-preview {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .preview-card {
+        width: 100%;
+        max-width: 200px;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
     <span class="logo">&lt;Deivi<b>Tech</b>/libras&gt;</span>
-    <a class="back" href="https://deivi.tech/">voltar ao hub</a>
+    <nav class="nav">
+      <a href="game/index.html">Jogar</a>
+      <a href="cards/editor.html">Editor</a>
+      <a href="https://deivi.tech/">voltar ao hub</a>
+    </nav>
   </header>
 
   <main>
-    <span class="badge">em construção</span>
-    <h1>Librapp — <span class="grad">jogo de LIBRAS</span></h1>
+    <span class="badge">Acessível · Educativo · Divertido</span>
+    
+    <h1>Librapp —<br><span class="grad">jogo de LIBRAS</span></h1>
+    
     <p class="lead">
-      Um jogo para aprender e praticar a Língua Brasileira de Sinais (LIBRAS) de forma
-      divertida e acessível. Aqui você vai jogar, treinar sinais e acompanhar seu progresso.
+      Aprenda e pratique a Língua Brasileira de Sinais (LIBRAS) de forma divertida 
+      com cartas interativas. Cada carta traz imagem, sinal, datilologia e Braille.
     </p>
 
-    <div class="features">
-      <div class="chip">Desafios de sinais<small>associe imagem ao sinal</small></div>
-      <div class="chip">Modo prática<small>repita e receba feedback</small></div>
-      <div class="chip">Ranking<small>compare com outros jogadores</small></div>
-      <div class="chip">Acessível<small>foco em inclusão e LIBRAS</small></div>
+    <!-- Preview dos Cards -->
+    <div class="cards-preview">
+      <div class="preview-card">
+        <div class="preview-card-header">Objetos de Sala</div>
+        <div class="preview-card-image">✂️</div>
+        <div class="preview-card-footer">
+          <div class="preview-card-word">Tesoura</div>
+          <div class="preview-card-braille">⠞⠑⠎⠳⠗⠁</div>
+        </div>
+      </div>
+      
+      <div class="preview-card">
+        <div class="preview-card-header">Alimentos</div>
+        <div class="preview-card-image">🍎</div>
+        <div class="preview-card-footer">
+          <div class="preview-card-word">Maçã</div>
+          <div class="preview-card-braille">⠍⠁⠉⠁</div>
+        </div>
+      </div>
+      
+      <div class="preview-card">
+        <div class="preview-card-header">Animais</div>
+        <div class="preview-card-image">🐕</div>
+        <div class="preview-card-footer">
+          <div class="preview-card-word">Cachorro</div>
+          <div class="preview-card-braille">⠉⠁⠉⠓⠕⠗⠗</div>
+        </div>
+      </div>
     </div>
 
-    <div class="status">Placeholder — o jogo será construído em iteracoes com os agentes de IA</div>
+    <div class="features">
+      <div class="chip">
+        🖐️ Sinais em LIBRAS
+        <small>Aprenda o sinal de cada palavra</small>
+      </div>
+      <div class="chip">
+        🔤 Datilologia
+        <small>Letra por letra em LIBRAS</small>
+      </div>
+      <div class="chip">
+        ⠿ Braille
+        <small>Escrita tátil para cegos</small>
+      </div>
+      <div class="chip">
+        🎮 3 Fases
+        <small>Sinal → Pistas → Datilologia</small>
+      </div>
+    </div>
+
+    <div class="cta">
+      <a href="game/index.html" class="btn btn-primary btn-lg">
+        🎮 Jogar Agora
+      </a>
+      <a href="cards/editor.html" class="btn btn-secondary btn-lg">
+        ✏️ Criar Cartas
+      </a>
+    </div>
+
+    <div class="status">🚀 Em construção — novos temas em breve!</div>
   </main>
 
   <footer>
