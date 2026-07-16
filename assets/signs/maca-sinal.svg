@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ec4899"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="100" cy="100" r="90" fill="url(#grad)" opacity="0.15"/>
+  <!-- Palma -->
+  <ellipse cx="100" cy="115" rx="45" ry="55" fill="#ec4899"/>
+  <!-- Dedos (5) -->
+  <g fill="#ec4899">
+    <rect x="60" y="50" width="14" height="45" rx="7"/>
+    <rect x="80" y="40" width="14" height="55" rx="7"/>
+    <rect x="100" y="38" width="14" height="57" rx="7"/>
+    <rect x="120" y="42" width="14" height="53" rx="7"/>
+  </g>
+  <!-- Polegar -->
+  <ellipse cx="55" cy="95" rx="12" ry="22" fill="#ec4899" transform="rotate(-30 55 95)"/>
+
+  <circle cx="100" cy="170" r="22" fill="#1e293b" opacity="0.8"/>
+  <text x="100" y="177" font-size="16" fill="#fff" text-anchor="middle" font-family="sans-serif">●</text>
+</svg>

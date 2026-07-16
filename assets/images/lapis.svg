@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="100" cy="100" r="90" fill="url(#grad)" opacity="0.15"/>
+  <!-- Corpo -->
+  <rect x="85" y="40" width="30" height="110" rx="4" fill="#8b5cf6"/>
+  <!-- Ponta -->
+  <polygon points="85,150 115,150 100,175" fill="#fbbf24"/>
+  <!-- Borracha -->
+  <rect x="85" y="30" width="30" height="15" rx="3" fill="#f472b6"/>
+  <!-- Listras -->
+  <rect x="85" y="70" width="30" height="8" fill="#fff" opacity="0.5"/>
+  <rect x="85" y="95" width="30" height="8" fill="#fff" opacity="0.5"/>
+</svg>

@@ -32,7 +32,7 @@ class CardEditor {
 
   async loadCards() {
     try {
-      const response = await fetch('../data/cards.json?v=2');
+      const response = await fetch('../data/cards.json?v=3');
       const data = await response.json();
       this.allCards = data.categories;
     } catch (error) {
@@ -256,10 +256,16 @@ class CardEditor {
         <h2>Preview da Carta</h2>
         <div class="preview-card">
           <div class="preview-header">${card.word || 'Sem palavra'}</div>
-          <div class="preview-image">🖼️</div>
+          <div class="preview-image">
+            ${card.image ? `<img src="../${card.image}" style="width: 140px; height: 140px; object-fit: contain;">` : '🖼️'}
+          </div>
           <div class="preview-content">
             <div class="preview-word">${card.word}</div>
             <div class="preview-desc">${card.sign_description}</div>
+            <div class="preview-sign">
+              <div style="font-size: 0.7rem; color: #999; margin-bottom: 4px;">SINAL LIBRAS</div>
+              ${card.sign_image ? `<img src="../${card.sign_image}" style="width: 160px; height: 160px; object-fit: contain; border: 2px solid #8b5cf6; border-radius: 8px; padding: 4px;">` : '✋'}
+            </div>
             <div class="preview-fs">
               ${card.fingerspelling.map(l => `
                 <div class="preview-letter">
@@ -269,7 +275,7 @@ class CardEditor {
               `).join('')}
             </div>
             <div class="preview-braille">
-              <div style="font-size: 0.7rem; color: #999; margin-bottom: 4px;">BRAILLE</div>
+              <div style="font-size: 0.7rem; color: #999; margin-bottom: 4px;">BRAILLE (texto)</div>
               ${card.braille}
             </div>
             ${card.audio_file ? `

@@ -20,7 +20,7 @@ class LibrappGame {
   async init() {
     try {
       const baseUrl = window.location.pathname.includes('/game/') ? '../' : '';
-      const response = await fetch(baseUrl + 'data/cards.json?v=2');
+      const response = await fetch(baseUrl + 'data/cards.json?v=3');
       this.cardsData = await response.json();
       this.renderCategories();
     } catch (error) {
@@ -66,9 +66,16 @@ class LibrappGame {
     this.updateScore();
   }
 
+  getPrefix() {
+    const path = window.location.pathname;
+    return (path.includes('/game/') || path.includes('/cards/')) ? '../' : '';
+  }
+
   renderGameCard() {
     this.currentCard = this.currentCategory.cards[this.currentCardIndex];
     const container = document.getElementById('game-card-container');
+    
+    const prefix = this.getPrefix();
     
     const showAnswer = this.currentPhase >= 3;
     
@@ -80,7 +87,7 @@ class LibrappGame {
         </div>
         
         <div class="game-card-image">
-          <div class="placeholder">🖼️</div>
+          <img src="${prefix}${this.currentCard.image}" alt="${this.currentCard.word}" class="card-object-img" onerror="this.style.display='none';this.outerHTML='<div class=\\'placeholder\\'>🖼️</div>'">
         </div>
         
         <div class="game-card-footer">
@@ -149,15 +156,19 @@ class LibrappGame {
   }
 
   renderPhase1() {
+    const sentence = (this.currentCard.context_sentences || [])[0] || '';
     return `
       <div class="phase-panel phase-1">
         <h3>Fase 1 - Sinal</h3>
-        <p class="text-muted">Tente fazer o sinal em LIBRAS para esta imagem!</p>
-        <div class="audio-desc">
+        <p class="context-sentence">"${sentence}"</p>
+        <div class="sign-image-wrap">
+          <img src="${this.getPrefix()}${this.currentCard.sign_image}" alt="Sinal em LIBRAS" class="sign-img" onerror="this.style.display='none'">
+          <p class="text-muted">Imagem da interpretação em LIBRAS</p>
+        </div>
+        <div class="audio-desc mt-md">
           <div class="audio-desc-icon">👁️</div>
           <div class="audio-desc-text">
-            <strong>Audiodescrição do sinal:</strong><br>
-            ${this.currentCard.sign_description}
+            <strong>Audiodescrição:</strong> ${this.currentCard.sign_description}
           </div>
         </div>
         ${this.renderAccessibleButton()}
@@ -200,7 +211,7 @@ class LibrappGame {
         <div class="fingerspelling">
           ${this.currentCard.fingerspelling.map(letter => `
             <div class="letter-card">
-              <div class="letter-image">${letter.letter}</div>
+              <img src="${this.getPrefix()}${letter.image}" alt="${letter.letter}" class="letter-image" onerror="this.outerHTML='<div class=\\'letter-image\\'>${letter.letter}</div>'">
               <div class="letter-label">${letter.letter}</div>
               <div class="letter-desc">${letter.libras}</div>
             </div>

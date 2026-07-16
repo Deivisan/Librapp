@@ -213,3 +213,43 @@
     justify-content: center;
   }
 }
+
+/* Imagem do objeto no card */
+.card-object-img {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  padding: var(--space-sm);
+}
+
+/* Frase contextualizada (Fase 1) */
+.context-sentence {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--roxo-claro);
+  text-align: center;
+  margin: var(--space-md) 0;
+  line-height: 1.4;
+  background: rgba(139, 92, 246, 0.1);
+  border-left: 4px solid var(--roxo);
+  padding: var(--space-md);
+  border-radius: var(--radius-sm);
+}
+
+/* Imagem do sinal LIBRAS */
+.sign-image-wrap {
+  text-align: center;
+  margin: var(--space-md) 0;
+}
+
+.sign-img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  padding: var(--space-sm);
+  border: 2px solid var(--roxo);
+}

@@ -8,44 +8,44 @@
       "cards": [
         {
           "word": "Tesoura",
-          "image": "assets/images/tesoura.png",
+          "image": "assets/images/tesoura.svg",
           "sign_description": "Mão em forma de tesoura, abrindo e fechando os dedos indicador e médio",
           "sign_video_qr": "https://deivi.tech/libras/qrcode/tesoura-sinal",
           "audio_description_qr": "https://deivi.tech/libras/qrcode/tesoura-audio",
           "fingerspelling": [
             {
               "letter": "T",
-              "image": "assets/signs/letra-t.png",
+              "image": "assets/signs/letra-t.svg",
               "libras": "Dedo polegar entre indicador e médio"
             },
             {
               "letter": "E",
-              "image": "assets/signs/letra-e.png",
+              "image": "assets/signs/letra-e.svg",
               "libras": "Dedos fechados, pontas tocando polegar"
             },
             {
               "letter": "S",
-              "image": "assets/signs/letra-s.png",
+              "image": "assets/signs/letra-s.svg",
               "libras": "Punho fechado, polegar na lateral"
             },
             {
               "letter": "O",
-              "image": "assets/signs/letra-o.png",
+              "image": "assets/signs/letra-o.svg",
               "libras": "Dedos arredondados tocando ponta do polegar"
             },
             {
               "letter": "U",
-              "image": "assets/signs/letra-u.png",
+              "image": "assets/signs/letra-u.svg",
               "libras": "Indicador e médio unidos para cima"
             },
             {
               "letter": "R",
-              "image": "assets/signs/letra-r.png",
+              "image": "assets/signs/letra-r.svg",
               "libras": "Indicador cruzado sobre médio"
             },
             {
               "letter": "A",
-              "image": "assets/signs/letra-a.png",
+              "image": "assets/signs/letra-a.svg",
               "libras": "Punho fechado, polegar na lateral"
             }
           ],
@@ -55,38 +55,39 @@
             "A professora usa na sala de aula para cortar papel colorido.",
             "Na hora de fazer artesanato, você abre e fecha as lâminas assim.",
             "Fica dentro da caixa de lápis ao lado da borracha."
-          ]
+          ],
+          "sign_image": "assets/signs/tesoura-sinal.svg"
         },
         {
           "word": "Lápis",
-          "image": "assets/images/lapis.png",
+          "image": "assets/images/lapis.svg",
           "sign_description": "Mão simulando segurar um lápis e fazer movimento de escrever",
           "sign_video_qr": "https://deivi.tech/libras/qrcode/lapis-sinal",
           "audio_description_qr": "https://deivi.tech/libras/qrcode/lapis-audio",
           "fingerspelling": [
             {
               "letter": "L",
-              "image": "assets/signs/letra-l.png",
+              "image": "assets/signs/letra-l.svg",
               "libras": "Indicador e polegar formando L"
             },
             {
               "letter": "Á",
-              "image": "assets/signs/letra-a.png",
+              "image": "assets/signs/letra-a.svg",
               "libras": "Punho fechado, polegar na lateral"
             },
             {
               "letter": "P",
-              "image": "assets/signs/letra-p.png",
+              "image": "assets/signs/letra-p.svg",
               "libras": "Indicador apontando para baixo"
             },
             {
               "letter": "I",
-              "image": "assets/signs/letra-i.png",
+              "image": "assets/signs/letra-i.svg",
               "libras": "Dedo mindinho para cima"
             },
             {
               "letter": "S",
-              "image": "assets/signs/letra-s.png",
+              "image": "assets/signs/letra-s.svg",
               "libras": "Punho fechado, polegar na lateral"
             }
           ],
@@ -96,48 +97,49 @@
             "Quando você vai escrever no caderno, segura ele assim.",
             "Tem ponta de grafite que a professora sempre afia.",
             "Na ponta tem uma borracha para apagar o erro."
-          ]
+          ],
+          "sign_image": "assets/signs/lapis-sinal.svg"
         },
         {
           "word": "Borracha",
-          "image": "assets/images/borracha.png",
+          "image": "assets/images/borracha.svg",
           "sign_description": "Mão simulando apagar com borracha no papel",
           "sign_video_qr": "https://deivi.tech/libras/qrcode/borracha-sinal",
           "audio_description_qr": "https://deivi.tech/libras/qrcode/borracha-audio",
           "fingerspelling": [
             {
               "letter": "B",
-              "image": "assets/signs/letra-b.png",
+              "image": "assets/signs/letra-b.svg",
               "libras": "Dedos esticados, polegar dobrado"
             },
             {
               "letter": "O",
-              "image": "assets/signs/letra-o.png",
+              "image": "assets/signs/letra-o.svg",
               "libras": "Dedos arredondados tocando ponta do polegar"
             },
             {
               "letter": "R",
-              "image": "assets/signs/letra-r.png",
+              "image": "assets/signs/letra-r.svg",
               "libras": "Indicador cruzado sobre médio"
             },
             {
               "letter": "R",
-              "image": "assets/signs/letra-r.png",
+              "image": "assets/signs/letra-r.svg",
               "libras": "Indicador cruzado sobre médio"
             },
             {
               "letter": "A",
-              "image": "assets/signs/letra-a.png",
+              "image": "assets/signs/letra-a.svg",
               "libras": "Punho fechado, polegar na lateral"
             },
             {
               "letter": "C",
-              "image": "assets/signs/letra-c.png",
+              "image": "assets/signs/letra-c.svg",
               "libras": "Dedos curvados formando C"
             },
             {
               "letter": "H",
-              "image": "assets/signs/letra-h.png",
+              "image": "assets/signs/letra-h.svg",
               "libras": "Indicador e médio apontando lado"
             }
           ],
@@ -147,48 +149,49 @@
             "Quando você erra a letra, passa ela no papel para sumir.",
             "Geralmente é rosa ou branca e fica na ponta do lápis.",
             "Serve para apagar o que foi escrito errado."
-          ]
+          ],
+          "sign_image": "assets/signs/borracha-sinal.svg"
         },
         {
           "word": "Caderno",
-          "image": "assets/images/caderno.png",
+          "image": "assets/images/caderno.svg",
           "sign_description": "Duas mãos abertas simulando abrir um caderno",
           "sign_video_qr": "https://deivi.tech/libras/qrcode/caderno-sinal",
           "audio_description_qr": "https://deivi.tech/libras/qrcode/caderno-audio",
           "fingerspelling": [
             {
               "letter": "C",
-              "image": "assets/signs/letra-c.png",
+              "image": "assets/signs/letra-c.svg",
               "libras": "Dedos curvados formando C"
             },
             {
               "letter": "A",
-              "image": "assets/signs/letra-a.png",
+              "image": "assets/signs/letra-a.svg",
               "libras": "Punho fechado, polegar na lateral"
             },
             {
               "letter": "D",
-              "image": "assets/signs/letra-d.png",
+              "image": "assets/signs/letra-d.svg",
               "libras": "Indicador para cima, polegar encosta no médio"
             },
             {
               "letter": "E",
-              "image": "assets/signs/letra-e.png",
+              "image": "assets/signs/letra-e.svg",
               "libras": "Dedos fechados, pontas tocando polegar"
             },
             {
               "letter": "R",
-              "image": "assets/signs/letra-r.png",
+              "image": "assets/signs/letra-r.svg",
               "libras": "Indicador cruzado sobre médio"
             },
             {
               "letter": "N",
-              "image": "assets/signs/letra-n.png",
+              "image": "assets/signs/letra-n.svg",
               "libras": "Punho com indicador e médio para baixo"
             },
             {
               "letter": "O",
-              "image": "assets/signs/letra-o.png",
+              "image": "assets/signs/letra-o.svg",
               "libras": "Dedos arredondados tocando ponta do polegar"
             }
           ],
@@ -198,38 +201,39 @@
             "Você abre ele na mesa e escreve as lições da escola.",
             "Tem capa dura e muitas páginas para anotar.",
             "Vai junto na mochila para carregar para a aula."
-          ]
+          ],
+          "sign_image": "assets/signs/caderno-sinal.svg"
         },
         {
           "word": "Régua",
-          "image": "assets/images/regua.png",
+          "image": "assets/images/regua.svg",
           "sign_description": "Mão simulando segurar régua e passar na lateral do lápis",
           "sign_video_qr": "https://deivi.tech/libras/qrcode/regua-sinal",
           "audio_description_qr": "https://deivi.tech/libras/qrcode/regua-audio",
           "fingerspelling": [
             {
               "letter": "R",
-              "image": "assets/signs/letra-r.png",
+              "image": "assets/signs/letra-r.svg",
               "libras": "Indicador cruzado sobre médio"
             },
             {
               "letter": "É",
-              "image": "assets/signs/letra-e.png",
+              "image": "assets/signs/letra-e.svg",
               "libras": "Dedos fechados, pontas tocando polegar"
             },
             {
               "letter": "G",
-              "image": "assets/signs/letra-g.png",
+              "image": "assets/signs/letra-g.svg",
               "libras": "Indicador apontando, polegar embaixo"
             },
             {
               "letter": "U",
-              "image": "assets/signs/letra-u.png",
+              "image": "assets/signs/letra-u.svg",
               "libras": "Indicador e médio unidos para cima"
             },
             {
               "letter": "A",
-              "image": "assets/signs/letra-a.png",
+              "image": "assets/signs/letra-a.svg",
               "libras": "Punho fechado, polegar na lateral"
             }
           ],
@@ -239,7 +243,8 @@
             "Para desenhar uma linha reta sem fazer onda, você passa ele.",
             "Tem números e marcações de centímetros na lateral.",
             "Usa junto com o lápis para traçar no caderno."
-          ]
+          ],
+          "sign_image": "assets/signs/regua-sinal.svg"
         }
       ]
     },
@@ -250,29 +255,29 @@
       "cards": [
         {
           "word": "Maçã",
-          "image": "assets/images/maca.png",
+          "image": "assets/images/maca.svg",
           "sign_description": "Mão fechada simulando segurar maçã e trazer até a boca",
           "sign_video_qr": "https://deivi.tech/libras/qrcode/maca-sinal",
           "audio_description_qr": "https://deivi.tech/libras/qrcode/maca-audio",
           "fingerspelling": [
             {
               "letter": "M",
-              "image": "assets/signs/letra-m.png",
+              "image": "assets/signs/letra-m.svg",
               "libras": "Três dedos sobre polegar"
             },
             {
               "letter": "A",
-              "image": "assets/signs/letra-a.png",
+              "image": "assets/signs/letra-a.svg",
               "libras": "Punho fechado, polegar na lateral"
             },
             {
               "letter": "Ç",
-              "image": "assets/signs/letra-c.png",
+              "image": "assets/signs/letra-c.svg",
               "libras": "Dedos curvados formando C"
             },
             {
               "letter": "Ã",
-              "image": "assets/signs/letra-a.png",
+              "image": "assets/signs/letra-a.svg",
               "libras": "Punho fechado, polegar na lateral"
             }
           ],
@@ -282,43 +287,44 @@
             "É uma fruta vermelha ou verde que a professora traz no lanche.",
             "No desenho, o cachorro comeu uma igual a essa.",
             "Tem casca fina e crocante quando você morde."
-          ]
+          ],
+          "sign_image": "assets/signs/maca-sinal.svg"
         },
         {
           "word": "Banana",
-          "image": "assets/images/banana.png",
+          "image": "assets/images/banana.svg",
           "sign_description": "Mão simulando descascar banana",
           "sign_video_qr": "https://deivi.tech/libras/qrcode/banana-sinal",
           "audio_description_qr": "https://deivi.tech/libras/qrcode/banana-audio",
           "fingerspelling": [
             {
               "letter": "B",
-              "image": "assets/signs/letra-b.png",
+              "image": "assets/signs/letra-b.svg",
               "libras": "Dedos esticados, polegar dobrado"
             },
             {
               "letter": "A",
-              "image": "assets/signs/letra-a.png",
+              "image": "assets/signs/letra-a.svg",
               "libras": "Punho fechado, polegar na lateral"
             },
             {
               "letter": "N",
-              "image": "assets/signs/letra-n.png",
+              "image": "assets/signs/letra-n.svg",
               "libras": "Punho com indicador e médio para baixo"
             },
             {
               "letter": "A",
-              "image": "assets/signs/letra-a.png",
+              "image": "assets/signs/letra-a.svg",
               "libras": "Punho fechado, polegar na lateral"
             },
             {
               "letter": "N",
-              "image": "assets/signs/letra-n.png",
+              "image": "assets/signs/letra-n.svg",
               "libras": "Punho com indicador e médio para baixo"
             },
             {
               "letter": "A",
-              "image": "assets/signs/letra-a.png",
+              "image": "assets/signs/letra-a.svg",
               "libras": "Punho fechado, polegar na lateral"
             }
           ],
@@ -328,7 +334,8 @@
             "É uma fruta amarela e comprida que você descasca antes de comer.",
             "O macaco no desenho adora pular atrás dela.",
             "Tem uma casca doce que a gente tira com as mãos."
-          ]
+          ],
+          "sign_image": "assets/signs/banana-sinal.svg"
         }
       ]
     },
@@ -339,44 +346,44 @@
       "cards": [
         {
           "word": "Cachorro",
-          "image": "assets/images/cachorro.png",
+          "image": "assets/images/cachorro.svg",
           "sign_description": "Duas mãos como patinhas, braços embaixo das axilas, movendo para cima e para baixo",
           "sign_video_qr": "https://deivi.tech/libras/qrcode/cachorro-sinal",
           "audio_description_qr": "https://deivi.tech/libras/qrcode/cachorro-audio",
           "fingerspelling": [
             {
               "letter": "C",
-              "image": "assets/signs/letra-c.png",
+              "image": "assets/signs/letra-c.svg",
               "libras": "Dedos curvados formando C"
             },
             {
               "letter": "A",
-              "image": "assets/signs/letra-a.png",
+              "image": "assets/signs/letra-a.svg",
               "libras": "Punho fechado, polegar na lateral"
             },
             {
               "letter": "C",
-              "image": "assets/signs/letra-c.png",
+              "image": "assets/signs/letra-c.svg",
               "libras": "Dedos curvados formando C"
             },
             {
               "letter": "H",
-              "image": "assets/signs/letra-h.png",
+              "image": "assets/signs/letra-h.svg",
               "libras": "Indicador e médio apontando lado"
             },
             {
               "letter": "O",
-              "image": "assets/signs/letra-o.png",
+              "image": "assets/signs/letra-o.svg",
               "libras": "Dedos arredondados tocando ponta do polegar"
             },
             {
               "letter": "R",
-              "image": "assets/signs/letra-r.png",
+              "image": "assets/signs/letra-r.svg",
               "libras": "Indicador cruzado sobre médio"
             },
             {
               "letter": "R",
-              "image": "assets/signs/letra-r.png",
+              "image": "assets/signs/letra-r.svg",
               "libras": "Indicador cruzado sobre médio"
             }
           ],
@@ -386,33 +393,34 @@
             "É o animal que faz au au e balança o rabo de felicidade.",
             "É conhecido como o melhor amigo do ser humano.",
             "Tem pelagem, orelhas e gosta de brincar de buscar a bola."
-          ]
+          ],
+          "sign_image": "assets/signs/cachorro-sinal.svg"
         },
         {
           "word": "Gato",
-          "image": "assets/images/gato.png",
+          "image": "assets/images/gato.svg",
           "sign_description": "Mão aberta perto do rosto, dedos se fechando como garras de gato",
           "sign_video_qr": "https://deivi.tech/libras/qrcode/gato-sinal",
           "audio_description_qr": "https://deivi.tech/libras/qrcode/gato-audio",
           "fingerspelling": [
             {
               "letter": "G",
-              "image": "assets/signs/letra-g.png",
+              "image": "assets/signs/letra-g.svg",
               "libras": "Indicador apontando, polegar embaixo"
             },
             {
               "letter": "A",
-              "image": "assets/signs/letra-a.png",
+              "image": "assets/signs/letra-a.svg",
               "libras": "Punho fechado, polegar na lateral"
             },
             {
               "letter": "T",
-              "image": "assets/signs/letra-t.png",
+              "image": "assets/signs/letra-t.svg",
               "libras": "Dedo polegar entre indicador e médio"
             },
             {
               "letter": "O",
-              "image": "assets/signs/letra-o.png",
+              "image": "assets/signs/letra-o.svg",
               "libras": "Dedos arredondados tocando ponta do polegar"
             }
           ],
@@ -422,7 +430,8 @@
             "É o animal que faz miau e tem bigodes no rosto.",
             "Gosta de dormir no sol e se espreguiçar no sofá.",
             "Quando está bravo, arranha e mostra as garras."
-          ]
+          ],
+          "sign_image": "assets/signs/gato-sinal.svg"
         }
       ]
     }
