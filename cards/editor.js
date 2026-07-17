@@ -32,7 +32,7 @@ class CardEditor {
 
   async loadCards() {
     try {
-      const response = await fetch('../data/cards.json?v=3');
+      const response = await fetch('../data/cards.json?v=4');
       const data = await response.json();
       this.allCards = data.categories;
     } catch (error) {
@@ -263,8 +263,8 @@ class CardEditor {
             <div class="preview-word">${card.word}</div>
             <div class="preview-desc">${card.sign_description}</div>
             <div class="preview-sign">
-              <div style="font-size: 0.7rem; color: #999; margin-bottom: 4px;">SINAL LIBRAS</div>
-              ${card.sign_image ? `<img src="../${card.sign_image}" style="width: 160px; height: 160px; object-fit: contain; border: 2px solid #8b5cf6; border-radius: 8px; padding: 4px;">` : '✋'}
+              <div style="font-size: 0.7rem; color: #999; margin-bottom: 4px;">QR CODE — VÍDEO LIBRAS</div>
+              ${card.sign_video_qr ? `<img src="../${card.sign_video_qr}" style="width: 140px; height: 140px; object-fit: contain; border: 2px solid #8b5cf6; border-radius: 8px; padding: 4px; background: #fff;">` : '📱'}
             </div>
             <div class="preview-fs">
               ${card.fingerspelling.map(l => `

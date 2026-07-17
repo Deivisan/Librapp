@@ -20,7 +20,7 @@ class LibrappGame {
   async init() {
     try {
       const baseUrl = window.location.pathname.includes('/game/') ? '../' : '';
-      const response = await fetch(baseUrl + 'data/cards.json?v=3');
+      const response = await fetch(baseUrl + 'data/cards.json?v=4');
       this.cardsData = await response.json();
       this.renderCategories();
     } catch (error) {
@@ -224,12 +224,10 @@ class LibrappGame {
           <p class="text-muted small">⚠️ App sem relevo físico — Braille apenas como referência visual.</p>
         </div>
         
-        <div class="audio-desc mt-md">
-          <div class="audio-desc-icon">📸</div>
-          <div class="audio-desc-text">
-            <strong>QR Code:</strong> Escaneie para ver vídeo do sinal<br>
-            <strong>Audio QR:</strong> Escaneie para ouvir a audiodescrição
-          </div>
+        <div class="qr-section mt-lg">
+          <div class="qr-label">📱 QR Code — Vídeo em LIBRAS</div>
+          <img src="${this.getPrefix()}${this.currentCard.sign_video_qr}" alt="QR Code vídeo LIBRAS" class="qr-img" onerror="this.style.display='none'">
+          <p class="text-muted small">Escaneie para ver o vídeo da palavra em LIBRAS</p>
         </div>
         ${this.renderAccessibleButton()}
       </div>
