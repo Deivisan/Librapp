@@ -8,9 +8,9 @@
       "cards": [
         {
           "word": "Tesoura",
-          "image": "assets/images/tesoura.jpg",
+          "image": "assets/images/tesoura.jpg?v=2",
           "sign_description": "Mão em forma de tesoura, abrindo e fechando os dedos indicador e médio",
-          "sign_video_qr": "assets/qrcodes/tesoura.png",
+          "sign_video_qr": "assets/qrcodes/tesoura.png?v=2",
           "audio_description_qr": "https://deivi.tech/libras/qrcode/tesoura-audio",
           "fingerspelling": [
             {
@@ -55,14 +55,13 @@
             "A professora usa na sala de aula para cortar papel colorido.",
             "Na hora de fazer artesanato, você abre e fecha as lâminas assim.",
             "Fica dentro da caixa de lápis ao lado da borracha."
-          ],
-          "sign_image": "assets/signs/tesoura-sinal.svg"
+          ]
         },
         {
           "word": "Lápis",
-          "image": "assets/images/lapis.jpg",
+          "image": "assets/images/lapis.jpg?v=2",
           "sign_description": "Mão simulando segurar um lápis e fazer movimento de escrever",
-          "sign_video_qr": "assets/qrcodes/lapis.png",
+          "sign_video_qr": "assets/qrcodes/lapis.png?v=2",
           "audio_description_qr": "https://deivi.tech/libras/qrcode/lapis-audio",
           "fingerspelling": [
             {
@@ -97,14 +96,13 @@
             "Quando você vai escrever no caderno, segura ele assim.",
             "Tem ponta de grafite que a professora sempre afia.",
             "Na ponta tem uma borracha para apagar o erro."
-          ],
-          "sign_image": "assets/signs/lapis-sinal.svg"
+          ]
         },
         {
           "word": "Borracha",
-          "image": "assets/images/borracha.jpg",
+          "image": "assets/images/borracha.jpg?v=2",
           "sign_description": "Mão simulando apagar com borracha no papel",
-          "sign_video_qr": "assets/qrcodes/borracha.png",
+          "sign_video_qr": "assets/qrcodes/borracha.png?v=2",
           "audio_description_qr": "https://deivi.tech/libras/qrcode/borracha-audio",
           "fingerspelling": [
             {
@@ -149,14 +147,13 @@
             "Quando você erra a letra, passa ela no papel para sumir.",
             "Geralmente é rosa ou branca e fica na ponta do lápis.",
             "Serve para apagar o que foi escrito errado."
-          ],
-          "sign_image": "assets/signs/borracha-sinal.svg"
+          ]
         },
         {
           "word": "Caderno",
-          "image": "assets/images/caderno.jpg",
+          "image": "assets/images/caderno.jpg?v=2",
           "sign_description": "Duas mãos abertas simulando abrir um caderno",
-          "sign_video_qr": "assets/qrcodes/caderno.png",
+          "sign_video_qr": "assets/qrcodes/caderno.png?v=2",
           "audio_description_qr": "https://deivi.tech/libras/qrcode/caderno-audio",
           "fingerspelling": [
             {
@@ -201,14 +198,13 @@
             "Você abre ele na mesa e escreve as lições da escola.",
             "Tem capa dura e muitas páginas para anotar.",
             "Vai junto na mochila para carregar para a aula."
-          ],
-          "sign_image": "assets/signs/caderno-sinal.svg"
+          ]
         },
         {
           "word": "Régua",
-          "image": "assets/images/regua.jpg",
+          "image": "assets/images/regua.jpg?v=2",
           "sign_description": "Mão simulando segurar régua e passar na lateral do lápis",
-          "sign_video_qr": "assets/qrcodes/regua.png",
+          "sign_video_qr": "assets/qrcodes/regua.png?v=2",
           "audio_description_qr": "https://deivi.tech/libras/qrcode/regua-audio",
           "fingerspelling": [
             {
@@ -243,8 +239,7 @@
             "Para desenhar uma linha reta sem fazer onda, você passa ele.",
             "Tem números e marcações de centímetros na lateral.",
             "Usa junto com o lápis para traçar no caderno."
-          ],
-          "sign_image": "assets/signs/regua-sinal.svg"
+          ]
         }
       ]
     },
@@ -255,9 +250,9 @@
       "cards": [
         {
           "word": "Maçã",
-          "image": "assets/images/maca.jpg",
+          "image": "assets/images/maca.jpg?v=2",
           "sign_description": "Mão fechada simulando segurar maçã e trazer até a boca",
-          "sign_video_qr": "assets/qrcodes/maca.png",
+          "sign_video_qr": "assets/qrcodes/maca.png?v=2",
           "audio_description_qr": "https://deivi.tech/libras/qrcode/maca-audio",
           "fingerspelling": [
             {
@@ -287,14 +282,13 @@
             "É uma fruta vermelha ou verde que a professora traz no lanche.",
             "No desenho, o cachorro comeu uma igual a essa.",
             "Tem casca fina e crocante quando você morde."
-          ],
-          "sign_image": "assets/signs/maca-sinal.svg"
+          ]
         },
         {
           "word": "Banana",
-          "image": "assets/images/banana.jpg",
+          "image": "assets/images/banana.jpg?v=2",
           "sign_description": "Mão simulando descascar banana",
-          "sign_video_qr": "assets/qrcodes/banana.png",
+          "sign_video_qr": "assets/qrcodes/banana.png?v=2",
           "audio_description_qr": "https://deivi.tech/libras/qrcode/banana-audio",
           "fingerspelling": [
             {
@@ -334,8 +328,7 @@
             "É uma fruta amarela e comprida que você descasca antes de comer.",
             "O macaco no desenho adora pular atrás dela.",
             "Tem uma casca doce que a gente tira com as mãos."
-          ],
-          "sign_image": "assets/signs/banana-sinal.svg"
+          ]
         }
       ]
     },
@@ -346,9 +339,9 @@
       "cards": [
         {
           "word": "Cachorro",
-          "image": "assets/images/cachorro.jpg",
+          "image": "assets/images/cachorro.jpg?v=2",
           "sign_description": "Duas mãos como patinhas, braços embaixo das axilas, movendo para cima e para baixo",
-          "sign_video_qr": "assets/qrcodes/cachorro.png",
+          "sign_video_qr": "assets/qrcodes/cachorro.png?v=2",
           "audio_description_qr": "https://deivi.tech/libras/qrcode/cachorro-audio",
           "fingerspelling": [
             {
@@ -393,14 +386,13 @@
             "É o animal que faz au au e balança o rabo de felicidade.",
             "É conhecido como o melhor amigo do ser humano.",
             "Tem pelagem, orelhas e gosta de brincar de buscar a bola."
-          ],
-          "sign_image": "assets/signs/cachorro-sinal.svg"
+          ]
         },
         {
           "word": "Gato",
-          "image": "assets/images/gato.jpg",
+          "image": "assets/images/gato.jpg?v=2",
           "sign_description": "Mão aberta perto do rosto, dedos se fechando como garras de gato",
-          "sign_video_qr": "assets/qrcodes/gato.png",
+          "sign_video_qr": "assets/qrcodes/gato.png?v=2",
           "audio_description_qr": "https://deivi.tech/libras/qrcode/gato-audio",
           "fingerspelling": [
             {
@@ -430,8 +422,7 @@
             "É o animal que faz miau e tem bigodes no rosto.",
             "Gosta de dormir no sol e se espreguiçar no sofá.",
             "Quando está bravo, arranha e mostra as garras."
-          ],
-          "sign_image": "assets/signs/gato-sinal.svg"
+          ]
         }
       ]
     }

@@ -20,7 +20,7 @@ class LibrappGame {
   async init() {
     try {
       const baseUrl = window.location.pathname.includes('/game/') ? '../' : '';
-      const response = await fetch(baseUrl + 'data/cards.json?v=4');
+      const response = await fetch(baseUrl + 'data/cards.json?v=5');
       this.cardsData = await response.json();
       this.renderCategories();
     } catch (error) {
@@ -161,10 +161,6 @@ class LibrappGame {
       <div class="phase-panel phase-1">
         <h3>Fase 1 - Sinal</h3>
         <p class="context-sentence">"${sentence}"</p>
-        <div class="sign-image-wrap">
-          <img src="${this.getPrefix()}${this.currentCard.sign_image}" alt="Sinal em LIBRAS" class="sign-img" onerror="this.style.display='none'">
-          <p class="text-muted">Imagem da interpretação em LIBRAS</p>
-        </div>
         <div class="audio-desc mt-md">
           <div class="audio-desc-icon">👁️</div>
           <div class="audio-desc-text">

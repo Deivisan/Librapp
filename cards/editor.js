@@ -32,7 +32,7 @@ class CardEditor {
 
   async loadCards() {
     try {
-      const response = await fetch('../data/cards.json?v=4');
+      const response = await fetch('../data/cards.json?v=5');
       const data = await response.json();
       this.allCards = data.categories;
     } catch (error) {

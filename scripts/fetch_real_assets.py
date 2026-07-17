@@ -52,9 +52,9 @@ def commons_search(query, limit=8):
     return titles
 
 def get_image_url(title):
-    """Pega URL direta da imagem via Special:FilePath."""
+    """Pega URL direta da imagem via Special:FilePath (alta resolução)."""
     fname = title.replace('File:', '').replace(' ', '_')
-    url = f'https://commons.wikimedia.org/wiki/Special:FilePath/{urllib.parse.quote(fname)}?width=400'
+    url = f'https://commons.wikimedia.org/wiki/Special:FilePath/{urllib.parse.quote(fname)}?width=800'
     return url
 
 def download(url, dest):
