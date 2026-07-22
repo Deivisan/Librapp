@@ -4,37 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Editor de Cartas — Librapp | deivi.tech/libras</title>
-  <meta name="description" content="Editor de cartas do jogo Librapp. Crie e edite cartas de LIBRAS.">
+  <meta name="description" content="Editor de cartas do jogo Librapp. Crie e edite cartas de LIBRAS de forma fácil.">
 
-  <!-- PWA / Mobile -->
   <link rel="manifest" href="../manifest.json">
   <meta name="theme-color" content="#ff6b35">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="Librapp">
-  <link rel="apple-touch-icon" href="../assets/icons/icon-192.png">
-  <meta name="mobile-web-app-capable" content="yes">
 
   <base href="./">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/style.css?v=6">
-  <link rel="stylesheet" href="editor.css?v=3">
+  <link rel="stylesheet" href="editor.css?v=4">
   <style>
-    /* Editor-specific additions */
+    /* Editor Layout */
     .editor-wrapper {
       display: grid;
-      grid-template-columns: 280px 1fr;
+      grid-template-columns: 260px 1fr;
       min-height: calc(100vh - 64px);
     }
-
     @media (max-width: 900px) {
-      .editor-wrapper {
-        grid-template-columns: 1fr;
-      }
+      .editor-wrapper { grid-template-columns: 1fr; }
+      .editor-sidebar { border-right: none !important; border-bottom: 1px solid var(--border) !important; }
     }
 
+    /* Sidebar */
     .editor-sidebar {
       background: var(--surface);
       border-right: 1px solid var(--border);
@@ -42,195 +37,188 @@
       display: flex;
       flex-direction: column;
       gap: var(--space-lg);
+      position: sticky;
+      top: 64px;
+      height: calc(100vh - 64px);
+      overflow-y: auto;
     }
-
-    .sidebar-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .sidebar-title {
-      font-family: var(--display);
-      font-weight: 700;
-      font-size: 1rem;
-    }
-
-    .categories-list {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-sm);
-    }
-
+    .sidebar-header { display: flex; justify-content: space-between; align-items: center; }
+    .sidebar-title { font-family: var(--display); font-weight: 700; font-size: 1rem; }
+    .categories-list { display: flex; flex-direction: column; gap: var(--space-xs); }
     .category-item {
-      display: flex;
-      align-items: center;
-      gap: var(--space-sm);
-      padding: var(--space-sm) var(--space-md);
-      border-radius: var(--radius-md);
-      cursor: pointer;
-      transition: all var(--duration) var(--ease);
-      border: 1px solid transparent;
+      display: flex; align-items: center; gap: var(--space-sm);
+      padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+      cursor: pointer; transition: all var(--duration) var(--ease); border: 1px solid transparent;
     }
-
-    .category-item:hover {
-      background: var(--surface-hover);
-    }
-
-    .category-item.active {
-      background: var(--surface-hover);
-      border-color: var(--orange);
-    }
-
-    .category-item .category-icon { font-size: 1.5rem; }
-    .category-item .category-name { font-weight: 600; font-size: 0.9rem; }
-    .category-item .category-count {
-      margin-left: auto;
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
+    .category-item:hover { background: var(--surface-hover); }
+    .category-item.active { background: var(--surface-hover); border-color: var(--orange); }
+    .category-item .category-icon { font-size: 1.3rem; }
+    .category-item .category-name { font-weight: 600; font-size: 0.85rem; }
+    .category-item .category-count { margin-left: auto; font-size: 0.7rem; color: var(--muted); }
 
     .cards-section-title {
-      font-family: var(--display);
-      font-size: 0.8rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: var(--space-sm);
+      font-family: var(--display); font-size: 0.7rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-xs);
     }
-
-    .cards-list {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-xs);
-    }
-
+    .cards-list { display: flex; flex-direction: column; gap: 2px; }
     .card-item {
-      display: flex;
-      align-items: center;
-      gap: var(--space-sm);
-      padding: var(--space-sm);
-      border-radius: var(--radius-sm);
-      cursor: pointer;
-      transition: background var(--duration) var(--ease);
+      display: flex; align-items: center; gap: var(--space-sm);
+      padding: 6px var(--space-sm); border-radius: var(--radius-sm);
+      cursor: pointer; transition: background var(--duration) var(--ease); font-size: 0.85rem;
     }
-
     .card-item:hover { background: var(--surface-hover); }
-    .card-item .card-word { font-weight: 600; font-size: 0.9rem; }
-    .card-item .card-braille {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-left: auto;
-    }
+    .card-item .card-word { font-weight: 600; }
+    .card-item .card-braille { font-size: 0.8rem; color: var(--muted); margin-left: auto; }
 
+    /* Main */
     .editor-main {
       padding: var(--space-xl);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-lg);
+      display: flex; flex-direction: column; gap: var(--space-lg);
+      max-width: 900px;
     }
 
-    .editor-main h2 {
-      font-family: var(--display);
-      font-weight: 700;
-      font-size: 1.3rem;
+    /* Phase Tabs */
+    .phase-tabs {
+      display: flex; gap: var(--space-xs); flex-wrap: wrap;
+      position: sticky; top: 64px; z-index: 10;
+      background: var(--bg); padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .phase-tab {
+      padding: 8px 16px; border-radius: var(--radius-full);
+      font-family: var(--display); font-weight: 700; font-size: 0.8rem;
+      cursor: pointer; transition: all var(--duration) var(--ease);
+      border: 2px solid var(--border); background: var(--bg-card);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .phase-tab:hover { border-color: var(--border-strong); }
+    .phase-tab.active { background: var(--grad-festa); color: #fff; border-color: transparent; }
+    .phase-tab .tab-num {
+      width: 22px; height: 22px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 800;
+      background: rgba(255,255,255,0.2);
+    }
+    .phase-tab:not(.active) .tab-num { background: var(--surface); }
+
+    /* Phase Sections */
+    .phase-section {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius-xl); padding: var(--space-xl);
+      scroll-margin-top: 140px;
+    }
+    .phase-section h3 {
+      font-family: var(--display); font-weight: 800; font-size: 1.1rem;
+      margin-bottom: var(--space-md); display: flex; align-items: center; gap: var(--space-sm);
+    }
+    .phase-section h3 .phase-badge {
+      font-size: 0.65rem; padding: 3px 10px; border-radius: var(--radius-full);
+      background: var(--grad-festa); color: #fff; font-weight: 700;
     }
 
-    .editor-panel {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: var(--space-lg);
+    /* Fields */
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin-bottom: var(--space-md); }
+    .field-row.triple { grid-template-columns: 1fr 1fr 1fr; }
+    .field-row.full { grid-template-columns: 1fr; }
+    @media (max-width: 600px) { .field-row, .field-row.triple { grid-template-columns: 1fr; } }
+
+    .field { display: flex; flex-direction: column; gap: 4px; margin-bottom: var(--space-md); }
+    .field label {
+      font-family: var(--display); font-size: 0.72rem; font-weight: 600;
+      color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em;
     }
-
-    .editor-panel h3 {
-      font-family: var(--display);
-      font-weight: 700;
-      font-size: 1.1rem;
-      margin-bottom: var(--space-lg);
+    .field input, .field textarea, .field select {
+      width: 100%; padding: 10px 14px; border: 1px solid var(--border);
+      border-radius: var(--radius-md); background: var(--surface); color: var(--fg);
+      font-family: 'Inter', sans-serif; font-size: 0.9rem;
+      transition: border-color var(--duration) var(--ease);
     }
-
-    .editor-field {
-      margin-bottom: var(--space-md);
+    .field input:focus, .field textarea:focus {
+      outline: none; border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(255,107,53,0.1);
     }
+    .field textarea { resize: vertical; min-height: 80px; }
+    .field .hint { font-size: 0.7rem; color: var(--muted); font-style: italic; }
 
-    .editor-label {
-      display: block;
-      font-family: var(--display);
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: var(--space-xs);
+    /* Param badges */
+    .param-cm label { color: var(--blue); }
+    .param-pa label { color: var(--green); }
+    .param-mo label { color: var(--purple); }
+    .param-op label { color: var(--orange); }
+    .param-efc label { color: #e91e63; }
+
+    /* File upload */
+    .file-upload {
+      border: 2px dashed var(--border); border-radius: var(--radius-lg);
+      padding: var(--space-lg); text-align: center; cursor: pointer;
+      transition: all var(--duration) var(--ease); background: var(--surface);
     }
+    .file-upload:hover { border-color: var(--orange); background: rgba(255,107,53,0.04); }
+    .file-upload.has-file { border-color: var(--green); background: rgba(0,200,83,0.04); }
+    .file-upload input[type="file"] { display: none; }
+    .file-upload .upload-icon { font-size: 2rem; margin-bottom: var(--space-xs); }
+    .file-upload .upload-text { font-size: 0.85rem; color: var(--muted); }
+    .file-upload .upload-filename { font-weight: 700; color: var(--fg); font-size: 0.9rem; margin-top: 4px; }
 
-    .editor-hint {
-      display: block;
-      font-size: 0.7rem;
-      color: var(--muted-dark);
-      margin-top: 4px;
-      font-style: italic;
+    /* Sentence blocks */
+    .sentence-block {
+      border: 1px solid var(--border); border-radius: var(--radius-md);
+      padding: var(--space-md); margin-bottom: var(--space-sm);
+      background: var(--surface); transition: border-color var(--duration) var(--ease);
     }
-
-    /* Params Grid (editor) */
-    .params-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-sm);
+    .sentence-block:hover { border-color: var(--border-strong); }
+    .sentence-block .sentence-header {
+      display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-sm);
     }
-
-    @media (max-width: 600px) {
-      .params-grid {
-        grid-template-columns: 1fr;
-      }
+    .sentence-block .sentence-num {
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--grad-festa); color: #fff; display: flex;
+      align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 800;
+      flex-shrink: 0;
     }
+    .sentence-block .sentence-label { font-weight: 600; font-size: 0.85rem; }
 
-    .param-field {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+    /* Fingerspelling chips */
+    .fs-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .fs-chip {
+      display: flex; flex-direction: column; align-items: center; gap: 2px;
+      padding: 6px 10px; border: 1px solid var(--border); border-radius: var(--radius-md);
+      background: var(--surface); min-width: 50px; position: relative;
     }
-
-    .param-label-editor {
-      font-size: 0.7rem;
-      font-weight: 600;
-      font-family: var(--display);
+    .fs-chip .letter { font-family: var(--display); font-weight: 800; font-size: 1.2rem; }
+    .fs-chip input {
+      width: 100%; border: none; background: transparent; text-align: center;
+      font-size: 0.65rem; color: var(--muted); padding: 2px;
     }
-
-    .param-label-editor.cm { color: var(--blue); }
-    .param-label-editor.pa { color: var(--green); }
-    .param-label-editor.mo { color: var(--purple); }
-    .param-label-editor.op { color: var(--orange); }
-
-    /* Fingerspelling */
-    .fingerspelling-row {
-      display: flex;
-      gap: var(--space-sm);
-      margin-bottom: var(--space-sm);
-      align-items: center;
+    .fs-chip input:focus { outline: none; color: var(--fg); }
+    .fs-chip .remove-letter {
+      position: absolute; top: -6px; right: -6px; width: 18px; height: 18px;
+      border-radius: 50%; background: var(--red); color: #fff; border: none;
+      font-size: 0.6rem; cursor: pointer; display: flex; align-items: center;
+      justify-content: center; opacity: 0; transition: opacity var(--duration);
     }
+    .fs-chip:hover .remove-letter { opacity: 1; }
 
-    .fingerspelling-row .letter-input {
-      width: 60px;
-      text-align: center;
-      font-family: var(--display);
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-
-    .fingerspelling-row .editor-input { flex: 1; }
-
+    /* Actions */
     .editor-actions {
-      display: flex;
-      gap: var(--space-md);
-      margin-top: var(--space-lg);
-      flex-wrap: wrap;
+      display: flex; gap: var(--space-md); flex-wrap: wrap;
+      padding: var(--space-lg) 0; border-top: 1px solid var(--border);
     }
+
+    /* Print */
+    @media print {
+      .editor-sidebar, .phase-tabs, .editor-actions, .header { display: none !important; }
+      .editor-wrapper { display: block !important; }
+      .editor-main { padding: 0 !important; max-width: 100% !important; }
+      .phase-section { break-inside: avoid; border: 1px solid #ccc !important; margin-bottom: 16px; }
+    }
+
+    /* Safe areas */
+    body { padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
+    .header { padding-top: calc(var(--space-md) + env(safe-area-inset-top, 0px)); }
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header class="header">
     <a href="../index.html" class="logo">&lt;Deivi<b>Tech</b>/libras&gt;</a>
     <nav class="header-nav">
@@ -241,7 +229,6 @@
     </nav>
   </header>
 
-  <!-- Editor Layout -->
   <div class="editor-wrapper">
     <!-- Sidebar -->
     <aside class="editor-sidebar">
@@ -249,98 +236,47 @@
         <span class="sidebar-title">📂 Categorias</span>
         <button class="btn btn-secondary btn-sm" onclick="editor.createNewCategory()">+ Nova</button>
       </div>
-
-      <div class="categories-list" id="categories-list">
-        <!-- Rendered by JS -->
-      </div>
+      <div class="categories-list" id="categories-list"></div>
 
       <div class="cards-section">
         <div class="cards-section-title">Cartas</div>
-        <div class="cards-list" id="cards-list">
-          <!-- Rendered by JS -->
-        </div>
-        <button class="btn btn-secondary btn-sm mt-md" onclick="editor.addNewCard()" style="width:100%">
+        <div class="cards-list" id="cards-list"></div>
+        <button class="btn btn-secondary btn-sm" onclick="editor.addNewCard()" style="width:100%;margin-top:var(--space-sm)">
           + Nova Carta
         </button>
       </div>
 
-      <div style="margin-top: auto; border-top: 1px solid var(--border); padding-top: var(--space-md)">
+      <div style="margin-top: auto; border-top: 1px solid var(--border); padding-top: var(--space-md); display: flex; flex-direction: column; gap: var(--space-sm);">
         <button class="btn btn-primary btn-sm" onclick="editor.saveToFile()" style="width:100%">
           📦 Exportar JSON
+        </button>
+        <button class="btn btn-ghost btn-sm" onclick="editor.printCard()" style="width:100%">
+          🖨️ Imprimir Carta
         </button>
       </div>
     </aside>
 
     <!-- Main -->
-    <main class="editor-main">
-      <h2>✏️ Editor de Cartas</h2>
+    <main class="editor-main" id="editor-main">
       <div id="card-form">
-        <div class="editor-panel" style="text-align:center; padding: var(--space-2xl); color: var(--muted);">
+        <div class="phase-section" style="text-align:center; padding: var(--space-2xl); color: var(--muted);">
           <div style="font-size: 3rem; margin-bottom: var(--space-md);">🃏</div>
-          <p>Selecione uma categoria e uma carta para editar,<br>ou crie uma nova carta.</p>
+          <p style="font-size: 1rem; font-weight: 600; margin-bottom: var(--space-sm);">Selecione uma carta para editar</p>
+          <p style="font-size: 0.85rem;">ou clique em "+ Nova Carta" para criar uma nova carta na categoria selecionada.</p>
         </div>
       </div>
     </main>
   </div>
 
-  <!-- PWA Install Bar -->
-  <div id="pwa-install-btn" class="pwa-install-bar hidden">
-    <span class="pwa-install-icon">🎮</span>
-    <div class="pwa-install-text">
-      Instalar Librapp
-      <small>Jogo de LIBRAS direto na tela inicial</small>
-    </div>
-    <button class="btn btn-primary btn-sm" onclick="installPWA()">Instalar</button>
-    <button class="pwa-install-close" onclick="this.parentElement.classList.add('hidden')">✕</button>
-  </div>
-
-  <style>
-    body {
-      padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-    }
-    .header {
-      padding-top: calc(var(--space-md) + env(safe-area-inset-top, 0px));
-    }
-    .pwa-install-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 999;
-      background: var(--bg-card);
-      border-top: 1px solid var(--border);
-      padding: var(--space-sm) var(--space-md);
-      padding-bottom: calc(var(--space-sm) + env(safe-area-inset-bottom, 0px));
-      display: flex;
-      align-items: center;
-      gap: var(--space-sm);
-      backdrop-filter: blur(12px);
-      animation: slideUp 0.4s var(--ease);
-    }
-    .pwa-install-bar.hidden { display: none; }
-    .pwa-install-icon { font-size: 1.5rem; flex-shrink: 0; }
-    .pwa-install-text { flex: 1; font-size: 0.8rem; font-weight: 500; }
-    .pwa-install-text small { display: block; color: var(--muted); font-weight: 400; font-size: 0.7rem; }
-    .pwa-install-close {
-      background: none; border: none; color: var(--muted); font-size: 1.2rem; cursor: pointer; padding: 4px;
-    }
-    .btn, button {
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
-    }
-  </style>
-
   <script>
     function toggleTheme() {
       const html = document.documentElement;
-      const current = html.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       html.setAttribute('data-theme', next);
       localStorage.setItem('librapp-theme', next);
       const btn = document.getElementById('theme-toggle-btn');
       if (btn) btn.textContent = next === 'dark' ? '🌙' : '☀️';
     }
-
     (function() {
       const saved = localStorage.getItem('librapp-theme') || 'light';
       document.documentElement.setAttribute('data-theme', saved);
@@ -348,8 +284,7 @@
       if (btn) btn.textContent = saved === 'dark' ? '🌙' : '☀️';
     })();
   </script>
-
-  <script src="editor.js?v=6"></script>
+  <script src="editor.js?v=7"></script>
   <script src="../assets/pwa.js?v=2"></script>
 </body>
 </html>

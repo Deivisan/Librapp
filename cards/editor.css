@@ -1,33 +1,46 @@
 /* ============================================
-   Librapp - Editor Styles (v2 - Festa theme)
-   ============================================
-   Most styles are now inline in editor.html.
-   This file provides the print and EFC styles.
+   Librapp - Editor Styles v3
    ============================================ */
-
-/* EFC param color */
-.param-label-editor.efc { color: #e91e63; }
 
 /* Print */
 @media print {
-  .header,
-  .editor-sidebar,
-  .editor-actions,
-  .no-print {
+  .header, .editor-sidebar, .phase-tabs, .editor-actions, .no-print {
     display: none !important;
   }
-
-  .editor-wrapper {
-    display: block;
-  }
-
-  .editor-main {
-    padding: 0;
-  }
-
-  .editor-panel {
+  .editor-wrapper { display: block !important; }
+  .editor-main { padding: 0 !important; max-width: 100% !important; }
+  .phase-section {
     break-inside: avoid;
     border: 1px solid #ccc !important;
     box-shadow: none !important;
+    margin-bottom: 16px;
+    display: block !important;
   }
+  #card-preview { display: none !important; }
+}
+
+/* Card item active state */
+.card-item.active {
+  background: var(--surface-hover) !important;
+  border-left: 3px solid var(--orange);
+}
+
+/* File upload hover */
+.file-upload {
+  transition: all 0.2s ease;
+}
+.file-upload:has(input:focus) {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(255,107,53,0.1);
+}
+
+/* Phase section transitions */
+.phase-section {
+  transition: opacity 0.2s ease;
+}
+
+/* Safe areas */
+@supports (padding: env(safe-area-inset-top)) {
+  body { padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
+  .header { padding-top: calc(var(--space-md) + env(safe-area-inset-top, 0px)); }
 }

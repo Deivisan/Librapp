@@ -1,18 +1,21 @@
 /* ============================================
-   Librapp - Card Editor (v2 - Festa)
+   Librapp - Card Editor v3 (Didático)
    ============================================ */
 
 class CardEditor {
   constructor() {
-    this.currentCard = this.getEmptyCard();
+    this.currentCard = null;
     this.allCards = [];
     this.currentCategory = null;
+    this.currentIndex = -1;
+    this.activePhase = 1;
+    this.fsImageCache = {}; // cache de imagens das letras
     this.init();
   }
 
+  /* ── lifecycle ── */
   init() {
     this.loadCards();
-    this.bindEvents();
     this.renderCategories();
   }
 
@@ -37,400 +40,505 @@ class CardEditor {
 
   async loadCards() {
     try {
-      const response = await fetch('../data/cards.json?v=6');
-      const data = await response.json();
+      const resp = await fetch('../data/cards.json?v=7');
+      const data = await resp.json();
       this.allCards = data.categories;
-    } catch (error) {
-      console.log('Nenhum dado encontrado, iniciando vazio');
-      this.allCards = [];
-    }
+    } catch { this.allCards = []; }
     this.renderCategories();
   }
 
-  bindEvents() {
-    // Events bound dynamically
-  }
-
+  /* ── sidebar ── */
   renderCategories() {
-    const container = document.getElementById('categories-list');
-    if (!container) return;
-
-    container.innerHTML = this.allCards.map((cat, i) => `
-      <div class="category-item ${this.currentCategory?.id === cat.id ? 'active' : ''}"
-           data-index="${i}">
-        <span class="category-icon">${cat.icon}</span>
-        <span class="category-name">${cat.name}</span>
-        <span class="category-count">${cat.cards.length} cartas</span>
+    const el = document.getElementById('categories-list');
+    if (!el) return;
+    el.innerHTML = this.allCards.map((c, i) => `
+      <div class="category-item ${this.currentCategory?.id === c.id ? 'active' : ''}" data-i="${i}">
+        <span class="category-icon">${c.icon}</span>
+        <span class="category-name">${c.name}</span>
+        <span class="category-count">${c.cards.length}</span>
       </div>
     `).join('');
 
-    container.querySelectorAll('.category-item').forEach(item => {
-      item.addEventListener('click', () => {
-        const index = parseInt(item.dataset.index);
-        this.selectCategory(index);
-      });
+    el.querySelectorAll('.category-item').forEach(item => {
+      item.onclick = () => {
+        const idx = +item.dataset.i;
+        this.currentCategory = this.allCards[idx];
+        this.currentIndex = -1;
+        this.currentCard = null;
+        this.renderCategories();
+        this.renderCards();
+        this.renderForm();
+      };
     });
-  }
-
-  selectCategory(index) {
-    this.currentCategory = this.allCards[index];
-    this.renderCategories();
     this.renderCards();
-    this.renderCardForm();
   }
 
   renderCards() {
-    const container = document.getElementById('cards-list');
-    if (!container || !this.currentCategory) return;
-
-    container.innerHTML = this.currentCategory.cards.map((card, i) => `
-      <div class="card-item" data-index="${i}">
-        <span class="card-word">${card.word}</span>
-        <span class="card-braille">${card.braille}</span>
-        <button class="btn btn-ghost btn-sm" onclick="editor.editCard(${i})">
-          Editar
-        </button>
+    const el = document.getElementById('cards-list');
+    if (!el) return;
+    if (!this.currentCategory) { el.innerHTML = '<div style="font-size:0.8rem;color:var(--muted);padding:8px;">Selecione uma categoria</div>'; return; }
+    el.innerHTML = this.currentCategory.cards.map((c, i) => `
+      <div class="card-item ${this.currentIndex === i ? 'active' : ''}" data-i="${i}">
+        <span class="card-word">${c.word || '(sem nome)'}</span>
+        <span class="card-braille">${c.braille || ''}</span>
       </div>
     `).join('');
+
+    el.querySelectorAll('.card-item').forEach(item => {
+      item.onclick = () => {
+        this.currentIndex = +item.dataset.i;
+        this.currentCard = this.currentCategory.cards[this.currentIndex];
+        this.activePhase = 1;
+        this.renderCards();
+        this.renderForm();
+      };
+    });
   }
 
-  renderCardForm() {
-    const container = document.getElementById('card-form');
-    if (!container) return;
+  /* ── form ── */
+  renderForm() {
+    const el = document.getElementById('card-form');
+    if (!el) return;
 
-    const card = this.currentCard;
-    const params = card.libras_params || { cm: '', pa: '', mo: '', op: '', efc: '' };
+    if (!this.currentCard) {
+      el.innerHTML = `<div class="phase-section" style="text-align:center;padding:var(--space-2xl);color:var(--muted);">
+        <div style="font-size:3rem;margin-bottom:var(--space-md);">🃏</div>
+        <p style="font-weight:600;margin-bottom:4px;">Selecione uma carta para editar</p>
+        <p style="font-size:0.85rem;">ou clique em "+ Nova Carta"</p>
+      </div>`;
+      return;
+    }
 
-    container.innerHTML = `
-      <div class="editor-panel">
-        <h3>✏️ Editar Carta</h3>
+    const c = this.currentCard;
+    const p = c.libras_params || { cm:'', pa:'', mo:'', op:'', efc:'' };
+    const words = (c.word || '').toUpperCase().replace(/[^A-ZÃÕÉÍÓÚ]/g, '');
 
-        <div class="editor-field">
-          <label class="editor-label">Palavra</label>
-          <input type="text" class="editor-input" id="card-word"
-                 value="${this.escapeHtml(card.word)}" placeholder="Ex: Tesoura">
+    // Build fingerspelling auto from word if empty
+    if (words && (!c.fingerspelling || c.fingerspelling.length === 0)) {
+      c.fingerspelling = [...words].map(l => ({ letter: l, image: `assets/signs/letra-${l.toLowerCase()}.png`, libras: `Sinal da letra ${l}` }));
+    }
+
+    el.innerHTML = `
+      <!-- Phase Tabs -->
+      <div class="phase-tabs" id="phase-tabs">
+        <div class="phase-tab ${this.activePhase===1?'active':''}" data-phase="1">
+          <span class="tab-num">1</span> Sinal
         </div>
-
-        <div class="editor-field">
-          <label class="editor-label">Caminho da Imagem</label>
-          <input type="text" class="editor-input" id="card-image"
-                 value="${this.escapeHtml(card.image)}" placeholder="assets/images/tesoura.jpg">
+        <div class="phase-tab ${this.activePhase===2?'active':''}" data-phase="2">
+          <span class="tab-num">2</span> Contexto
         </div>
-
-        <div class="editor-field">
-          <label class="editor-label">Descrição do Sinal (Audiodescrição)</label>
-          <textarea class="editor-input editor-textarea" id="card-sign-desc"
-                    placeholder="Descreva como fazer o sinal em LIBRAS...">${this.escapeHtml(card.sign_description)}</textarea>
-        </div>
-
-        <!-- Parâmetros LIBRAS -->
-        <div class="editor-field">
-          <label class="editor-label">🧏 Parâmetros de LIBRAS</label>
-          <div class="params-grid">
-            <div class="param-field">
-              <label class="param-label-editor cm" for="param-cm">CM (Configuração de Mão)</label>
-              <input type="text" class="editor-input" id="param-cm"
-                     value="${this.escapeHtml(params.cm || '')}" placeholder="Mão em pinça...">
-            </div>
-            <div class="param-field">
-              <label class="param-label-editor pa" for="param-pa">PA (Ponto de Articulação)</label>
-              <input type="text" class="editor-input" id="param-pa"
-                     value="${this.escapeHtml(params.pa || '')}" placeholder="Espaço neutro...">
-            </div>
-            <div class="param-field">
-              <label class="param-label-editor mo" for="param-mo">MO (Movimento)</label>
-              <input type="text" class="editor-input" id="param-mo"
-                     value="${this.escapeHtml(params.mo || '')}" placeholder="Abrir e fechar...">
-            </div>
-            <div class="param-field">
-              <label class="param-label-editor op" for="param-op">OP (Orientação da Palma)</label>
-              <input type="text" class="editor-input" id="param-op"
-                     value="${this.escapeHtml(params.op || '')}" placeholder="Palma para dentro...">
-            </div>
-            <div class="param-field" style="grid-column: 1 / -1;">
-              <label class="param-label-editor efc" for="param-efc">EFC (Expressão Facial e Corporal)</label>
-              <input type="text" class="editor-input" id="param-efc"
-                     value="${this.escapeHtml(params.efc || '')}" placeholder="Sorriso leve, olhar focado...">
-              <small class="editor-hint">Expressão do rosto e corpo durante o sinal — fundamental na LIBRAS</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="editor-field">
-          <label class="editor-label">QR Code — Vídeo LIBRAS (caminho)</label>
-          <input type="text" class="editor-input" id="card-video-qr"
-                 value="${this.escapeHtml(card.sign_video_qr)}" placeholder="assets/qr/tesoura-video.png">
-        </div>
-
-        <div class="editor-field">
-          <label class="editor-label">QR Code — Audiodescrição (caminho)</label>
-          <input type="text" class="editor-input" id="card-audio-qr"
-                 value="${this.escapeHtml(card.audio_description_qr)}" placeholder="assets/qr/tesoura-audio.png">
-        </div>
-
-        <div class="editor-field">
-          <label class="editor-label">Arquivo de Áudio (Audiodescrição)</label>
-          <input type="text" class="editor-input" id="card-audio-file"
-                 value="${this.escapeHtml(card.audio_file)}" placeholder="assets/audio/tesoura.mp3">
-          <small class="editor-hint">Caminho do arquivo MP3 gerado pelo Edge TTS</small>
-        </div>
-
-        <div class="editor-field">
-          <label class="editor-label">💬 Frases Contextualizadas (Fase 2)</label>
-          <small class="editor-hint">Cada frase pode ter QR Code de áudio e vídeo separados</small>
-          ${(card.context_sentences || []).map((s, i) => {
-            const text = typeof s === 'string' ? s : (s.text || '');
-            const aqr = typeof s === 'object' ? (s.audio_qr || '') : '';
-            const vqr = typeof s === 'object' ? (s.video_qr || '') : '';
-            return `
-            <div class="sentence-block" style="border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-sm);margin-bottom:var(--space-sm);background:var(--surface);">
-              <input type="text" class="editor-input mb-sm"
-                     id="card-sentence-${i}" value="${this.escapeHtml(text)}"
-                     placeholder="Frase contextualizada ${i + 1}">
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-xs);">
-                <input type="text" class="editor-input" id="card-sentence-aqr-${i}"
-                       value="${this.escapeHtml(aqr)}" placeholder="QR Áudio-frase ${i+1}"
-                       style="font-size:0.75rem;">
-                <input type="text" class="editor-input" id="card-sentence-vqr-${i}"
-                       value="${this.escapeHtml(vqr)}" placeholder="QR Vídeo-frase ${i+1}"
-                       style="font-size:0.75rem;">
-              </div>
-            </div>`;
-          }).join('')}
-        </div>
-
-        <div class="editor-field">
-          <label class="editor-label">Datilologia (Letras)</label>
-          <div id="fingerspelling-editor">
-            ${(card.fingerspelling || []).map((letter, i) => `
-              <div class="fingerspelling-row">
-                <input type="text" class="editor-input letter-input"
-                       id="fs-letter-${i}" value="${this.escapeHtml(letter.letter)}"
-                       placeholder="L" maxlength="2">
-                <input type="text" class="editor-input"
-                       id="fs-desc-${i}" value="${this.escapeHtml(letter.libras)}"
-                       placeholder="Descrição do sinal">
-                <button class="btn btn-ghost btn-sm" onclick="editor.removeLetter(${i})">✕</button>
-              </div>
-            `).join('')}
-          </div>
-          <button class="btn btn-secondary btn-sm mt-sm" onclick="editor.addLetter()">
-            + Adicionar Letra
-          </button>
-        </div>
-
-        <div class="editor-field">
-          <label class="editor-label">Em Braille</label>
-          <input type="text" class="editor-input" id="card-braille"
-                 value="${this.escapeHtml(card.braille)}" placeholder="⠞⠑⠎⠳⠗⠁">
-        </div>
-
-        <div class="editor-actions">
-          <button class="btn btn-primary" onclick="editor.saveCard()">
-            💾 Salvar Carta
-          </button>
-          <button class="btn btn-secondary" onclick="editor.previewCard()">
-            👁️ Visualizar
-          </button>
-          <button class="btn btn-ghost" onclick="editor.exportAll()">
-            📦 Exportar JSON
-          </button>
+        <div class="phase-tab ${this.activePhase===3?'active':''}" data-phase="3">
+          <span class="tab-num">3</span> Datilologia + Braille
         </div>
       </div>
+
+      <!-- PHASE 1: Sinal -->
+      <div class="phase-section" id="phase-1" ${this.activePhase!==1?'style="display:none"':''}>
+        <h3>🖐️ Fase 1 — Sinal <span class="phase-badge">PARÂMETROS</span></h3>
+
+        <div class="field-row">
+          <div class="field">
+            <label>Palavra</label>
+            <input type="text" id="f-word" value="${this.esc(c.word)}" placeholder="Ex: Tesoura, Maçã, Cachorro...">
+            <span class="hint">Nome da palavra em português</span>
+          </div>
+          <div class="field">
+            <label>Imagem da Palavra</label>
+            <div class="file-upload" id="upload-image" onclick="this.querySelector('input').click()">
+              <input type="file" accept="image/*" data-field="image" onchange="editor.handleFile(this)">
+              <div class="upload-icon">🖼️</div>
+              <div class="upload-text">${c.image ? '<div class="upload-filename">📎 ' + this.esc(this.shortPath(c.image)) + '</div>' : 'Clique ou arraste uma imagem'}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Descrição do Sinal (Audiodescrição)</label>
+          <textarea id="f-desc" placeholder="Ex: Mão em forma de tesoura — indicador e médio estendidos fazendo movimento de abrir e fechar.">${this.esc(c.sign_description)}</textarea>
+          <span class="hint">Como executar o sinal — para quem não enxerga ou está aprendendo</span>
+        </div>
+
+        <div style="font-weight:700;font-size:0.8rem;color:var(--muted);margin:var(--space-md) 0 var(--space-sm);text-transform:uppercase;letter-spacing:0.06em;">
+          Parâmetros da LIBRAS
+        </div>
+
+        <div class="field-row">
+          <div class="field param-cm">
+            <label>CM — Configuração de Mão</label>
+            <input type="text" id="f-cm" value="${this.esc(p.cm)}" placeholder="Ex: Pinça, Mão aberta, Punho...">
+          </div>
+          <div class="field param-pa">
+            <label>PA — Ponto de Articulação</label>
+            <input type="text" id="f-pa" value="${this.esc(p.pa)}" placeholder="Ex: Espaço neutro, boca, testa...">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field param-mo">
+            <label>MO — Movimento</label>
+            <input type="text" id="f-mo" value="${this.esc(p.mo)}" placeholder="Ex: Circular, linear, repetido...">
+          </div>
+          <div class="field param-op">
+            <label>OP — Orientação da Palma</label>
+            <input type="text" id="f-op" value="${this.esc(p.op)}" placeholder="Ex: Palma para dentro, para baixo...">
+          </div>
+        </div>
+        <div class="field-row full">
+          <div class="field param-efc">
+            <label>EFC — Expressão Facial e Corporal</label>
+            <input type="text" id="f-efc" value="${this.esc(p.efc)}" placeholder="Ex: Sorriso leve, olhar focado, expressão de concentração...">
+            <span class="hint">Fundamental na LIBRAS — expressão do rosto e corpo durante o sinal</span>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label>🎥 QR Code — Vídeo do Sinal</label>
+            <div class="file-upload" id="upload-video-qr" onclick="this.querySelector('input').click()">
+              <input type="file" accept="image/*" data-field="sign_video_qr" onchange="editor.handleFile(this)">
+              <div class="upload-icon">📱</div>
+              <div class="upload-text">${c.sign_video_qr ? '<div class="upload-filename">📎 ' + this.esc(this.shortPath(c.sign_video_qr)) + '</div>' : 'Imagem do QR Code (vídeo)'}</div>
+            </div>
+          </div>
+          <div class="field">
+            <label>🔊 QR Code — Áudio-descrição</label>
+            <div class="file-upload" id="upload-audio-qr" onclick="this.querySelector('input').click()">
+              <input type="file" accept="image/*" data-field="audio_description_qr" onchange="editor.handleFile(this)">
+              <div class="upload-icon">📱</div>
+              <div class="upload-text">${c.audio_description_qr ? '<div class="upload-filename">📎 ' + this.esc(this.shortPath(c.audio_description_qr)) + '</div>' : 'Imagem do QR Code (áudio)'}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 2: Contexto -->
+      <div class="phase-section" id="phase-2" ${this.activePhase!==2?'style="display:none"':''}>
+        <h3>💬 Fase 2 — Contexto <span class="phase-badge">FRASES</span></h3>
+        <p style="color:var(--muted);font-size:0.85rem;margin-bottom:var(--space-md);">
+          Escreva 3 frases com a palavra. Cada frase pode ter seu próprio QR Code de vídeo e áudio.
+        </p>
+
+        ${(c.context_sentences || []).map((s, i) => {
+          const txt = typeof s === 'string' ? s : (s.text || '');
+          const aqr = typeof s === 'object' ? (s.audio_qr || '') : '';
+          const vqr = typeof s === 'object' ? (s.video_qr || '') : '';
+          return `
+          <div class="sentence-block">
+            <div class="sentence-header">
+              <div class="sentence-num">${i + 1}</div>
+              <div class="sentence-label">Frase ${i + 1}</div>
+            </div>
+            <div class="field">
+              <input type="text" id="f-ctx-${i}" value="${this.esc(txt)}" placeholder="Ex: Preciso cortar o papel pra atividade.">
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label style="font-size:0.7rem;">QR Vídeo desta frase</label>
+                <div class="file-upload" style="padding:var(--space-sm)" onclick="this.querySelector('input').click()">
+                  <input type="file" accept="image/*" data-field="ctx-vqr-${i}" onchange="editor.handleFile(this)">
+                  <div class="upload-text" style="font-size:0.75rem;">${vqr ? '📎 ' + this.esc(this.shortPath(vqr)) : '📱 QR vídeo'}</div>
+                </div>
+              </div>
+              <div class="field">
+                <label style="font-size:0.7rem;">QR Áudio desta frase</label>
+                <div class="file-upload" style="padding:var(--space-sm)" onclick="this.querySelector('input').click()">
+                  <input type="file" accept="image/*" data-field="ctx-aqr-${i}" onchange="editor.handleFile(this)">
+                  <div class="upload-text" style="font-size:0.75rem;">${aqr ? '📎 ' + this.esc(this.shortPath(aqr)) : '📱 QR áudio'}</div>
+                </div>
+              </div>
+            </div>
+          </div>`;
+        }).join('')}
+      </div>
+
+      <!-- PHASE 3: Datilologia + Braille -->
+      <div class="phase-section" id="phase-3" ${this.activePhase!==3?'style="display:none"':''}>
+        <h3>🔤 Fase 3 — Datilologia + Braille <span class="phase-badge">LETRAS</span></h3>
+        <p style="color:var(--muted);font-size:0.85rem;margin-bottom:var(--space-md);">
+          Datilologia = cada letra em LIBRAS. As letras são geradas automaticamente da palavra.
+          Você pode ajustar as imagens e descrições.
+        </p>
+
+        <div class="fs-chips" id="fs-chips">
+          ${(c.fingerspelling || []).map((f, i) => `
+            <div class="fs-chip" data-i="${i}">
+              <span class="letter">${f.letter}</span>
+              <input type="text" value="${this.esc(f.libras)}" placeholder="Desc." data-fi="${i}" onchange="editor.updateFS(this)">
+              <button class="remove-letter" onclick="editor.removeFS(${i})">✕</button>
+            </div>
+          `).join('')}
+          <div class="fs-chip" style="border-style:dashed;cursor:pointer;" onclick="editor.addFS()">
+            <span class="letter" style="font-size:1.5rem;color:var(--muted);">+</span>
+          </div>
+        </div>
+        <div style="margin-top:var(--space-sm);display:flex;gap:var(--space-sm);align-items:center;">
+          <button class="btn btn-ghost btn-sm" onclick="editor.autoGenFS()">🔄 Auto-gerar da palavra</button>
+          <span style="font-size:0.7rem;color:var(--muted);">Gera as letras a partir do nome da carta</span>
+        </div>
+
+        <div class="field-row full" style="margin-top:var(--space-lg);">
+          <div class="field">
+            <label>⠿ Braille da palavra</label>
+            <div style="display:flex;gap:var(--space-sm);align-items:center;">
+              <input type="text" id="f-braille" value="${this.esc(c.braille)}" placeholder="⠞⠑⠎⠕⠥⠗⠁" style="font-size:1.4rem;letter-spacing:0.2em;max-width:400px;">
+              <button class="btn btn-ghost btn-sm" onclick="editor.autoGenBraille()">🔄 Auto-gerar</button>
+            </div>
+            <span class="hint">Use o botão para gerar automaticamente, ou cole o Braille manualmente</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preview -->
+      <div class="phase-section" id="card-preview">
+        <h3>👁️ Preview da Carta</h3>
+        <div id="preview-content"></div>
+      </div>
+
+      <!-- Actions -->
+      <div class="editor-actions">
+        <button class="btn btn-primary" onclick="editor.saveCard()">💾 Salvar Carta</button>
+        <button class="btn btn-secondary" onclick="editor.duplicateCard()">📋 Duplicar</button>
+        <button class="btn btn-danger" onclick="editor.deleteCard()">🗑️ Excluir</button>
+        <button class="btn btn-ghost" onclick="editor.printCard()">🖨️ Imprimir</button>
+      </div>
     `;
+
+    // Bind phase tabs
+    el.querySelectorAll('.phase-tab').forEach(tab => {
+      tab.onclick = () => {
+        this.activePhase = +tab.dataset.phase;
+        this.renderForm();
+        // Scroll to the phase section
+        setTimeout(() => {
+          const target = document.getElementById('phase-' + this.activePhase);
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 50);
+      };
+    });
+
+    this.renderPreview();
   }
 
-  escapeHtml(text) {
-    if (!text) return '';
-    return text
-      .replace(/&/g, '&amp;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;');
+  /* ── file upload ── */
+  handleFile(input) {
+    const file = input.files[0];
+    if (!file) return;
+    const field = input.dataset.field;
+    const filename = file.name; // <-- só o nome, sem path
+
+    // Store just filename
+    if (field.startsWith('ctx-')) {
+      const [, type, idx] = field.split('-');
+      const c = this.currentCard;
+      if (!c.context_sentences[+idx]) c.context_sentences[+idx] = { text:'', audio_qr:'', video_qr:'' };
+      if (type === 'vqr') c.context_sentences[+idx].video_qr = filename;
+      if (type === 'aqr') c.context_sentences[+idx].audio_qr = filename;
+    } else {
+      this.currentCard[field] = filename;
+    }
+
+    // Show uploaded preview on the upload area
+    const upload = input.closest('.file-upload');
+    if (upload) {
+      upload.classList.add('has-file');
+      const textEl = upload.querySelector('.upload-text');
+      if (textEl) textEl.innerHTML = `<div class="upload-filename">📎 ${this.esc(filename)}</div>`;
+    }
+
+    this.renderPreview();
   }
 
-  editCard(index) {
-    this.currentCard = JSON.parse(JSON.stringify(this.currentCategory.cards[index]));
-    this.renderCardForm();
+  /* ── datilologia helpers ── */
+  autoGenFS() {
+    const word = (this.currentCard.word || '').toUpperCase().replace(/[^A-ZÃÕÉÍÓÚ]/g, '');
+    if (!word) { alert('Preencha a palavra primeiro!'); return; }
+    this.currentCard.fingerspelling = [...word].map(l => ({
+      letter: l, image: `assets/signs/letra-${l.toLowerCase()}.png`, libras: `Sinal da letra ${l}`
+    }));
+    this.renderForm();
   }
 
-  addLetter() {
-    this.currentCard.fingerspelling.push({ letter: '', image: '', libras: '' });
-    this.renderCardForm();
+  addFS() {
+    this.currentCard.fingerspelling.push({ letter: '?', image: '', libras: '' });
+    this.renderForm();
   }
 
-  removeLetter(index) {
-    this.currentCard.fingerspelling.splice(index, 1);
-    this.renderCardForm();
+  removeFS(idx) {
+    this.currentCard.fingerspelling.splice(idx, 1);
+    this.renderForm();
   }
 
-  saveCard() {
-    this.currentCard.word = document.getElementById('card-word').value.trim();
-    this.currentCard.image = document.getElementById('card-image').value.trim();
-    this.currentCard.sign_description = document.getElementById('card-sign-desc').value.trim();
-    this.currentCard.sign_video_qr = document.getElementById('card-video-qr').value.trim();
-    this.currentCard.audio_description_qr = document.getElementById('card-audio-qr').value.trim();
-    this.currentCard.audio_file = document.getElementById('card-audio-file').value.trim();
-    this.currentCard.braille = document.getElementById('card-braille').value.trim();
+  updateFS(input) {
+    const idx = +input.dataset.fi;
+    this.currentCard.fingerspelling[idx].libras = input.value;
+  }
 
-    // LIBRAS params
-    this.currentCard.libras_params = {
-      cm: document.getElementById('param-cm')?.value?.trim() || '',
-      pa: document.getElementById('param-pa')?.value?.trim() || '',
-      mo: document.getElementById('param-mo')?.value?.trim() || '',
-      op: document.getElementById('param-op')?.value?.trim() || '',
-      efc: document.getElementById('param-efc')?.value?.trim() || ''
+  /* ── braille ── */
+  autoGenBraille() {
+    const map = {
+      'A':'⠁','B':'⠃','C':'⠉','D':'⠙','E':'⠑','F':'⠋','G':'⠛','H':'⠓',
+      'I':'⠊','J':'⠚','K':'⠅','L':'⠇','M':'⠍','N':'⠝','O':'⠕','P':'⠏',
+      'Q':'⠟','R':'⠗','S':'⠎','T':'⠞','U':'⠥','V':'⠧','W':'⠺','X':'⠭',
+      'Y':'⠽','Z':'⠵','Ã':'⠩','Õ':'⠪','É':'⠮','Í':'⠊','Ó':'⠪','Ú':'⠥'
     };
+    const word = (this.currentCard.word || '').toUpperCase().replace(/[^A-ZÃÕÉÍÓÚ]/g, '');
+    if (!word) { alert('Preencha a palavra primeiro!'); return; }
+    this.currentCard.braille = [...word].map(l => map[l] || l).join('');
+    this.renderForm();
+  }
+
+  /* ── save/delete/duplicate ── */
+  saveCard() {
+    const c = this.currentCard;
+    c.word = document.getElementById('f-word')?.value?.trim() || c.word;
+    c.sign_description = document.getElementById('f-desc')?.value?.trim() || '';
+    c.libras_params = {
+      cm: document.getElementById('f-cm')?.value?.trim() || '',
+      pa: document.getElementById('f-pa')?.value?.trim() || '',
+      mo: document.getElementById('f-mo')?.value?.trim() || '',
+      op: document.getElementById('f-op')?.value?.trim() || '',
+      efc: document.getElementById('f-efc')?.value?.trim() || ''
+    };
+    c.braille = document.getElementById('f-braille')?.value?.trim() || '';
 
     // Collect sentences
-    this.currentCard.context_sentences = [];
+    c.context_sentences = [];
     for (let i = 0; i < 3; i++) {
-      const input = document.getElementById(`card-sentence-${i}`);
-      if (input && input.value.trim()) {
-        this.currentCard.context_sentences.push({
-          text: input.value.trim(),
-          audio_qr: document.getElementById(`card-sentence-aqr-${i}`)?.value?.trim() || '',
-          video_qr: document.getElementById(`card-sentence-vqr-${i}`)?.value?.trim() || ''
+      const txt = document.getElementById(`f-ctx-${i}`)?.value?.trim() || '';
+      if (txt) {
+        const existing = this.currentCard.context_sentences[i] || {};
+        c.context_sentences.push({
+          text: txt,
+          audio_qr: typeof existing === 'object' ? (existing.audio_qr || '') : '',
+          video_qr: typeof existing === 'object' ? (existing.video_qr || '') : ''
         });
       }
     }
 
-    // Collect fingerspelling
-    this.currentCard.fingerspelling = [];
-    const letterInputs = document.querySelectorAll('.letter-input');
-    letterInputs.forEach((input, i) => {
-      const letter = input.value.trim().toUpperCase();
-      const desc = document.getElementById(`fs-desc-${i}`)?.value?.trim() || '';
-      if (letter) {
-        this.currentCard.fingerspelling.push({
-          letter,
-          image: `assets/signs/letra-${letter.toLowerCase()}.png`,
-          libras: desc
-        });
-      }
-    });
-
     this.renderCards();
-    alert('✅ Carta salva! Não esqueça de exportar o JSON para aplicar.');
+    this.renderPreview();
+    alert('✅ Carta salva!');
   }
 
-  previewCard() {
-    const win = window.open('', '_blank');
-    const card = this.currentCard;
-    const params = card.libras_params || {};
-
-    win.document.write(`
-      <!DOCTYPE html>
-      <html>
-      <head>
-        <title>Preview: ${this.escapeHtml(card.word)}</title>
-        <style>
-          body { font-family: 'Space Grotesk', sans-serif; background: #fff8f5; padding: 20px; color: #2d1b14; }
-          .card { max-width: 440px; margin: 0 auto; background: #fff; border: 2px solid #ffe0d4; border-radius: 24px; overflow: hidden; box-shadow: 0 6px 24px rgba(255,107,53,0.12); }
-          .bar { height: 6px; background: linear-gradient(135deg, #ff6b35, #ff3366); }
-          .img-box { padding: 24px; text-align: center; background: #fef; border-bottom: 1px solid #ffe0d4; min-height: 180px; display: flex; align-items: center; justify-content: center; }
-          .img-box img { max-width: 180px; max-height: 180px; object-fit: contain; border-radius: 8px; }
-          .word { text-align: center; padding: 16px; border-bottom: 1px solid #ffe0d4; }
-          .word h2 { font-size: 2rem; margin: 0; font-weight: 800; letter-spacing: -0.02em; }
-          .params { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 12px 16px; background: rgba(255,107,53,0.04); border-bottom: 1px solid #ffe0d4; }
-          .param { background: #fff; border: 1px solid #ffe0d4; border-radius: 8px; padding: 8px; text-align: center; }
-          .param-label { font-weight: 700; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; }
-          .param-label.cm { color: #0077b6; }
-          .param-label.pa { color: #00c853; }
-          .param-label.mo { color: #6b46c1; }
-          .param-label.op { color: #ff6b35; }
-          .param-label.efc { color: #e91e63; }
-          .param-value { font-size: 0.7rem; color: #5c4036; display: block; margin-top: 2px; }
-          .desc { padding: 16px; border-bottom: 1px solid #ffe0d4; font-size: 0.85rem; color: #5c4036; line-height: 1.5; }
-          .desc strong { color: #2d1b14; display: block; margin-bottom: 4px; }
-          .fs { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; padding: 16px; border-bottom: 1px solid #ffe0d4; }
-          .fs-item { text-align: center; width: 60px; }
-          .fs-box { width: 50px; height: 50px; border: 2px solid #ffe0d4; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: 700; margin: 0 auto 4px; }
-          .fs-label { font-size: 0.55rem; color: #9e7a6e; }
-          .footer { padding: 16px; text-align: center; border-top: 1px solid #ffe0d4; }
-          .braille { font-size: 1.5rem; letter-spacing: 0.2em; margin-bottom: 12px; }
-          .hints { padding: 16px; border-top: 1px solid #ffe0d4; }
-          .hint { padding: 6px 0; border-bottom: 1px solid #ffe0d4; font-size: 0.85rem; }
-        </style>
-      </head>
-      <body>
-        <div class="card">
-          <div class="bar"></div>
-          <div class="img-box">
-            ${card.image ? '<img src="../' + card.image + '">' : '<span style="font-size:3rem">🖼️</span>'}
-          </div>
-          <div class="word"><h2>${this.escapeHtml(card.word) || '?'}</h2></div>
-          <div class="params">
-            <div class="param"><span class="param-label cm">CM</span><span class="param-value">${this.escapeHtml(params.cm || '—')}</span></div>
-            <div class="param"><span class="param-label pa">PA</span><span class="param-value">${this.escapeHtml(params.pa || '—')}</span></div>
-            <div class="param"><span class="param-label mo">MO</span><span class="param-value">${this.escapeHtml(params.mo || '—')}</span></div>
-            <div class="param"><span class="param-label op">OP</span><span class="param-value">${this.escapeHtml(params.op || '—')}</span></div>
-            <div class="param" style="grid-column: 1 / -1;"><span class="param-label efc">EFC</span><span class="param-value">${this.escapeHtml(params.efc || '—')}</span></div>
-          </div>
-          <div class="desc"><strong>🖐️ Sinal:</strong> ${this.escapeHtml(card.sign_description || '—')}</div>
-          <div class="fs">
-            ${(card.fingerspelling || []).map(l => '<div class="fs-item"><div class="fs-box">' + this.escapeHtml(l.letter) + '</div><div class="fs-label">' + this.escapeHtml(l.libras) + '</div></div>').join('')}
-          </div>
-          ${card.braille ? '<div class="footer"><div class="braille">' + this.escapeHtml(card.braille) + '</div></div>' : ''}
-          ${(card.context_sentences || []).filter(s => typeof s === 'string' ? s : s.text).length ? '<div class="hints">' + card.context_sentences.filter(s => typeof s === 'string' ? s : s.text).map(s => {
-            const text = typeof s === 'string' ? s : s.text;
-            const hasQr = typeof s === 'object' && (s.audio_qr || s.video_qr);
-            return '<div class="hint">💬 ' + this.escapeHtml(text) + (hasQr ? ' <span style="font-size:0.7rem;color:#9e7a6e;">[QRs]</span>' : '') + '</div>';
-          }).join('') + '</div>' : ''}
-        </div>
-      </body>
-      </html>
-    `);
+  deleteCard() {
+    if (!this.currentCategory || this.currentIndex < 0) return;
+    if (!confirm(`Excluir "${this.currentCard.word}"?`)) return;
+    this.currentCategory.cards.splice(this.currentIndex, 1);
+    this.currentCard = null;
+    this.currentIndex = -1;
+    this.renderCards();
+    this.renderForm();
   }
 
-  exportAll() {
-    const data = {
-      version: "3.0",
-      categories: this.allCards
-    };
+  duplicateCard() {
+    if (!this.currentCategory || !this.currentCard) return;
+    const dup = JSON.parse(JSON.stringify(this.currentCard));
+    dup.word = dup.word + ' (cópia)';
+    this.currentCategory.cards.push(dup);
+    this.currentIndex = this.currentCategory.cards.length - 1;
+    this.currentCard = dup;
+    this.renderCards();
+    this.renderForm();
+  }
 
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'cards.json';
-    a.click();
-    URL.revokeObjectURL(url);
+  addNewCard() {
+    if (!this.currentCategory) { alert('Selecione uma categoria primeiro!'); return; }
+    const card = this.getEmptyCard();
+    this.currentCategory.cards.push(card);
+    this.currentIndex = this.currentCategory.cards.length - 1;
+    this.currentCard = card;
+    this.activePhase = 1;
+    this.renderCards();
+    this.renderForm();
   }
 
   createNewCategory() {
     const name = prompt('Nome da nova categoria:');
     if (!name) return;
-    const icon = prompt('Ícone (emoji):', '📦');
-    if (!icon) return;
-
-    const newCategory = {
-      id: name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '-'),
-      name: name,
-      icon: icon,
-      cards: []
-    };
-
-    this.allCards.push(newCategory);
+    const icon = prompt('Ícone da categoria (emoji):', '📚') || '📚';
+    this.allCards.push({ id: this.toSlug(name), name, icon, cards: [] });
+    this.currentCategory = this.allCards[this.allCards.length - 1];
     this.renderCategories();
-    alert('✅ Categoria criada!');
   }
 
-  addNewCard() {
-    if (!this.currentCategory) {
-      alert('Selecione uma categoria primeiro!');
-      return;
-    }
-    this.currentCard = this.getEmptyCard();
-    this.renderCardForm();
+  /* ── export ── */
+  saveToFile() {
+    const data = { version: '3.0', categories: this.allCards };
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'cards.json'; a.click();
+    URL.revokeObjectURL(url);
   }
 
-  async saveToFile() {
-    this.exportAll();
-    alert('✅ Dados exportados! Substitua o arquivo data/cards.json no servidor.');
+  /* ── preview ── */
+  renderPreview() {
+    const el = document.getElementById('preview-content');
+    if (!el || !this.currentCard) { if (el) el.innerHTML = ''; return; }
+    const c = this.currentCard;
+    const p = c.libras_params || {};
+
+    el.innerHTML = `
+      <div style="background:var(--bg-card);border:2px solid var(--border);border-radius:var(--radius-xl);padding:var(--space-xl);font-family:var(--display);max-width:500px;">
+        <div style="text-align:center;margin-bottom:var(--space-md);">
+          <div style="font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.15em;">${this.currentCategory?.name || 'Categoria'}</div>
+          <div style="font-size:1.8rem;font-weight:800;letter-spacing:-0.02em;">${this.esc(c.word || '(sem nome)')}</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin-bottom:var(--space-md);font-size:0.65rem;text-align:center;">
+          <div style="background:rgba(0,119,182,0.08);padding:6px 4px;border-radius:8px;"><b style="color:var(--blue);">CM</b><br><span style="font-size:0.6rem;">${this.esc(p.cm||'—')}</span></div>
+          <div style="background:rgba(0,200,83,0.08);padding:6px 4px;border-radius:8px;"><b style="color:var(--green);">PA</b><br><span style="font-size:0.6rem;">${this.esc(p.pa||'—')}</span></div>
+          <div style="background:rgba(107,70,193,0.08);padding:6px 4px;border-radius:8px;"><b style="color:var(--purple);">MO</b><br><span style="font-size:0.6rem;">${this.esc(p.mo||'—')}</span></div>
+          <div style="background:rgba(255,107,53,0.08);padding:6px 4px;border-radius:8px;"><b style="color:var(--orange);">OP</b><br><span style="font-size:0.6rem;">${this.esc(p.op||'—')}</span></div>
+          <div style="background:rgba(233,30,99,0.08);padding:6px 4px;border-radius:8px;"><b style="color:#e91e63;">EFC</b><br><span style="font-size:0.6rem;">${this.esc(p.efc||'—')}</span></div>
+        </div>
+
+        ${c.sign_description ? `<div style="font-size:0.75rem;color:var(--muted);margin-bottom:var(--space-md);font-style:italic;">"${this.esc(c.sign_description)}"</div>` : ''}
+
+        ${(c.context_sentences||[]).length ? `
+        <div style="margin-bottom:var(--space-md);">
+          <div style="font-size:0.7rem;font-weight:700;color:var(--muted);margin-bottom:4px;">💬 CONTEXTOS</div>
+          ${c.context_sentences.map((s,i) => {
+            const txt = typeof s === 'string' ? s : s.text;
+            return txt ? `<div style="font-size:0.8rem;margin-bottom:2px;">${i+1}. ${this.esc(txt)}</div>` : '';
+          }).join('')}
+        </div>` : ''}
+
+        ${(c.fingerspelling||[]).length ? `
+        <div style="margin-bottom:var(--space-md);">
+          <div style="font-size:0.7rem;font-weight:700;color:var(--muted);margin-bottom:4px;">🔤 DATILOLOGIA</div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;">
+            ${c.fingerspelling.map(f => `<div style="border:1px solid var(--border);border-radius:8px;padding:4px 8px;text-align:center;"><b style="font-size:1rem;">${f.letter}</b><div style="font-size:0.6rem;color:var(--muted);">${this.esc(f.libras)}</div></div>`).join('<span style="align-self:center;color:var(--muted);">+</span>')}
+          </div>
+        </div>` : ''}
+
+        ${c.braille ? `
+        <div style="text-align:center;padding:var(--space-sm);background:var(--surface);border-radius:var(--radius-md);">
+          <div style="font-size:0.65rem;font-weight:700;color:var(--muted);margin-bottom:2px;">⠿ BRAILLE</div>
+          <div style="font-size:1.8rem;letter-spacing:0.3em;">${this.esc(c.braille)}</div>
+        </div>` : ''}
+      </div>
+    `;
   }
+
+  /* ── print ── */
+  printCard() {
+    this.renderPreview();
+    const content = document.getElementById('preview-content')?.innerHTML || '';
+    const win = window.open('', '_blank');
+    win.document.write(`<!DOCTYPE html><html><head><title>Carta Librapp</title>
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&display=swap');
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Space Grotesk',sans-serif; padding:2cm; color:#2d1b10; }
+      </style></head><body>${content}</body></html>`);
+    win.document.close();
+    win.print();
+  }
+
+  /* ── utils ── */
+  esc(s) { const d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
+  toSlug(s) { return s.toLowerCase().normalize('NFD').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''); }
+  shortPath(p) { return (p||'').split('/').pop(); }
 }
 
-// Init
-window.editor = new CardEditor();
+const editor = new CardEditor();
