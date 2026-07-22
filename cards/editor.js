@@ -165,7 +165,7 @@ class CardEditor {
           </div>
           <div class="field">
             <label>Imagem da Palavra</label>
-            <div class="file-upload" id="upload-image" onclick="this.querySelector('input').click()">
+            <div class="file-upload" id="upload-image">
               <input type="file" accept="image/*" data-field="image" onchange="editor.handleFile(this)">
               <div class="upload-icon">🖼️</div>
               <div class="upload-text">${c.image ? '<div class="upload-filename">📎 ' + this.esc(this.shortPath(c.image)) + '</div>' : 'Clique ou arraste uma imagem'}</div>
@@ -182,7 +182,7 @@ class CardEditor {
         <div class="field-row">
           <div class="field">
             <label>📸 Foto do Sinal</label>
-            <div class="file-upload" id="upload-sign-image" onclick="this.querySelector('input').click()">
+            <div class="file-upload" id="upload-sign-image">
               <input type="file" accept="image/*" data-field="sign_image" onchange="editor.handleFile(this)">
               <div class="upload-icon">🖐️</div>
               <div class="upload-text">${c.sign_image ? '<div class="upload-filename">📎 ' + this.esc(this.shortPath(c.sign_image)) + '</div>' : 'Foto do sinal sendo feito'}</div>
@@ -226,7 +226,7 @@ class CardEditor {
         <div class="field-row">
           <div class="field">
             <label>🎥 QR Code — Vídeo do Sinal</label>
-            <div class="file-upload" id="upload-video-qr" onclick="this.querySelector('input').click()">
+            <div class="file-upload" id="upload-video-qr">
               <input type="file" accept="image/*" data-field="sign_video_qr" onchange="editor.handleFile(this)">
               <div class="upload-icon">📱</div>
               <div class="upload-text">${c.sign_video_qr ? '<div class="upload-filename">📎 ' + this.esc(this.shortPath(c.sign_video_qr)) + '</div>' : 'Imagem do QR Code (vídeo)'}</div>
@@ -234,7 +234,7 @@ class CardEditor {
           </div>
           <div class="field">
             <label>🔊 QR Code — Áudio-descrição</label>
-            <div class="file-upload" id="upload-audio-qr" onclick="this.querySelector('input').click()">
+            <div class="file-upload" id="upload-audio-qr">
               <input type="file" accept="image/*" data-field="audio_description_qr" onchange="editor.handleFile(this)">
               <div class="upload-icon">📱</div>
               <div class="upload-text">${c.audio_description_qr ? '<div class="upload-filename">📎 ' + this.esc(this.shortPath(c.audio_description_qr)) + '</div>' : 'Imagem do QR Code (áudio)'}</div>
@@ -266,14 +266,14 @@ class CardEditor {
             <div class="field-row">
               <div class="field">
                 <label style="font-size:0.7rem;">QR Vídeo desta frase</label>
-                <div class="file-upload" style="padding:var(--space-sm)" onclick="this.querySelector('input').click()">
+                <div class="file-upload" style="padding:var(--space-sm)">
                   <input type="file" accept="image/*" data-field="ctx-vqr-${i}" onchange="editor.handleFile(this)">
                   <div class="upload-text" style="font-size:0.75rem;">${vqr ? '📎 ' + this.esc(this.shortPath(vqr)) : '📱 QR vídeo'}</div>
                 </div>
               </div>
               <div class="field">
                 <label style="font-size:0.7rem;">QR Áudio desta frase</label>
-                <div class="file-upload" style="padding:var(--space-sm)" onclick="this.querySelector('input').click()">
+                <div class="file-upload" style="padding:var(--space-sm)">
                   <input type="file" accept="image/*" data-field="ctx-aqr-${i}" onchange="editor.handleFile(this)">
                   <div class="upload-text" style="font-size:0.75rem;">${aqr ? '📎 ' + this.esc(this.shortPath(aqr)) : '📱 QR áudio'}</div>
                 </div>
@@ -285,7 +285,7 @@ class CardEditor {
         <div class="field-row full" style="margin-top:var(--space-md);">
           <div class="field">
             <label style="font-weight:700;color:var(--orange);">🎬 QR Code Final — Vídeo da Frase Completa (Interpretação)</label>
-            <div class="file-upload" style="padding:var(--space-md)" onclick="this.querySelector('input').click()">
+            <div class="file-upload" style="padding:var(--space-md)">
               <input type="file" accept="image/*" data-field="context_final_qr" onchange="editor.handleFile(this)">
               <div class="upload-icon">🎬</div>
               <div class="upload-text">${c.context_final_qr ? '<div class="upload-filename">📎 QR final carregado</div>' : 'QR Code com interpretação completa da frase'}</div>
@@ -308,7 +308,7 @@ class CardEditor {
             <div class="fs-chip" data-i="${i}">
               <span class="letter">${f.letter}</span>
               <input type="text" value="${this.esc(f.libras)}" placeholder="Desc." data-fi="${i}" onchange="editor.updateFS(this)">
-              <div class="file-upload" style="padding:2px 4px;border-width:1px;border-radius:4px;" onclick="event.stopPropagation();this.querySelector('input').click()">
+              <div class="file-upload" style="padding:2px 4px;border-width:1px;border-radius:4px;">
                 <input type="file" accept="image/*" data-field="fs-${i}" onchange="editor.handleFile(this)" style="display:none">
                 <div style="font-size:0.55rem;color:var(--muted);">${f.image && !f.image.startsWith('assets/') ? '📱' : 'QR'}</div>
               </div>
@@ -356,11 +356,32 @@ class CardEditor {
       tab.onclick = () => {
         this.activePhase = +tab.dataset.phase;
         this.renderForm();
-        // Scroll to the phase section
         setTimeout(() => {
           const target = document.getElementById('phase-' + this.activePhase);
           if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }, 50);
+      };
+    });
+
+    // Bind file uploads via delegation (more robust than inline onclick)
+    el.querySelectorAll('.file-upload').forEach(upload => {
+      const input = upload.querySelector('input[type="file"]');
+      if (!input) return;
+      upload.onclick = (e) => {
+        e.preventDefault();
+        input.click();
+      };
+      // drag and drop support
+      upload.ondragover = (e) => { e.preventDefault(); upload.classList.add('has-file'); };
+      upload.ondragleave = () => upload.classList.remove('has-file');
+      upload.ondrop = (e) => {
+        e.preventDefault();
+        upload.classList.remove('has-file');
+        const file = e.dataTransfer.files[0];
+        if (file && file.type.startsWith('image/')) {
+          input.files = e.dataTransfer.files;
+          editor.handleFile(input);
+        }
       };
     });
 
