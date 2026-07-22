@@ -406,7 +406,7 @@ class CardEditor {
         if (type === 'vqr') c.context_sentences[+idx].video_qr = dataUrl;
         if (type === 'aqr') c.context_sentences[+idx].audio_qr = dataUrl;
       } else if (field.startsWith('fs-')) {
-        const [, , idx] = field.split('-');
+        const [, idx] = field.split('-');
         if (this.currentCard.fingerspelling[+idx]) {
           this.currentCard.fingerspelling[+idx].image = dataUrl;
         }
