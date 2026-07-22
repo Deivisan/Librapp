@@ -1,366 +1,320 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Librapp — Jogo de LIBRAS | deivi.tech/libras</title>
-  <meta name="description" content="Librapp: um jogo para aprender e praticar Língua Brasileira de Sinais (LIBRAS) de forma divertida. Cartas interativas com sinal, frases contextualizadas e datilologia.">
+  <meta name="description" content="Librapp: um jogo para aprender e praticar Língua Brasileira de Sinais (LIBRAS) de forma divertida. Cartas interativas com sinal, parâmetros, frases e datilologia.">
+
+  <!-- PWA / Mobile -->
+  <link rel="manifest" href="/libras/manifest.json">
+  <meta name="theme-color" content="#ff6b35">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Librapp">
+  <link rel="apple-touch-icon" href="/libras/assets/icons/icon-192.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Librapp">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css?v=6">
   <style>
-    :root {
-      --bg: #0b0e14;
-      --surface: #141925;
-      --elevated: #1c2333;
-      --border: #2a3346;
-      --fg: #e8edf6;
-      --muted: #8b97ad;
-      --accent: #06d6a0;
-      --ciano: #38bdf8;
-      --roxo: #a78bfa;
-      --ambar: #fbbf24;
-      --rosa: #f472b6;
-      --grad: linear-gradient(135deg, var(--accent), var(--ciano), var(--roxo));
-      --font: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-      --display: "Space Grotesk", system-ui, sans-serif;
-    }
-    
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    
-    body {
-      background: radial-gradient(1200px 600px at 50% -10%, rgba(6,214,160,0.12), transparent),
-                  radial-gradient(800px 400px at 80% 50%, rgba(56,189,248,0.08), transparent),
-                  var(--bg);
-      color: var(--fg);
-      font-family: var(--font);
+    /* Landing-specific styles */
+    .landing {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      -webkit-font-smoothing: antialiased;
+      background:
+        radial-gradient(1200px 800px at 30% 20%, rgba(255,107,53,0.12), transparent),
+        radial-gradient(900px 600px at 80% 40%, rgba(255,51,102,0.10), transparent),
+        radial-gradient(700px 500px at 50% 70%, rgba(0,119,182,0.06), transparent),
+        var(--bg);
     }
-    
-    /* Header */
-    header {
-      padding: 18px 24px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    
-    .logo {
-      font-family: var(--display);
-      font-weight: 800;
-      font-size: 1.1rem;
-      letter-spacing: -0.02em;
-    }
-    
-    .logo b {
-      background: var(--grad);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    
-    .nav {
-      margin-left: auto;
-      display: flex;
-      gap: 12px;
-      align-items: center;
-    }
-    
-    .nav a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      padding: 8px 12px;
-      border-radius: 8px;
-      transition: all 0.2s ease;
-    }
-    
-    .nav a:hover {
-      color: var(--fg);
-      background: var(--elevated);
-    }
-    
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      border-radius: 10px;
-      font-family: var(--display);
-      font-weight: 600;
-      font-size: 0.95rem;
-      border: none;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      text-decoration: none;
-    }
-    
-    .btn-primary {
-      background: var(--accent);
-      color: var(--bg);
-    }
-    
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(6,214,160,0.3);
-    }
-    
-    .btn-secondary {
-      background: var(--surface);
-      color: var(--fg);
-      border: 1px solid var(--border);
-    }
-    
-    .btn-secondary:hover {
-      background: var(--elevated);
-      border-color: var(--accent);
-    }
-    
+
     /* Hero */
-    main {
+    .hero {
       flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 60px 24px;
-      gap: 24px;
+      padding: var(--space-3xl) var(--space-lg) var(--space-2xl);
+      gap: var(--space-lg);
     }
-    
-    .badge {
-      font-family: var(--display);
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--accent);
+
+    .hero-badge {
+      display: inline-flex;
+      gap: var(--space-sm);
+      align-items: center;
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 8px 16px;
-      background: var(--surface);
-    }
-    
-    h1 {
+      font-size: 0.78rem;
+      color: var(--muted);
       font-family: var(--display);
-      font-size: clamp(2.5rem, 8vw, 4.5rem);
-      font-weight: 800;
-      line-height: 1.02;
-      letter-spacing: -0.03em;
+      font-weight: 600;
     }
-    
-    .grad {
-      background: var(--grad);
+
+    .hero-badge span {
+      background: var(--grad-festa);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
-    
-    p.lead {
-      max-width: 580px;
-      color: var(--muted);
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-    
-    /* Cards Preview */
-    .cards-preview {
-      display: flex;
-      gap: 16px;
-      margin-top: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    
-    .preview-card {
-      width: 160px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-    
-    .preview-card:hover {
-      transform: translateY(-8px) rotate(-2deg);
-      border-color: var(--accent);
-      box-shadow: 0 12px 32px rgba(6,214,160,0.2);
-    }
-    
-    .preview-card:nth-child(2):hover {
-      transform: translateY(-8px) rotate(2deg);
-    }
-    
-    .preview-card-header {
-      padding: 12px;
-      background: var(--elevated);
-      font-size: 0.7rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-    
-    .preview-card-image {
-      height: 120px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      background: var(--bg);
-    }
-    
-    .preview-card-footer {
-      padding: 12px;
-      text-align: center;
-    }
-    
-    .preview-card-word {
+
+    .hero h1 {
       font-family: var(--display);
-      font-weight: 700;
-      font-size: 1rem;
-      margin-bottom: 4px;
-    }
-    
-    .preview-card-braille {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-    
-    /* Features */
-    .features {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-      margin-top: 8px;
-    }
-    
-    .chip {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 14px 18px;
-      font-size: 0.9rem;
-      color: var(--fg);
-      min-width: 160px;
-      text-align: left;
-    }
-    
-    .chip small {
-      display: block;
-      color: var(--muted);
-      font-size: 0.75rem;
-      margin-top: 4px;
-    }
-    
-    /* CTA */
-    .cta {
-      display: flex;
-      gap: 12px;
-      margin-top: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    
-    .btn-lg {
-      padding: 14px 28px;
-      font-size: 1.1rem;
-      border-radius: 14px;
-    }
-    
-    /* Status */
-    .status {
-      margin-top: 8px;
-      font-family: var(--display);
-      font-size: 0.82rem;
-      color: var(--ambar);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 8px 16px;
-      background: var(--surface);
+      font-size: clamp(2.5rem, 10vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -0.04em;
     }
 
-    /* Como Funciona */
-    .how-it-works {
-      max-width: 800px;
-      margin: var(--space-2xl) auto 0;
+    .hero h1 .grad {
+      background: var(--grad-festa);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 520px;
+      color: var(--muted);
+      font-size: 1.15rem;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: var(--space-sm);
+    }
+
+    /* Stats */
+    .hero-stats {
+      display: flex;
+      gap: var(--space-xl);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat-value {
+      display: block;
+      font-family: var(--display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--orange);
+    }
+
+    .hero-stat-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* Features Grid */
+    .features-section {
+      padding: var(--space-2xl) var(--space-lg);
+      max-width: 960px;
+      margin: 0 auto;
       width: 100%;
     }
 
-    .how-it-works h2 {
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-md);
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-lg);
+      text-align: center;
+      transition: all var(--duration) var(--ease);
+    }
+
+    .feature-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card);
+    }
+
+    .feature-icon {
+      font-size: 2.2rem;
+      margin-bottom: var(--space-sm);
+      display: block;
+    }
+
+    .feature-card h3 {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: var(--space-xs);
+    }
+
+    .feature-card p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* How It Works */
+    .how-section {
+      padding: var(--space-2xl) var(--space-lg);
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .how-section h2 {
       font-family: var(--display);
       font-size: clamp(1.5rem, 4vw, 2.2rem);
       font-weight: 800;
       letter-spacing: -0.02em;
-      margin-bottom: var(--space-md);
       text-align: center;
+      margin-bottom: var(--space-sm);
     }
 
     .how-intro {
-      color: var(--muted);
-      font-size: 1.05rem;
-      line-height: 1.6;
       text-align: center;
-      max-width: 600px;
-      margin: 0 auto var(--space-xl);
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: var(--space-xl);
+      max-width: 550px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .rules-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: var(--space-md);
-      margin-bottom: var(--space-xl);
+      margin-bottom: var(--space-lg);
     }
 
     .rule-card {
-      background: var(--surface);
+      background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-xl);
       padding: var(--space-lg);
       text-align: center;
       transition: all var(--duration) var(--ease);
     }
 
     .rule-card:hover {
-      border-color: var(--accent);
+      border-color: var(--orange);
       transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
+      box-shadow: var(--shadow-card);
     }
 
     .rule-number {
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       margin: 0 auto var(--space-md);
       border-radius: 50%;
-      background: var(--grad);
-      color: var(--bg);
+      background: var(--grad-festa);
+      color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: var(--display);
       font-weight: 800;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
     }
 
     .rule-card h3 {
       font-family: var(--display);
       font-weight: 700;
-      font-size: 1.05rem;
+      font-size: 1rem;
       margin-bottom: var(--space-sm);
     }
 
     .rule-card p {
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       line-height: 1.5;
     }
 
-    .rules-btn {
-      display: block;
-      margin: 0 auto;
+    .how-btn {
+      text-align: center;
+    }
+
+    /* Decks Preview */
+    .deck-preview {
+      display: flex;
+      gap: var(--space-md);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: var(--space-lg) 0;
+    }
+
+    .deck-card {
+      width: 180px;
+      background: var(--bg-card);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      transition: all var(--duration) var(--ease);
+      cursor: pointer;
+    }
+
+    .deck-card:hover {
+      border-color: var(--orange);
+      transform: translateY(-8px) rotate(-2deg);
+      box-shadow: var(--shadow-card);
+    }
+
+    .deck-card:nth-child(2):hover {
+      transform: translateY(-8px) rotate(2deg);
+    }
+
+    .deck-card-header {
+      padding: var(--space-sm) var(--space-md);
+      background: var(--grad-festa);
+      color: #fff;
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .deck-card-image {
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      background: var(--bg);
+    }
+
+    .deck-card-footer {
+      padding: var(--space-sm) var(--space-md);
+      text-align: center;
+    }
+
+    .deck-card-word {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .deck-card-braille {
+      font-size: 0.85rem;
+      color: var(--muted);
     }
 
     /* Modal */
@@ -370,7 +324,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.8);
+      background: var(--overlay);
       backdrop-filter: blur(8px);
       display: none;
       align-items: center;
@@ -384,7 +338,7 @@
     }
 
     .modal-content {
-      background: var(--surface);
+      background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius-xl);
       padding: var(--space-xl);
@@ -393,13 +347,14 @@
       max-height: 85vh;
       overflow-y: auto;
       position: relative;
+      box-shadow: var(--shadow-lg);
     }
 
     .modal-close {
       position: absolute;
       top: var(--space-md);
       right: var(--space-md);
-      background: var(--elevated);
+      background: var(--surface);
       border: 1px solid var(--border);
       color: var(--fg);
       width: 36px;
@@ -411,7 +366,8 @@
     }
 
     .modal-close:hover {
-      background: var(--border-light);
+      background: var(--surface-hover);
+      border-color: var(--orange);
       transform: rotate(90deg);
     }
 
@@ -425,10 +381,10 @@
 
     .modal-content h3 {
       font-family: var(--display);
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 700;
       margin: var(--space-lg) 0 var(--space-sm);
-      color: var(--accent);
+      color: var(--orange);
     }
 
     .modal-content ul {
@@ -440,8 +396,8 @@
       padding: var(--space-sm) 0 var(--space-sm) var(--space-lg);
       border-bottom: 1px solid var(--border);
       color: var(--fg-soft);
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.9rem;
+      line-height: 1.5;
       position: relative;
     }
 
@@ -449,7 +405,7 @@
       content: "▸";
       position: absolute;
       left: 0;
-      color: var(--accent);
+      color: var(--orange);
     }
 
     .modal-content li strong {
@@ -463,199 +419,389 @@
     }
 
     /* Footer */
-    footer {
-      padding: 20px 24px;
+    .landing-footer {
+      padding: var(--space-lg) var(--space-lg);
       border-top: 1px solid var(--border);
       text-align: center;
       color: var(--muted);
       font-size: 0.8rem;
     }
-    
-    footer a {
-      color: var(--ciano);
-      text-decoration: none;
+
+    .landing-footer a {
+      color: var(--blue);
     }
-    
-    /* Responsive */
-    @media (max-width: 600px) {
-      .cards-preview {
+
+  /* Mobile Safe Areas */
+  body {
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+
+  .header {
+    padding-top: calc(var(--space-md) + env(safe-area-inset-top, 0px));
+  }
+
+  /* PWA Install Button */
+  .pwa-install-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: var(--bg-card);
+    border-top: 1px solid var(--border);
+    padding: var(--space-sm) var(--space-md);
+    padding-bottom: calc(var(--space-sm) + env(safe-area-inset-bottom, 0px));
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    backdrop-filter: blur(12px);
+    animation: slideUp 0.4s var(--ease);
+  }
+
+  .pwa-install-bar.hidden {
+    display: none;
+  }
+
+  .pwa-install-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .pwa-install-text {
+    flex: 1;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  .pwa-install-text small {
+    display: block;
+    color: var(--muted);
+    font-weight: 400;
+    font-size: 0.7rem;
+  }
+
+  .pwa-install-close {
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  /* Touch Optimizations */
+  .btn, button, a, .category-btn, .deck-btn, .player-btn {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .game-card-image img, .qr-img, .letter-image {
+    pointer-events: none;
+    -webkit-user-drag: none;
+    user-select: none;
+  }
+
+  /* Prevent text selection on game elements */
+  .game-card, .phase-panel, .qr-row, .braille-section {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  /* Smooth momentum scrolling */
+  .landing, .game-page {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+      .hero {
+        padding: var(--space-2xl) var(--space-md) var(--space-xl);
+      }
+
+      .deck-preview {
         flex-direction: column;
         align-items: center;
       }
-      
-      .preview-card {
+
+      .deck-card {
         width: 100%;
-        max-width: 200px;
+        max-width: 220px;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr 1fr;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <span class="logo">&lt;Deivi<b>Tech</b>/libras&gt;</span>
-    <nav class="nav">
-      <a href="game/">Jogar</a>
-      <a href="cards/">Editor</a>
-      <a href="https://deivi.tech/">voltar ao hub</a>
-    </nav>
-  </header>
+  <div class="landing">
 
-  <main>
-    <span class="badge">Acessível · Educativo · Divertido</span>
-    
-    <h1>Librapp —<br><span class="grad">jogo de LIBRAS</span></h1>
-    
-    <p class="lead">
-      Aprenda e pratique a Língua Brasileira de Sinais (LIBRAS) de forma divertida 
-      com cartas interativas. Cada carta traz imagem, sinal, frases contextualizadas e datilologia.
-    </p>
+    <!-- Header -->
+    <header class="header">
+      <span class="logo">&lt;Deivi<b>Tech</b>/libras&gt;</span>
+      <nav class="header-nav">
+        <a href="game/">Jogar</a>
+        <a href="cards/">Editor</a>
+        <a href="https://deivi.tech/">hub</a>
+        <button class="theme-toggle" id="theme-toggle-btn" onclick="toggleTheme()" aria-label="Alternar tema">☀️</button>
+      </nav>
+    </header>
 
-    <!-- Preview dos Cards -->
-    <div class="cards-preview">
-      <div class="preview-card">
-        <div class="preview-card-header">Objetos de Sala</div>
-        <div class="preview-card-image">✂️</div>
-        <div class="preview-card-footer">
-          <div class="preview-card-word">Tesoura</div>
-          <div class="preview-card-braille">⠞⠑⠎⠳⠗⠁</div>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-badge">
+        🎮 <span>Librapp</span> · Acessível · Educativo · Divertido
+      </div>
+
+      <h1>
+        Jogo de<br>
+        <span class="grad">LIBRAS</span>
+      </h1>
+
+      <p>
+        Um jogo de mímica com cartas, mas ao invés de gestos soltos, você usa
+        sinais reais de LIBRAS. Cada carta tem a imagem, os parâmetros do sinal
+        (CM, PA, MO, OP, EFC), frases de contexto com QR Codes, datilologia e
+        Braille. Inclusivo, educativo e pronto para usar em sala de aula.
+      </p>
+
+      <div class="hero-actions">
+        <a href="game/" class="btn btn-primary btn-xl">
+          🎮 Jogar Agora
+        </a>
+        <a href="cards/" class="btn btn-secondary btn-lg">
+          ✏️ Criar Cartas
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-value" id="stat-cards">45</span>
+          <span class="hero-stat-label">Cartas</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-value" id="stat-categories">3</span>
+          <span class="hero-stat-label">Categorias</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-value">3</span>
+          <span class="hero-stat-label">Fases por Carta</span>
         </div>
       </div>
-      
-      <div class="preview-card">
-        <div class="preview-card-header">Alimentos</div>
-        <div class="preview-card-image">🍎</div>
-        <div class="preview-card-footer">
-          <div class="preview-card-word">Maçã</div>
-          <div class="preview-card-braille">⠍⠁⠉⠁</div>
+    </section>
+
+    <!-- Deck Preview -->
+    <section class="features-section">
+      <div class="deck-preview">
+        <div class="deck-card">
+          <div class="deck-card-header">📎 Objetos</div>
+          <div class="deck-card-image">✂️</div>
+          <div class="deck-card-footer">
+            <div class="deck-card-word">Tesoura</div>
+            <div class="deck-card-braille">⠞⠑⠎⠳⠗⠁</div>
+          </div>
+        </div>
+        <div class="deck-card">
+          <div class="deck-card-header">🍎 Alimentos</div>
+          <div class="deck-card-image">🍏</div>
+          <div class="deck-card-footer">
+            <div class="deck-card-word">Maçã</div>
+            <div class="deck-card-braille">⠍⠁⠉⠁</div>
+          </div>
+        </div>
+        <div class="deck-card">
+          <div class="deck-card-header">🐾 Animais</div>
+          <div class="deck-card-image">🐕</div>
+          <div class="deck-card-footer">
+            <div class="deck-card-word">Cachorro</div>
+            <div class="deck-card-braille">⠉⠁⠉⠓⠕⠗⠗</div>
+          </div>
         </div>
       </div>
-      
-      <div class="preview-card">
-        <div class="preview-card-header">Animais</div>
-        <div class="preview-card-image">🐕</div>
-        <div class="preview-card-footer">
-          <div class="preview-card-word">Cachorro</div>
-          <div class="preview-card-braille">⠉⠁⠉⠓⠕⠗⠗</div>
+    </section>
+
+    <!-- Features -->
+    <section class="features-section">
+      <div class="features-grid">
+        <div class="feature-card">
+          <span class="feature-icon">🖐️</span>
+          <h3>Sinais em LIBRAS</h3>
+          <p>Aprenda o sinal de cada palavra com parâmetros completos: CM, PA, MO, OP e EFC (Expressão Facial e Corporal).</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">💬</span>
+          <h3>Frases em Contexto</h3>
+          <p>Cada carta traz 3 frases reais com QR Codes de vídeo e áudio-descrição para aprender o sinal em situação.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🔤</span>
+          <h3>Datilologia</h3>
+          <p>Letra por letra em LIBRAS com imagem do alfabeto manual e QR Code para cada posição.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">⠿</span>
+          <h3>Braille</h3>
+          <p>Cada palavra em Braille como referência de acessibilidade para pessoas cegas.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">✏️</span>
+          <h3>Cards Editáveis</h3>
+          <p>Configure cada carta com suas próprias imagens, frases e QR Codes. Ideal para professores criarem material próprio.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">♿</span>
+          <h3>Acessível</h3>
+          <p>Áudio-descritivo, Braille, alto contraste e suporte a leitores de tela. Feito para todos.</p>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="features">
-      <div class="chip">
-        🖐️ Sinais em LIBRAS
-        <small>Aprenda o sinal de cada palavra</small>
-      </div>
-      <div class="chip">
-        🔤 Datilologia
-        <small>Letra por letra em LIBRAS</small>
-      </div>
-      <div class="chip">
-        ⠿ Braille
-        <small>Texto de referência na tela</small>
-      </div>
-      <div class="chip">
-        🎮 3 Fases
-        <small>Sinal → Pistas → Datilologia</small>
-      </div>
-    </div>
+    <!-- Editáveis Section -->
+    <section class="features-section">
+      <div class="editable-section">
+        <h2 style="font-family: var(--display); font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 800; letter-spacing: -0.02em; text-align: center; margin-bottom: var(--space-sm);">
+          ✏️ Cards Editáveis para Sala de Aula
+        </h2>
+        <p style="text-align: center; color: var(--muted); font-size: 1rem; margin-bottom: var(--space-xl); max-width: 600px; margin-left: auto; margin-right: auto;">
+          Professores e intérpretes podem criar e configurar seus próprios cards.
+          Cada carta é um template completo: parâmetros, frases contextualizadas, QR Codes e Braille.
+        </p>
 
-    <div class="cta">
-      <a href="game/" class="btn btn-primary btn-lg">
-        🎮 Jogar Agora
-      </a>
-      <a href="cards/" class="btn btn-secondary btn-lg">
-        ✏️ Criar Cartas
-      </a>
-    </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-md); max-width: 800px; margin: 0 auto;">
+          <div class="feature-card" style="text-align: left;">
+            <span class="feature-icon">📋</span>
+            <h3>Configure Tudo</h3>
+            <p>Imagens, parâmetros LIBRAS (incluindo EFC), frases de contexto, datilologia letra por letra e Braille.</p>
+          </div>
+          <div class="feature-card" style="text-align: left;">
+            <span class="feature-icon">📱</span>
+            <h3>QR Codes por Frase</h3>
+            <p>Cada frase contextualizada pode ter seu próprio QR Code de vídeo e áudio-descrição.</p>
+          </div>
+          <div class="feature-card" style="text-align: left;">
+            <span class="feature-icon">🖨️</span>
+            <h3>Pronto para Imprimir</h3>
+            <p>Exporte cards formatados para impressão em sala de aula ou use no NotebookLM para gerar apresentações.</p>
+          </div>
+        </div>
 
-    <!-- Como Funciona -->
-    <div class="how-it-works">
+        <div style="text-align: center; margin-top: var(--space-xl);">
+          <a href="cards/" class="btn btn-primary btn-lg">
+            ✏️ Abrir Editor de Cards
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-section">
       <h2>📖 Como Funciona</h2>
       <p class="how-intro">
-        O Librapp é um jogo de cartas para aprender LIBRAS de forma divertida.
-        Inspirado no jogo "Mímica", mas adaptado para a Língua Brasileira de Sinais.
+        Inspirado no jogo de mímica, mas adaptado para a Língua Brasileira de Sinais.
       </p>
 
       <div class="rules-grid">
         <div class="rule-card">
           <div class="rule-number">1</div>
           <h3>👥 Dois Grupos</h3>
-          <p>Os jogadores se dividem em dois times. Cada um tenta fazer o sinal em LIBRAS para os colegas adivinharem.</p>
+          <p>Divida-se em dois times. Cada rodada, um jogador tenta fazer o sinal em LIBRAS para o seu time adivinhar.</p>
         </div>
-
         <div class="rule-card">
           <div class="rule-number">2</div>
-          <h3>🃏 Cartas com Palavras</h3>
-          <p>Cada carta traz uma palavra com imagem, sinal em LIBRAS, frases contextualizadas e datilologia.</p>
+          <h3>🃏 Cartas Temáticas</h3>
+          <p>Cada carta tem imagem, parâmetros de LIBRAS (CM/PA/MO/OP/EFC), frases contextualizadas, datilologia e Braille.</p>
         </div>
-
         <div class="rule-card">
           <div class="rule-number">3</div>
           <h3>🎯 3 Fases</h3>
-          <p>O jogador tem 3 tentativas progressivas: Sinal → Pistas → Datilologia.</p>
+          <p>O jogador avança por 3 fases: Sinal → Contexto → Palavra. Cada fase revela mais informação.</p>
         </div>
-
         <div class="rule-card">
           <div class="rule-number">4</div>
-          <h3>🔇 Sem Falar</h3>
-          <p>Nas pistas, só pode usar gestos e frases sem a palavra proibida. Quem fala, perde o ponto!</p>
+          <h3>🔇 Sem Falar!</h3>
+          <p>Nas pistas, só pode usar gestos e sinais. Quem fala a palavra, perde o ponto da rodada!</p>
         </div>
       </div>
 
-      <button class="btn btn-secondary rules-btn" onclick="toggleRules()">
-        📋 Ver Regras Completas
-      </button>
-    </div>
-
-    <!-- Modal de Regras -->
-    <div id="rules-modal" class="modal" onclick="if(event.target===this) toggleRules()">
-      <div class="modal-content">
-        <button class="modal-close" onclick="toggleRules()">✕</button>
-        <h2>📋 Regras do Librapp</h2>
-
-        <h3>🎮 Preparação</h3>
-        <ul>
-          <li>Divida o grupo em 2 times (mínimo 2 pessoas por time)</li>
-          <li>Imprimam ou abram as cartas no celular/computador</li>
-          <li>Definam um tempo (ex: 1 minuto por rodada)</li>
-        </ul>
-
-        <h3>🃏 Como Jogar</h3>
-        <ul>
-          <li><strong>Fase 1:</strong> O jogador vê apenas a imagem e tenta fazer o sinal em LIBRAS</li>
-          <li><strong>Fase 2:</strong> Se não acertarem, o jogador lê frases contextualizadas (sem revelar a palavra)</li>
-          <li><strong>Fase 3:</strong> Revela a datilologia (letra por letra) e o texto Braille de referência</li>
-          <li>O time ganha 1 ponto se acertar em cada fase</li>
-        </ul>
-
-        <h3>🚫 Regras de Conduta</h3>
-        <ul>
-          <li>Proibido falar a palavra da carta</li>
-          <li>Proibido apontar para a escrita</li>
-          <li>Quem trapaceia, perde o ponto da rodada</li>
-          <li>Ganha quem fizer mais pontos no final</li>
-        </ul>
-
-        <h3>♿ Acessibilidade</h3>
-        <ul>
-          <li>Modo Acessível (botão ♿): audiodescrição para quem faz o sinal — <strong>use fones</strong> para não vazar a resposta</li>
-          <li>Braille exibido como texto de referência na tela (app sem relevo físico)</li>
-          <li>QR Codes individuais: só quem escaneia ouve/vê o sinal — acessibilidade personalizada</li>
-          <li>LIBRAS como língua central do jogo</li>
-        </ul>
-
-        <button class="btn btn-primary" onclick="toggleRules()">
-          Entendi! Vamos Jogar
+      <div class="how-btn">
+        <button class="btn btn-secondary btn-lg" onclick="toggleRules()">
+          📋 Ver Regras Completas
         </button>
       </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="hero" style="padding-top: 0;">
+      <a href="game/" class="btn btn-primary btn-xl">
+        🎮 Jogar Agora
+      </a>
+      <p style="font-size: 0.85rem; color: var(--muted); margin-top: 0;">
+        Grátis · Open source · Acessível
+      </p>
+    </section>
+
+    <!-- PWA Install Bar -->
+    <div id="pwa-install-btn" class="pwa-install-bar hidden">
+      <span class="pwa-install-icon">🎮</span>
+      <div class="pwa-install-text">
+        Instalar Librapp
+        <small>Jogo de LIBRAS direto na tela inicial</small>
+      </div>
+      <button class="btn btn-primary btn-sm" onclick="installPWA()">Instalar</button>
+      <button class="pwa-install-close" onclick="this.parentElement.classList.add('hidden')">✕</button>
     </div>
 
-    <div class="status">🚀 Em construção — novos temas em breve!</div>
-  </main>
+    <!-- Footer -->
+    <footer class="landing-footer">
+      Librapp faz parte do ecossistema <a href="https://deivi.tech/">deivi.tech</a> · DeiviTech
+    </footer>
+  </div>
 
-  <footer>
-    Librapp faz parte do ecossistema <a href="https://deivi.tech/">deivi.tech</a> · DeiviTech
-  </footer>
+  <!-- Rules Modal -->
+  <div id="rules-modal" class="modal" onclick="if(event.target===this) toggleRules()">
+    <div class="modal-content">
+      <button class="modal-close" onclick="toggleRules()">✕</button>
+      <h2>📋 Regras do Librapp</h2>
+
+      <h3>🎮 Preparação</h3>
+      <ul>
+        <li>Divida o grupo em 2 times (mínimo 2 pessoas por time)</li>
+        <li>Abram as cartas no celular ou computador</li>
+        <li>Definam um tempo limite (ex: 1 minuto por rodada)</li>
+        <li>Configure quantos jogadores por time</li>
+      </ul>
+
+      <h3>🃏 Como Jogar</h3>
+      <ul>
+        <li><strong>Fase 1 — Sinal:</strong> O jogador vê imagem + descrição do sinal e tenta fazer em LIBRAS</li>
+        <li><strong>Fase 2 — Contexto:</strong> Se não acertarem, leia frases contextualizadas (sem revelar a palavra!)</li>
+        <li><strong>Fase 3 — Palavra:</strong> Revela a palavra, datilologia, Braille e QR Codes</li>
+        <li>O time ganha 1 ponto se acertar em cada fase</li>
+      </ul>
+
+      <h3>🚫 Regras de Conduta</h3>
+      <ul>
+        <li>Proibido falar a palavra da carta</li>
+        <li>Proibido apontar para a escrita na tela</li>
+        <li>Quem trapaceia, perde o ponto da rodada</li>
+        <li>Ganha quem fizer mais pontos no final</li>
+      </ul>
+
+      <h3>♿ Acessibilidade</h3>
+      <ul>
+        <li><strong>Modo Acessível:</strong> Ative o ♿ para ouvir a descrição do sinal com fones de ouvido</li>
+        <li><strong>Braille:</strong> Texto de referência na tela (app sem relevo físico)</li>
+        <li><strong>QR Codes:</strong> Escaneie para ver o vídeo em LIBRAS ou ouvir a descrição de cada frase</li>
+        <li><strong>EFC:</strong> Cada carta inclui Expressão Facial e Corporal — fundamental na LIBRAS</li>
+        <li>LIBRAS como língua central do jogo — todos participam!</li>
+      </ul>
+
+      <button class="btn btn-primary" onclick="toggleRules()">
+        Entendi! Vamos Jogar 🎮
+      </button>
+    </div>
+  </div>
 
   <script>
     function toggleRules() {
@@ -664,15 +810,37 @@
       document.body.style.overflow = modal.classList.contains('show') ? 'hidden' : '';
     }
 
-    // Fechar com ESC
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         const modal = document.getElementById('rules-modal');
-        if (modal.classList.contains('show')) {
-          toggleRules();
-        }
+        if (modal.classList.contains('show')) toggleRules();
       }
     });
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('librapp-theme', next);
+      const btn = document.getElementById('theme-toggle-btn');
+      if (btn) btn.textContent = next === 'dark' ? '🌙' : '☀️';
+    }
+
+    // Load theme on page load
+    (function() {
+      const saved = localStorage.getItem('librapp-theme') || 'light';
+      document.documentElement.setAttribute('data-theme', saved);
+      const btn = document.getElementById('theme-toggle-btn');
+      if (btn) btn.textContent = saved === 'dark' ? '🌙' : '☀️';
+    })();
+
+    // PWA: hide install bar if already standalone
+    if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
+      document.getElementById('pwa-install-btn')?.classList.add('hidden');
+    }
   </script>
+
+  <script src="assets/pwa.js?v=2"></script>
 </body>
 </html>

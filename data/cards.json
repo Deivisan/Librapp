@@ -1,244 +1,1024 @@
 {
-  "version": "1.0",
+  "version": "3.0",
   "categories": [
     {
       "id": "sala-de-aula",
-      "name": "Objetos de Sala de Aula",
-      "icon": "📚",
+      "name": "Objetos",
+      "icon": "📎",
       "cards": [
         {
           "word": "Tesoura",
-          "image": "assets/images/tesoura.jpg?v=2",
-          "sign_description": "Mão em forma de tesoura, abrindo e fechando os dedos indicador e médio",
-          "sign_video_qr": "assets/qrcodes/tesoura.png?v=2",
-          "audio_description_qr": "https://deivi.tech/libras/qrcode/tesoura-audio",
+          "image": "assets/images/tesoura.jpg",
+          "sign_description": "Mão em forma de tesoura — indicador e médio estendidos fazendo movimento de abrir e fechar.",
+          "libras_params": {
+            "cm": "Pinça (indicador e médio estendidos)",
+            "pa": "Espaço neutro à frente do tronco",
+            "mo": "Abrir e fechar os dedos (corte)",
+            "op": "Palmas para dentro, uma de frente pra outra",
+            "efc": "Sorriso leve, olhar focado nos dedos, expressão de concentração ao 'cortar'"
+          },
+          "sign_video_qr": "assets/qrcodes/tesoura.png",
+          "audio_description_qr": "assets/qrcodes/tesoura-audio.png",
+          "audio_file": "assets/audio/tesoura.mp3",
           "fingerspelling": [
             {
               "letter": "T",
-              "image": "assets/signs/letra-t.svg",
-              "libras": "Dedo polegar entre indicador e médio"
+              "image": "assets/signs/letra-t.png",
+              "libras": "Sinal da letra T"
             },
             {
               "letter": "E",
-              "image": "assets/signs/letra-e.svg",
-              "libras": "Dedos fechados, pontas tocando polegar"
+              "image": "assets/signs/letra-e.png",
+              "libras": "Sinal da letra E"
             },
             {
               "letter": "S",
-              "image": "assets/signs/letra-s.svg",
-              "libras": "Punho fechado, polegar na lateral"
+              "image": "assets/signs/letra-s.png",
+              "libras": "Sinal da letra S"
             },
             {
               "letter": "O",
-              "image": "assets/signs/letra-o.svg",
-              "libras": "Dedos arredondados tocando ponta do polegar"
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
             },
             {
               "letter": "U",
-              "image": "assets/signs/letra-u.svg",
-              "libras": "Indicador e médio unidos para cima"
+              "image": "assets/signs/letra-u.png",
+              "libras": "Sinal da letra U"
             },
             {
               "letter": "R",
-              "image": "assets/signs/letra-r.svg",
-              "libras": "Indicador cruzado sobre médio"
+              "image": "assets/signs/letra-r.png",
+              "libras": "Sinal da letra R"
             },
             {
               "letter": "A",
-              "image": "assets/signs/letra-a.svg",
-              "libras": "Punho fechado, polegar na lateral"
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
             }
           ],
-          "braille": "⠞⠑⠎⠳⠗⠁",
-          "audio_file": "assets/audio/tesoura.mp3?v=2",
+          "braille": "⠞⠑⠎⠕⠥⠗⠁",
           "context_sentences": [
-            "A professora usa na sala de aula para cortar papel colorido.",
-            "Na hora de fazer artesanato, você abre e fecha as lâminas assim.",
-            "Fica dentro da caixa de lápis ao lado da borracha."
+            {
+              "text": "Preciso cortar o papel pra atividade.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Ela está sem ponta, melhor usar outra.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Na aula de artes usamos pra recortar figuras.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
           ]
         },
         {
           "word": "Lápis",
-          "image": "assets/images/lapis.jpg?v=2",
-          "sign_description": "Mão simulando segurar um lápis e fazer movimento de escrever",
-          "sign_video_qr": "assets/qrcodes/lapis.png?v=2",
-          "audio_description_qr": "https://deivi.tech/libras/qrcode/lapis-audio",
+          "image": "assets/images/lapis.jpg",
+          "sign_description": "Mão simulando segurar um lápis, com movimento de escrever no ar.",
+          "libras_params": {
+            "cm": "Pinça (polegar, indicador e médio)",
+            "pa": "Espaço neutro, lateral do corpo na altura da mesa",
+            "mo": "Vai-e-vem (escrever)",
+            "op": "Palma para baixo",
+            "efc": "Olhar para baixo como se estivesse escrevendo, expressão neutra e focada"
+          },
+          "sign_video_qr": "assets/qrcodes/lapis.png",
+          "audio_description_qr": "assets/qrcodes/lapis-audio.png",
+          "audio_file": "assets/audio/lapis.mp3",
           "fingerspelling": [
             {
               "letter": "L",
-              "image": "assets/signs/letra-l.svg",
-              "libras": "Indicador e polegar formando L"
+              "image": "assets/signs/letra-l.png",
+              "libras": "Sinal da letra L"
             },
             {
-              "letter": "Á",
-              "image": "assets/signs/letra-a.svg",
-              "libras": "Punho fechado, polegar na lateral"
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
             },
             {
               "letter": "P",
-              "image": "assets/signs/letra-p.svg",
-              "libras": "Indicador apontando para baixo"
+              "image": "assets/signs/letra-p.png",
+              "libras": "Sinal da letra P"
             },
             {
               "letter": "I",
-              "image": "assets/signs/letra-i.svg",
-              "libras": "Dedo mindinho para cima"
+              "image": "assets/signs/letra-i.png",
+              "libras": "Sinal da letra I"
             },
             {
               "letter": "S",
-              "image": "assets/signs/letra-s.svg",
-              "libras": "Punho fechado, polegar na lateral"
+              "image": "assets/signs/letra-s.png",
+              "libras": "Sinal da letra S"
             }
           ],
-          "braille": "⠇⠁⠏⠊⠎",
-          "audio_file": "assets/audio/lapis.mp3?v=2",
+          "braille": "⠇⠷⠏⠊⠎",
           "context_sentences": [
-            "Quando você vai escrever no caderno, segura ele assim.",
-            "Tem ponta de grafite que a professora sempre afia.",
-            "Na ponta tem uma borracha para apagar o erro."
+            {
+              "text": "O meu quebrou a ponta na hora de escrever.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Sempre empresto o meu pra colega do lado.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Na prova é melhor usar um bem apontado.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
           ]
         },
         {
           "word": "Borracha",
-          "image": "assets/images/borracha.jpg?v=2",
-          "sign_description": "Mão simulando apagar com borracha no papel",
-          "sign_video_qr": "assets/qrcodes/borracha.png?v=2",
-          "audio_description_qr": "https://deivi.tech/libras/qrcode/borracha-audio",
+          "image": "assets/images/borracha.jpg",
+          "sign_description": "Mão fechada fazendo movimento circular como se estivesse apagando algo.",
+          "libras_params": {
+            "cm": "Mão fechada (punho)",
+            "pa": "Espaço neutro na altura da mesa",
+            "mo": "Movimento circular (esfregar)",
+            "op": "Palma para baixo",
+            "efc": "Expressão de correção, leve sorriso ao 'apagar', movimento de negar com a cabeça"
+          },
+          "sign_video_qr": "assets/qrcodes/borracha.png",
+          "audio_description_qr": "assets/qrcodes/borracha-audio.png",
+          "audio_file": "assets/audio/borracha.mp3",
           "fingerspelling": [
             {
               "letter": "B",
-              "image": "assets/signs/letra-b.svg",
-              "libras": "Dedos esticados, polegar dobrado"
+              "image": "assets/signs/letra-b.png",
+              "libras": "Sinal da letra B"
             },
             {
               "letter": "O",
-              "image": "assets/signs/letra-o.svg",
-              "libras": "Dedos arredondados tocando ponta do polegar"
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
             },
             {
               "letter": "R",
-              "image": "assets/signs/letra-r.svg",
-              "libras": "Indicador cruzado sobre médio"
+              "image": "assets/signs/letra-r.png",
+              "libras": "Sinal da letra R"
             },
             {
               "letter": "R",
-              "image": "assets/signs/letra-r.svg",
-              "libras": "Indicador cruzado sobre médio"
+              "image": "assets/signs/letra-r.png",
+              "libras": "Sinal da letra R"
             },
             {
               "letter": "A",
-              "image": "assets/signs/letra-a.svg",
-              "libras": "Punho fechado, polegar na lateral"
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
             },
             {
               "letter": "C",
-              "image": "assets/signs/letra-c.svg",
-              "libras": "Dedos curvados formando C"
+              "image": "assets/signs/letra-c.png",
+              "libras": "Sinal da letra C"
             },
             {
               "letter": "H",
-              "image": "assets/signs/letra-h.svg",
-              "libras": "Indicador e médio apontando lado"
+              "image": "assets/signs/letra-h.png",
+              "libras": "Sinal da letra H"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
             }
           ],
-          "braille": "⠃⠕⠗⠗⠁⠉⠓",
-          "audio_file": "assets/audio/borracha.mp3?v=2",
+          "braille": "⠃⠕⠗⠗⠁⠉⠓⠁",
           "context_sentences": [
-            "Quando você erra a letra, passa ela no papel para sumir.",
-            "Geralmente é rosa ou branca e fica na ponta do lápis.",
-            "Serve para apagar o que foi escrito errado."
+            {
+              "text": "Errei a conta e precisei apagar tudo.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "A minha já está no final, quase sem borracha.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Melhor usar a branca que não borra o papel.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
           ]
         },
         {
           "word": "Caderno",
-          "image": "assets/images/caderno.jpg?v=2",
-          "sign_description": "Duas mãos abertas simulando abrir um caderno",
-          "sign_video_qr": "assets/qrcodes/caderno.png?v=2",
-          "audio_description_qr": "https://deivi.tech/libras/qrcode/caderno-audio",
+          "image": "assets/images/caderno.jpg",
+          "sign_description": "Duas mãos abertas, palmas para cima, abrindo lateralmente como um livro.",
+          "libras_params": {
+            "cm": "Mãos abertas, palmas para cima",
+            "pa": "Espaço neutro, altura do tronco",
+            "mo": "Abrir mãos lateralmente",
+            "op": "Palmas para cima",
+            "efc": "Olhar curioso, expressão de quem abre algo, leve surpresa"
+          },
+          "sign_video_qr": "assets/qrcodes/caderno.png",
+          "audio_description_qr": "assets/qrcodes/caderno-audio.png",
+          "audio_file": "assets/audio/caderno.mp3",
           "fingerspelling": [
             {
               "letter": "C",
-              "image": "assets/signs/letra-c.svg",
-              "libras": "Dedos curvados formando C"
+              "image": "assets/signs/letra-c.png",
+              "libras": "Sinal da letra C"
             },
             {
               "letter": "A",
-              "image": "assets/signs/letra-a.svg",
-              "libras": "Punho fechado, polegar na lateral"
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
             },
             {
               "letter": "D",
-              "image": "assets/signs/letra-d.svg",
-              "libras": "Indicador para cima, polegar encosta no médio"
+              "image": "assets/signs/letra-d.png",
+              "libras": "Sinal da letra D"
             },
             {
               "letter": "E",
-              "image": "assets/signs/letra-e.svg",
-              "libras": "Dedos fechados, pontas tocando polegar"
+              "image": "assets/signs/letra-e.png",
+              "libras": "Sinal da letra E"
             },
             {
               "letter": "R",
-              "image": "assets/signs/letra-r.svg",
-              "libras": "Indicador cruzado sobre médio"
+              "image": "assets/signs/letra-r.png",
+              "libras": "Sinal da letra R"
             },
             {
               "letter": "N",
-              "image": "assets/signs/letra-n.svg",
-              "libras": "Punho com indicador e médio para baixo"
+              "image": "assets/signs/letra-n.png",
+              "libras": "Sinal da letra N"
             },
             {
               "letter": "O",
-              "image": "assets/signs/letra-o.svg",
-              "libras": "Dedos arredondados tocando ponta do polegar"
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
             }
           ],
           "braille": "⠉⠁⠙⠑⠗⠝⠕",
-          "audio_file": "assets/audio/caderno.mp3?v=2",
           "context_sentences": [
-            "Você abre ele na mesa e escreve as lições da escola.",
-            "Tem capa dura e muitas páginas para anotar.",
-            "Vai junto na mochila para carregar para a aula."
+            {
+              "text": "Esqueci o em casa e vou ter que compartilhar.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "As folhas do meu estão quase acabando.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "A professora pediu pra caprichar na caligrafia.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
           ]
         },
         {
           "word": "Régua",
-          "image": "assets/images/regua.jpg?v=2",
-          "sign_description": "Mão simulando segurar régua e passar na lateral do lápis",
-          "sign_video_qr": "assets/qrcodes/regua.png?v=2",
-          "audio_description_qr": "https://deivi.tech/libras/qrcode/regua-audio",
+          "image": "assets/images/regua.jpg",
+          "sign_description": "Mão em L (polegar e indicador formando L), movimento retilíneo lateral.",
+          "libras_params": {
+            "cm": "Mão em L (polegar e indicador)",
+            "pa": "Espaço neutro, altura do peito",
+            "mo": "Movimento retilíneo lateral (medir)",
+            "op": "Palma para baixo ou lateral",
+            "efc": "Expressão séria e focada, olhar reto como quem mede com precisão"
+          },
+          "sign_video_qr": "assets/qrcodes/regua.png",
+          "audio_description_qr": "assets/qrcodes/regua-audio.png",
+          "audio_file": "assets/audio/regua.mp3",
           "fingerspelling": [
             {
               "letter": "R",
-              "image": "assets/signs/letra-r.svg",
-              "libras": "Indicador cruzado sobre médio"
+              "image": "assets/signs/letra-r.png",
+              "libras": "Sinal da letra R"
             },
             {
-              "letter": "É",
-              "image": "assets/signs/letra-e.svg",
-              "libras": "Dedos fechados, pontas tocando polegar"
+              "letter": "E",
+              "image": "assets/signs/letra-e.png",
+              "libras": "Sinal da letra E"
             },
             {
               "letter": "G",
-              "image": "assets/signs/letra-g.svg",
-              "libras": "Indicador apontando, polegar embaixo"
+              "image": "assets/signs/letra-g.png",
+              "libras": "Sinal da letra G"
             },
             {
               "letter": "U",
-              "image": "assets/signs/letra-u.svg",
-              "libras": "Indicador e médio unidos para cima"
+              "image": "assets/signs/letra-u.png",
+              "libras": "Sinal da letra U"
             },
             {
               "letter": "A",
-              "image": "assets/signs/letra-a.svg",
-              "libras": "Punho fechado, polegar na lateral"
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
             }
           ],
-          "braille": "⠗⠑⠛⠥⠁",
-          "audio_file": "assets/audio/regua.mp3?v=2",
+          "braille": "⠗⠿⠛⠥⠁",
           "context_sentences": [
-            "Para desenhar uma linha reta sem fazer onda, você passa ele.",
-            "Tem números e marcações de centímetros na lateral.",
-            "Usa junto com o lápis para traçar no caderno."
+            {
+              "text": "Use a pra fazer a linha reta no desenho.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "A minha é de 30 centímetros, bem grandinha.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Não dá pra medir isso com régua pequena.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Mesa",
+          "image": "assets/images/mesa.jpg",
+          "sign_description": "Mãos abertas para baixo, antebraços na horizontal, como se estivesse apoiando numa superfície plana.",
+          "libras_params": {
+            "cm": "Mãos abertas para baixo",
+            "pa": "Altura da cintura",
+            "mo": "Sem movimento (configuração estática)",
+            "op": "Palmas para baixo",
+            "efc": "Expressão neutra e estática, corpo reto como uma superfície plana"
+          },
+          "sign_video_qr": "assets/qrcodes/mesa.png",
+          "audio_description_qr": "assets/qrcodes/mesa-audio.png",
+          "audio_file": "assets/audio/mesa.mp3",
+          "fingerspelling": [
+            {
+              "letter": "M",
+              "image": "assets/signs/letra-m.png",
+              "libras": "Sinal da letra M"
+            },
+            {
+              "letter": "E",
+              "image": "assets/signs/letra-e.png",
+              "libras": "Sinal da letra E"
+            },
+            {
+              "letter": "S",
+              "image": "assets/signs/letra-s.png",
+              "libras": "Sinal da letra S"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            }
+          ],
+          "braille": "⠍⠑⠎⠁",
+          "context_sentences": [
+            {
+              "text": "A da sala está toda riscada de caneta.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Sente-se direito e coloque o material na.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Vamos fazer a atividade em grupo na grande.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Cadeira",
+          "image": "assets/images/cadeira.jpg",
+          "sign_description": "Mão fechada, indicador estendido, movimento para baixo simulando sentar.",
+          "libras_params": {
+            "cm": "Mão em L invertido (indicador estendido)",
+            "pa": "Abaixo do corpo, na altura dos quadris",
+            "mo": "Movimento para baixo (sentar)",
+            "op": "Palma para baixo",
+            "efc": "Expressão de conforto, leve inclinação do corpo como quem vai sentar"
+          },
+          "sign_video_qr": "assets/qrcodes/cadeira.png",
+          "audio_description_qr": "assets/qrcodes/cadeira-audio.png",
+          "audio_file": "assets/audio/cadeira.mp3",
+          "fingerspelling": [
+            {
+              "letter": "C",
+              "image": "assets/signs/letra-c.png",
+              "libras": "Sinal da letra C"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            },
+            {
+              "letter": "D",
+              "image": "assets/signs/letra-d.png",
+              "libras": "Sinal da letra D"
+            },
+            {
+              "letter": "E",
+              "image": "assets/signs/letra-e.png",
+              "libras": "Sinal da letra E"
+            },
+            {
+              "letter": "I",
+              "image": "assets/signs/letra-i.png",
+              "libras": "Sinal da letra I"
+            },
+            {
+              "letter": "R",
+              "image": "assets/signs/letra-r.png",
+              "libras": "Sinal da letra R"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            }
+          ],
+          "braille": "⠉⠁⠙⠑⠊⠗⠁",
+          "context_sentences": [
+            {
+              "text": "A minha está quebrada, melhor trocar.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Puxe a antes de sentar, faz menos barulho.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Na biblioteca as são mais confortáveis.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Quadro",
+          "image": "assets/images/quadro.jpg",
+          "sign_description": "Mão aberta na vertical, movimento retangular no ar como se estivesse desenhando um quadro.",
+          "libras_params": {
+            "cm": "Mão aberta, dedos unidos",
+            "pa": "Espaço neutro à frente, altura do rosto",
+            "mo": "Movimento retangular (delimitar área)",
+            "op": "Palma para frente",
+            "efc": ""
+          },
+          "sign_video_qr": "assets/qrcodes/quadro.png",
+          "audio_description_qr": "assets/qrcodes/quadro-audio.png",
+          "audio_file": "assets/audio/quadro.mp3",
+          "fingerspelling": [
+            {
+              "letter": "Q",
+              "image": "assets/signs/letra-q.png",
+              "libras": "Sinal da letra Q"
+            },
+            {
+              "letter": "U",
+              "image": "assets/signs/letra-u.png",
+              "libras": "Sinal da letra U"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            },
+            {
+              "letter": "D",
+              "image": "assets/signs/letra-d.png",
+              "libras": "Sinal da letra D"
+            },
+            {
+              "letter": "R",
+              "image": "assets/signs/letra-r.png",
+              "libras": "Sinal da letra R"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            }
+          ],
+          "braille": "⠟⠥⠁⠙⠗⠕",
+          "context_sentences": [
+            {
+              "text": "A professora escreveu a matéria toda no.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Apaga o antes de começar a nova aula.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "O está cheio de fórmulas de matemática.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Mochila",
+          "image": "assets/images/mochila.jpg",
+          "sign_description": "Mãos fechadas nos ombros simulando as alças, movimento de puxar para trás.",
+          "libras_params": {
+            "cm": "Mãos fechadas (segurando alças)",
+            "pa": "Nos ombros",
+            "mo": "Puxar para trás (colocar a mochila)",
+            "op": "Palmas para dentro",
+            "efc": ""
+          },
+          "sign_video_qr": "assets/qrcodes/mochila.png",
+          "audio_description_qr": "assets/qrcodes/mochila-audio.png",
+          "audio_file": "assets/audio/mochila.mp3",
+          "fingerspelling": [
+            {
+              "letter": "M",
+              "image": "assets/signs/letra-m.png",
+              "libras": "Sinal da letra M"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            },
+            {
+              "letter": "C",
+              "image": "assets/signs/letra-c.png",
+              "libras": "Sinal da letra C"
+            },
+            {
+              "letter": "H",
+              "image": "assets/signs/letra-h.png",
+              "libras": "Sinal da letra H"
+            },
+            {
+              "letter": "I",
+              "image": "assets/signs/letra-i.png",
+              "libras": "Sinal da letra I"
+            },
+            {
+              "letter": "L",
+              "image": "assets/signs/letra-l.png",
+              "libras": "Sinal da letra L"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            }
+          ],
+          "braille": "⠍⠕⠉⠓⠊⠇⠁",
+          "context_sentences": [
+            {
+              "text": "Minha está pesada hoje, trouxe livro demais.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Esqueci o estojo dentro da.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Coloca a no gancho antes de entrar na sala.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Caneta",
+          "image": "assets/images/caneta.jpg",
+          "sign_description": "Pinça com polegar e indicador, movimento de escrever menor e mais preciso que lápis.",
+          "libras_params": {
+            "cm": "Pinça fina (polegar e indicador)",
+            "pa": "Espaço neutro, lateral do corpo",
+            "mo": "Movimento pequeno de vai-e-vem (escrever)",
+            "op": "Palma para baixo ou lateral",
+            "efc": ""
+          },
+          "sign_video_qr": "assets/qrcodes/caneta.png",
+          "audio_description_qr": "assets/qrcodes/caneta-audio.png",
+          "audio_file": "assets/audio/caneta.mp3",
+          "fingerspelling": [
+            {
+              "letter": "C",
+              "image": "assets/signs/letra-c.png",
+              "libras": "Sinal da letra C"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            },
+            {
+              "letter": "N",
+              "image": "assets/signs/letra-n.png",
+              "libras": "Sinal da letra N"
+            },
+            {
+              "letter": "E",
+              "image": "assets/signs/letra-e.png",
+              "libras": "Sinal da letra E"
+            },
+            {
+              "letter": "T",
+              "image": "assets/signs/letra-t.png",
+              "libras": "Sinal da letra T"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            }
+          ],
+          "braille": "⠉⠁⠝⠑⠞⠁",
+          "context_sentences": [
+            {
+              "text": "A minha azul acabou a tinta bem na prova.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Essa vermelha é pra corrigir os exercícios.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Gosto de escrever com de ponta fina.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Livro",
+          "image": "assets/images/livro.jpg",
+          "sign_description": "Mãos abertas uma ao lado da outra, movimento de abrir como se estivesse folheando páginas.",
+          "libras_params": {
+            "cm": "Mãos abertas, dedos unidos",
+            "pa": "Espaço neutro à frente do tronco",
+            "mo": "Abrir mãos lateralmente (folhear)",
+            "op": "Palmas para cima ou para dentro",
+            "efc": ""
+          },
+          "sign_video_qr": "assets/qrcodes/livro.png",
+          "audio_description_qr": "assets/qrcodes/livro-audio.png",
+          "audio_file": "assets/audio/livro.mp3",
+          "fingerspelling": [
+            {
+              "letter": "L",
+              "image": "assets/signs/letra-l.png",
+              "libras": "Sinal da letra L"
+            },
+            {
+              "letter": "I",
+              "image": "assets/signs/letra-i.png",
+              "libras": "Sinal da letra I"
+            },
+            {
+              "letter": "V",
+              "image": "assets/signs/letra-v.png",
+              "libras": "Sinal da letra V"
+            },
+            {
+              "letter": "R",
+              "image": "assets/signs/letra-r.png",
+              "libras": "Sinal da letra R"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            }
+          ],
+          "braille": "⠇⠊⠧⠗⠕",
+          "context_sentences": [
+            {
+              "text": "O de história tem umas ilustrações lindas.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Esqueci o na biblioteca, preciso buscar.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Qual é o título do que você está lendo?",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Apontador",
+          "image": "assets/images/apontador.jpg",
+          "sign_description": "Mão em pinça girando, movimento circular como se estivesse apontando um lápis.",
+          "libras_params": {
+            "cm": "Pinça (polegar e indicador girando)",
+            "pa": "Espaço neutro, altura da mesa",
+            "mo": "Movimento circular (girar o apontador)",
+            "op": "Palma para baixo",
+            "efc": ""
+          },
+          "sign_video_qr": "assets/qrcodes/apontador.png",
+          "audio_description_qr": "assets/qrcodes/apontador-audio.png",
+          "audio_file": "assets/audio/apontador.mp3",
+          "fingerspelling": [
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            },
+            {
+              "letter": "P",
+              "image": "assets/signs/letra-p.png",
+              "libras": "Sinal da letra P"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            },
+            {
+              "letter": "N",
+              "image": "assets/signs/letra-n.png",
+              "libras": "Sinal da letra N"
+            },
+            {
+              "letter": "T",
+              "image": "assets/signs/letra-t.png",
+              "libras": "Sinal da letra T"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            },
+            {
+              "letter": "D",
+              "image": "assets/signs/letra-d.png",
+              "libras": "Sinal da letra D"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            },
+            {
+              "letter": "R",
+              "image": "assets/signs/letra-r.png",
+              "libras": "Sinal da letra R"
+            }
+          ],
+          "braille": "⠁⠏⠕⠝⠞⠁⠙⠕⠗",
+          "context_sentences": [
+            {
+              "text": "O meu está sem lâmina, precisa trocar.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Tem um acoplado no estojo bem prático.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Faz muito barulho quando aponta o lápis.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Compasso",
+          "image": "assets/images/compasso.jpg",
+          "sign_description": "Mão em V (indicador e médio abertos), movimento circular simulando desenhar um círculo.",
+          "libras_params": {
+            "cm": "Mão em V (indicador e médio abertos)",
+            "pa": "Espaço neutro, altura da mesa",
+            "mo": "Movimento circular (girar o compasso)",
+            "op": "Palma para baixo",
+            "efc": ""
+          },
+          "sign_video_qr": "assets/qrcodes/compasso.png",
+          "audio_description_qr": "assets/qrcodes/compasso-audio.png",
+          "audio_file": "assets/audio/compasso.mp3",
+          "fingerspelling": [
+            {
+              "letter": "C",
+              "image": "assets/signs/letra-c.png",
+              "libras": "Sinal da letra C"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            },
+            {
+              "letter": "M",
+              "image": "assets/signs/letra-m.png",
+              "libras": "Sinal da letra M"
+            },
+            {
+              "letter": "P",
+              "image": "assets/signs/letra-p.png",
+              "libras": "Sinal da letra P"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            },
+            {
+              "letter": "S",
+              "image": "assets/signs/letra-s.png",
+              "libras": "Sinal da letra S"
+            },
+            {
+              "letter": "S",
+              "image": "assets/signs/letra-s.png",
+              "libras": "Sinal da letra S"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            }
+          ],
+          "braille": "⠉⠕⠍⠏⠁⠎⠎⠕",
+          "context_sentences": [
+            {
+              "text": "O da aula de geometria está sem a ponta seca.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Use o pra fazer o círculo perfeito no desenho.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Precisa segurar firme pra não sair torto.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Cola",
+          "image": "assets/images/cola.jpg",
+          "sign_description": "Mão fechada apertando com movimento de deslizar, como se estivesse passando cola no papel.",
+          "libras_params": {
+            "cm": "Mão fechada (aperto)",
+            "pa": "Espaço neutro, altura da mesa",
+            "mo": "Deslizar para o lado (passar cola)",
+            "op": "Palma para baixo",
+            "efc": ""
+          },
+          "sign_video_qr": "assets/qrcodes/cola.png",
+          "audio_description_qr": "assets/qrcodes/cola-audio.png",
+          "audio_file": "assets/audio/cola.mp3",
+          "fingerspelling": [
+            {
+              "letter": "C",
+              "image": "assets/signs/letra-c.png",
+              "libras": "Sinal da letra C"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            },
+            {
+              "letter": "L",
+              "image": "assets/signs/letra-l.png",
+              "libras": "Sinal da letra L"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            }
+          ],
+          "braille": "⠉⠕⠇⠁",
+          "context_sentences": [
+            {
+              "text": "A branca é melhor porque não mancha o papel.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Passa bastante pra folha não descolar depois.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Espera secar antes de virar a página.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Grampeador",
+          "image": "assets/images/grampeador.jpg",
+          "sign_description": "Mão sobre a outra, movimento de apertar para baixo (grampear).",
+          "libras_params": {
+            "cm": "Mão fechada sobre a outra",
+            "pa": "Espaço neutro, altura da mesa",
+            "mo": "Apertar para baixo (grampear)",
+            "op": "Palmas para baixo, uma sobre a outra",
+            "efc": ""
+          },
+          "sign_video_qr": "assets/qrcodes/grampeador.png",
+          "audio_description_qr": "assets/qrcodes/grampeador-audio.png",
+          "audio_file": "assets/audio/grampeador.mp3",
+          "fingerspelling": [
+            {
+              "letter": "G",
+              "image": "assets/signs/letra-g.png",
+              "libras": "Sinal da letra G"
+            },
+            {
+              "letter": "R",
+              "image": "assets/signs/letra-r.png",
+              "libras": "Sinal da letra R"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            },
+            {
+              "letter": "M",
+              "image": "assets/signs/letra-m.png",
+              "libras": "Sinal da letra M"
+            },
+            {
+              "letter": "P",
+              "image": "assets/signs/letra-p.png",
+              "libras": "Sinal da letra P"
+            },
+            {
+              "letter": "E",
+              "image": "assets/signs/letra-e.png",
+              "libras": "Sinal da letra E"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            },
+            {
+              "letter": "D",
+              "image": "assets/signs/letra-d.png",
+              "libras": "Sinal da letra D"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            },
+            {
+              "letter": "R",
+              "image": "assets/signs/letra-r.png",
+              "libras": "Sinal da letra R"
+            }
+          ],
+          "braille": "⠛⠗⠁⠍⠏⠑⠁⠙⠕⠗",
+          "context_sentences": [
+            {
+              "text": "O da secretaria está sem grampo.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Junta as folhas e grampeia no canto.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Cuidado com o dedo na hora de apertar.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
           ]
         }
       ]
@@ -250,84 +1030,897 @@
       "cards": [
         {
           "word": "Maçã",
-          "image": "assets/images/maca.jpg?v=2",
-          "sign_description": "Mão fechada simulando segurar maçã e trazer até a boca",
-          "sign_video_qr": "assets/qrcodes/maca.png?v=2",
-          "audio_description_qr": "https://deivi.tech/libras/qrcode/maca-audio",
+          "image": "assets/images/maca.jpg",
+          "sign_description": "Mão semi-aberta, dedos curvados, levando à boca (morder).",
+          "libras_params": {
+            "cm": "Mão semi-aberta, dedos curvados",
+            "pa": "Próximo à boca",
+            "mo": "Levar a mão à boca (morder)",
+            "op": "Palma para trás",
+            "efc": "Sorriso ao 'morder', expressão de sabor, olhar para o objeto imaginário"
+          },
+          "sign_video_qr": "assets/qrcodes/maca.png",
+          "audio_description_qr": "assets/qrcodes/maca-audio.png",
+          "audio_file": "assets/audio/maca.mp3",
           "fingerspelling": [
             {
               "letter": "M",
-              "image": "assets/signs/letra-m.svg",
-              "libras": "Três dedos sobre polegar"
+              "image": "assets/signs/letra-m.png",
+              "libras": "Sinal da letra M"
             },
             {
               "letter": "A",
-              "image": "assets/signs/letra-a.svg",
-              "libras": "Punho fechado, polegar na lateral"
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
             },
             {
-              "letter": "Ç",
-              "image": "assets/signs/letra-c.svg",
-              "libras": "Dedos curvados formando C"
+              "letter": "C",
+              "image": "assets/signs/letra-c.png",
+              "libras": "Sinal da letra C"
             },
             {
-              "letter": "Ã",
-              "image": "assets/signs/letra-a.svg",
-              "libras": "Punho fechado, polegar na lateral"
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
             }
           ],
-          "braille": "⠍⠁⠉⠁",
-          "audio_file": "assets/audio/maca.mp3?v=2",
+          "braille": "⠍⠁⠯⠡",
           "context_sentences": [
-            "É uma fruta vermelha ou verde que a professora traz no lanche.",
-            "No desenho, o cachorro comeu uma igual a essa.",
-            "Tem casca fina e crocante quando você morde."
+            {
+              "text": "A vermelha é mais doce que a verde.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Lave bem antes de comer.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Na merenda de hoje teve vermelha.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
           ]
         },
         {
           "word": "Banana",
-          "image": "assets/images/banana.jpg?v=2",
-          "sign_description": "Mão simulando descascar banana",
-          "sign_video_qr": "assets/qrcodes/banana.png?v=2",
-          "audio_description_qr": "https://deivi.tech/libras/qrcode/banana-audio",
+          "image": "assets/images/banana.jpg",
+          "sign_description": "Pinça com polegar e indicador, movimento de puxar para baixo (descascar).",
+          "libras_params": {
+            "cm": "Pinça (polegar e indicador)",
+            "pa": "Espaço neutro, altura do peito",
+            "mo": "Puxar para baixo (descascar)",
+            "op": "Palma para baixo",
+            "efc": "Expressão divertida ao 'descascar', sorriso aberto"
+          },
+          "sign_video_qr": "assets/qrcodes/banana.png",
+          "audio_description_qr": "assets/qrcodes/banana-audio.png",
+          "audio_file": "assets/audio/banana.mp3",
           "fingerspelling": [
             {
               "letter": "B",
-              "image": "assets/signs/letra-b.svg",
-              "libras": "Dedos esticados, polegar dobrado"
+              "image": "assets/signs/letra-b.png",
+              "libras": "Sinal da letra B"
             },
             {
               "letter": "A",
-              "image": "assets/signs/letra-a.svg",
-              "libras": "Punho fechado, polegar na lateral"
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
             },
             {
               "letter": "N",
-              "image": "assets/signs/letra-n.svg",
-              "libras": "Punho com indicador e médio para baixo"
+              "image": "assets/signs/letra-n.png",
+              "libras": "Sinal da letra N"
             },
             {
               "letter": "A",
-              "image": "assets/signs/letra-a.svg",
-              "libras": "Punho fechado, polegar na lateral"
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
             },
             {
               "letter": "N",
-              "image": "assets/signs/letra-n.svg",
-              "libras": "Punho com indicador e médio para baixo"
+              "image": "assets/signs/letra-n.png",
+              "libras": "Sinal da letra N"
             },
             {
               "letter": "A",
-              "image": "assets/signs/letra-a.svg",
-              "libras": "Punho fechado, polegar na lateral"
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
             }
           ],
           "braille": "⠃⠁⠝⠁⠝⠁",
-          "audio_file": "assets/audio/banana.mp3?v=2",
           "context_sentences": [
-            "É uma fruta amarela e comprida que você descasca antes de comer.",
-            "O macaco no desenho adora pular atrás dela.",
-            "Tem uma casca doce que a gente tira com as mãos."
+            {
+              "text": "A está bem madura, casca dourada.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Como com aveia no café da manhã.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "A casca escorrega se pisar sem cuidado.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Arroz",
+          "image": "assets/images/arroz.jpg",
+          "sign_description": "Mão em pinça (polegar e indicador), movimento próximo à boca como se estivesse comendo grão por grão.",
+          "libras_params": {
+            "cm": "Pinça (polegar e indicador)",
+            "pa": "Próximo à boca",
+            "mo": "Levar à boca repetidamente",
+            "op": "Palma para cima",
+            "efc": "Expressão neutra, olhar para o prato imaginário, sorriso leve"
+          },
+          "sign_video_qr": "assets/qrcodes/arroz.png",
+          "audio_description_qr": "assets/qrcodes/arroz-audio.png",
+          "audio_file": "assets/audio/arroz.mp3",
+          "fingerspelling": [
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            },
+            {
+              "letter": "R",
+              "image": "assets/signs/letra-r.png",
+              "libras": "Sinal da letra R"
+            },
+            {
+              "letter": "R",
+              "image": "assets/signs/letra-r.png",
+              "libras": "Sinal da letra R"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            },
+            {
+              "letter": "Z",
+              "image": "assets/signs/letra-z.png",
+              "libras": "Sinal da letra Z"
+            }
+          ],
+          "braille": "⠁⠗⠗⠕⠵",
+          "context_sentences": [
+            {
+              "text": "O branco é o que mais comemos no dia a dia.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Hoje o está soltinho, bem no ponto.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "No almoço sempre tem com feijão.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Feijão",
+          "image": "assets/images/feijao.jpg",
+          "sign_description": "Mão semi-aberta, movimento de concha levando algo à boca.",
+          "libras_params": {
+            "cm": "Mão em concha",
+            "pa": "Próximo à boca",
+            "mo": "Levar à boca (colherada)",
+            "op": "Palma para cima",
+            "efc": "Expressão de comida caseira, conforto, sorriso acolhedor"
+          },
+          "sign_video_qr": "assets/qrcodes/feijao.png",
+          "audio_description_qr": "assets/qrcodes/feijao-audio.png",
+          "audio_file": "assets/audio/feijao.mp3",
+          "fingerspelling": [
+            {
+              "letter": "F",
+              "image": "assets/signs/letra-f.png",
+              "libras": "Sinal da letra F"
+            },
+            {
+              "letter": "E",
+              "image": "assets/signs/letra-e.png",
+              "libras": "Sinal da letra E"
+            },
+            {
+              "letter": "I",
+              "image": "assets/signs/letra-i.png",
+              "libras": "Sinal da letra I"
+            },
+            {
+              "letter": "J",
+              "image": "assets/signs/letra-j.png",
+              "libras": "Sinal da letra J"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            }
+          ],
+          "braille": "⠋⠑⠊⠚⠡⠕",
+          "context_sentences": [
+            {
+              "text": "O preto é mais comum no Rio de Janeiro.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Na minha casa todo dia tem fresco.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "O caldo do é bom com macarrão.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Pão",
+          "image": "assets/images/pao.jpg",
+          "sign_description": "Mão em forma de fatia, movimento de cortar ou passar manteiga.",
+          "libras_params": {
+            "cm": "Mão aberta em formato de fatia",
+            "pa": "Espaço neutro, altura do peito",
+            "mo": "Movimento de passar (manteiga)",
+            "op": "Palma para baixo",
+            "efc": ""
+          },
+          "sign_video_qr": "assets/qrcodes/pao.png",
+          "audio_description_qr": "assets/qrcodes/pao-audio.png",
+          "audio_file": "assets/audio/pao.mp3",
+          "fingerspelling": [
+            {
+              "letter": "P",
+              "image": "assets/signs/letra-p.png",
+              "libras": "Sinal da letra P"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            }
+          ],
+          "braille": "⠏⠡⠕",
+          "context_sentences": [
+            {
+              "text": "O francês fresquinho é o melhor.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Compra dois de queijo na padaria.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Café com na chapa é café da manhã perfeito.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Leite",
+          "image": "assets/images/leite.jpg",
+          "sign_description": "Mão fechada, movimento de ordenha (apertar e puxar para baixo).",
+          "libras_params": {
+            "cm": "Mão fechada (ordenha)",
+            "pa": "Espaço neutro, altura do peito",
+            "mo": "Apertar e puxar para baixo (ordenhar)",
+            "op": "Palma para dentro",
+            "efc": ""
+          },
+          "sign_video_qr": "assets/qrcodes/leite.png",
+          "audio_description_qr": "assets/qrcodes/leite-audio.png",
+          "audio_file": "assets/audio/leite.mp3",
+          "fingerspelling": [
+            {
+              "letter": "L",
+              "image": "assets/signs/letra-l.png",
+              "libras": "Sinal da letra L"
+            },
+            {
+              "letter": "E",
+              "image": "assets/signs/letra-e.png",
+              "libras": "Sinal da letra E"
+            },
+            {
+              "letter": "I",
+              "image": "assets/signs/letra-i.png",
+              "libras": "Sinal da letra I"
+            },
+            {
+              "letter": "T",
+              "image": "assets/signs/letra-t.png",
+              "libras": "Sinal da letra T"
+            },
+            {
+              "letter": "E",
+              "image": "assets/signs/letra-e.png",
+              "libras": "Sinal da letra E"
+            }
+          ],
+          "braille": "⠇⠑⠊⠞⠑",
+          "context_sentences": [
+            {
+              "text": "O está gelado, melhor esquentar um pouco.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Bebo um copo toda noite antes de dormir.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "O de caixinha dura mais que o de saquinho.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Ovo",
+          "image": "assets/images/ovo.jpg",
+          "sign_description": "Mão em formato oval (polegar e indicador formando círculo), movimento de quebrar.",
+          "libras_params": {
+            "cm": "Mão em formato oval (círculo com polegar e indicador)",
+            "pa": "Espaço neutro, altura da mesa",
+            "mo": "Bater e abrir (quebrar o ovo)",
+            "op": "Palma para o lado",
+            "efc": ""
+          },
+          "sign_video_qr": "assets/qrcodes/ovo.png",
+          "audio_description_qr": "assets/qrcodes/ovo-audio.png",
+          "audio_file": "assets/audio/ovo.mp3",
+          "fingerspelling": [
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            },
+            {
+              "letter": "V",
+              "image": "assets/signs/letra-v.png",
+              "libras": "Sinal da letra V"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            }
+          ],
+          "braille": "⠕⠧⠕",
+          "context_sentences": [
+            {
+              "text": "O cozido é ótimo pra levar de lanche.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Partiu fazer um omeche com queijo.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "A clara do fica branquinha quando frita.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Queijo",
+          "image": "assets/images/queijo.jpg",
+          "sign_description": "Mãos uma sobre a outra, movimento de deslizar lateralmente (ralar ou fatiar).",
+          "libras_params": {
+            "cm": "Mãos sobrepostas",
+            "pa": "Espaço neutro, altura da mesa",
+            "mo": "Deslizar lateralmente (fatiar/ralar)",
+            "op": "Palmas para baixo",
+            "efc": ""
+          },
+          "sign_video_qr": "assets/qrcodes/queijo.png",
+          "audio_description_qr": "assets/qrcodes/queijo-audio.png",
+          "audio_file": "assets/audio/queijo.mp3",
+          "fingerspelling": [
+            {
+              "letter": "Q",
+              "image": "assets/signs/letra-q.png",
+              "libras": "Sinal da letra Q"
+            },
+            {
+              "letter": "U",
+              "image": "assets/signs/letra-u.png",
+              "libras": "Sinal da letra U"
+            },
+            {
+              "letter": "E",
+              "image": "assets/signs/letra-e.png",
+              "libras": "Sinal da letra E"
+            },
+            {
+              "letter": "I",
+              "image": "assets/signs/letra-i.png",
+              "libras": "Sinal da letra I"
+            },
+            {
+              "letter": "J",
+              "image": "assets/signs/letra-j.png",
+              "libras": "Sinal da letra J"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            }
+          ],
+          "braille": "⠟⠥⠑⠊⠚⠕",
+          "context_sentences": [
+            {
+              "text": "O minas é leve, ótimo pra dieta.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Na pizza o mussarela é o mais usado.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Partiu um com goiabada pra sobremesa.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Carne",
+          "image": "assets/images/carne.jpg",
+          "sign_description": "Mão segurando algo, movimento de morder/arrancar com os dentes.",
+          "libras_params": {
+            "cm": "Mão fechada (segurando)",
+            "pa": "Próximo à boca",
+            "mo": "Morder e puxar (arrancar pedaço)",
+            "op": "Palma para trás",
+            "efc": ""
+          },
+          "sign_video_qr": "assets/qrcodes/carne.png",
+          "audio_description_qr": "assets/qrcodes/carne-audio.png",
+          "audio_file": "assets/audio/carne.mp3",
+          "fingerspelling": [
+            {
+              "letter": "C",
+              "image": "assets/signs/letra-c.png",
+              "libras": "Sinal da letra C"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            },
+            {
+              "letter": "R",
+              "image": "assets/signs/letra-r.png",
+              "libras": "Sinal da letra R"
+            },
+            {
+              "letter": "N",
+              "image": "assets/signs/letra-n.png",
+              "libras": "Sinal da letra N"
+            },
+            {
+              "letter": "E",
+              "image": "assets/signs/letra-e.png",
+              "libras": "Sinal da letra E"
+            }
+          ],
+          "braille": "⠉⠁⠗⠝⠑",
+          "context_sentences": [
+            {
+              "text": "A de panela ficou macia depois de cozinhar.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Grelhada é mais saudável que frita.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "No churrasco a tem que estar no ponto certo.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Frango",
+          "image": "assets/images/frango.jpg",
+          "sign_description": "Mão em formato de bico (pinça), movimento de bicar.",
+          "libras_params": {
+            "cm": "Mão em bico (pinça)",
+            "pa": "Espaço neutro, altura do peito",
+            "mo": "Bicar repetidamente",
+            "op": "Palma para baixo",
+            "efc": ""
+          },
+          "sign_video_qr": "assets/qrcodes/frango.png",
+          "audio_description_qr": "assets/qrcodes/frango-audio.png",
+          "audio_file": "assets/audio/frango.mp3",
+          "fingerspelling": [
+            {
+              "letter": "F",
+              "image": "assets/signs/letra-f.png",
+              "libras": "Sinal da letra F"
+            },
+            {
+              "letter": "R",
+              "image": "assets/signs/letra-r.png",
+              "libras": "Sinal da letra R"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            },
+            {
+              "letter": "N",
+              "image": "assets/signs/letra-n.png",
+              "libras": "Sinal da letra N"
+            },
+            {
+              "letter": "G",
+              "image": "assets/signs/letra-g.png",
+              "libras": "Sinal da letra G"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            }
+          ],
+          "braille": "⠋⠗⠁⠝⠛⠕",
+          "context_sentences": [
+            {
+              "text": "O assado com batata é domingo na certa.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "O à passarinho é ótimo pra petisco.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Peito de é mais leve que a coxa.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Peixe",
+          "image": "assets/images/peixe.jpg",
+          "sign_description": "Mão aberta com dedos unidos, movimento ondulatório (nadar).",
+          "libras_params": {
+            "cm": "Mão aberta, dedos unidos",
+            "pa": "Espaço neutro à frente",
+            "mo": "Movimento ondulatório (nadadeira)",
+            "op": "Palma para o lado",
+            "efc": "Boca em formato de O, expressão de nadar, olhar lateral"
+          },
+          "sign_video_qr": "assets/qrcodes/peixe.png",
+          "audio_description_qr": "assets/qrcodes/peixe-audio.png",
+          "audio_file": "assets/audio/peixe.mp3",
+          "fingerspelling": [
+            {
+              "letter": "P",
+              "image": "assets/signs/letra-p.png",
+              "libras": "Sinal da letra P"
+            },
+            {
+              "letter": "E",
+              "image": "assets/signs/letra-e.png",
+              "libras": "Sinal da letra E"
+            },
+            {
+              "letter": "I",
+              "image": "assets/signs/letra-i.png",
+              "libras": "Sinal da letra I"
+            },
+            {
+              "letter": "X",
+              "image": "assets/signs/letra-x.png",
+              "libras": "Sinal da letra X"
+            },
+            {
+              "letter": "E",
+              "image": "assets/signs/letra-e.png",
+              "libras": "Sinal da letra E"
+            }
+          ],
+          "braille": "⠏⠑⠊⠭⠑",
+          "context_sentences": [
+            {
+              "text": "O fresco grelhado é uma delícia.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Na sexta-feira sempre como.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "O assado com legumes é uma refeição completa.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Suco",
+          "image": "assets/images/suco.jpg",
+          "sign_description": "Mão segurando copo, movimento de levar à boca e inclinar (beber).",
+          "libras_params": {
+            "cm": "Mão em forma de copo (curvada)",
+            "pa": "Próximo à boca",
+            "mo": "Inclinar o copo (beber)",
+            "op": "Palma para dentro",
+            "efc": ""
+          },
+          "sign_video_qr": "assets/qrcodes/suco.png",
+          "audio_description_qr": "assets/qrcodes/suco-audio.png",
+          "audio_file": "assets/audio/suco.mp3",
+          "fingerspelling": [
+            {
+              "letter": "S",
+              "image": "assets/signs/letra-s.png",
+              "libras": "Sinal da letra S"
+            },
+            {
+              "letter": "U",
+              "image": "assets/signs/letra-u.png",
+              "libras": "Sinal da letra U"
+            },
+            {
+              "letter": "C",
+              "image": "assets/signs/letra-c.png",
+              "libras": "Sinal da letra C"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            }
+          ],
+          "braille": "⠎⠥⠉⠕",
+          "context_sentences": [
+            {
+              "text": "O de laranja natural é cheio de vitamina.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Quer um copo de gelado?",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "O de maracujá acalma antes de dormir.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Bolo",
+          "image": "assets/images/bolo.jpg",
+          "sign_description": "Mãos uma sobre a outra, movimento circular (bater massa), depois apontar para cima (crescer).",
+          "libras_params": {
+            "cm": "Mãos em concha, uma sobre a outra",
+            "pa": "Espaço neutro, altura do peito",
+            "mo": "Movimento circular (bater massa)",
+            "op": "Palmas para baixo uma sobre a outra",
+            "efc": ""
+          },
+          "sign_video_qr": "assets/qrcodes/bolo.png",
+          "audio_description_qr": "assets/qrcodes/bolo-audio.png",
+          "audio_file": "assets/audio/bolo.mp3",
+          "fingerspelling": [
+            {
+              "letter": "B",
+              "image": "assets/signs/letra-b.png",
+              "libras": "Sinal da letra B"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            },
+            {
+              "letter": "L",
+              "image": "assets/signs/letra-l.png",
+              "libras": "Sinal da letra L"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            }
+          ],
+          "braille": "⠃⠕⠇⠕",
+          "context_sentences": [
+            {
+              "text": "O de cenoura com chocolate é o favorito.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "No aniversário teve de dois andares.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "A massa do cresceu bem, ficou fofinho.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Café",
+          "image": "assets/images/cafe.jpg",
+          "sign_description": "Mão segurando xícara, levar à boca e sorver (bebericar).",
+          "libras_params": {
+            "cm": "Mão em forma de xícara (curvada)",
+            "pa": "Próximo à boca",
+            "mo": "Levar à boca e sorver",
+            "op": "Palma para dentro",
+            "efc": ""
+          },
+          "sign_video_qr": "assets/qrcodes/cafe.png",
+          "audio_description_qr": "assets/qrcodes/cafe-audio.png",
+          "audio_file": "assets/audio/cafe.mp3",
+          "fingerspelling": [
+            {
+              "letter": "C",
+              "image": "assets/signs/letra-c.png",
+              "libras": "Sinal da letra C"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            },
+            {
+              "letter": "F",
+              "image": "assets/signs/letra-f.png",
+              "libras": "Sinal da letra F"
+            },
+            {
+              "letter": "E",
+              "image": "assets/signs/letra-e.png",
+              "libras": "Sinal da letra E"
+            }
+          ],
+          "braille": "⠉⠁⠋⠿",
+          "context_sentences": [
+            {
+              "text": "O passado é a primeira coisa do dia.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Na padaria o com leite é o preferido.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "O coado é mais suave que o espresso.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Melancia",
+          "image": "assets/images/melancia.jpg",
+          "sign_description": "Mãos em formato de fatia grande, movimento de morder algo suculento.",
+          "libras_params": {
+            "cm": "Mãos em formato de fatia grande",
+            "pa": "Próximo à boca",
+            "mo": "Morder a fruta, depois cuspir sementes",
+            "op": "Palmas para dentro",
+            "efc": ""
+          },
+          "sign_video_qr": "assets/qrcodes/melancia.png",
+          "audio_description_qr": "assets/qrcodes/melancia-audio.png",
+          "audio_file": "assets/audio/melancia.mp3",
+          "fingerspelling": [
+            {
+              "letter": "M",
+              "image": "assets/signs/letra-m.png",
+              "libras": "Sinal da letra M"
+            },
+            {
+              "letter": "E",
+              "image": "assets/signs/letra-e.png",
+              "libras": "Sinal da letra E"
+            },
+            {
+              "letter": "L",
+              "image": "assets/signs/letra-l.png",
+              "libras": "Sinal da letra L"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            },
+            {
+              "letter": "N",
+              "image": "assets/signs/letra-n.png",
+              "libras": "Sinal da letra N"
+            },
+            {
+              "letter": "C",
+              "image": "assets/signs/letra-c.png",
+              "libras": "Sinal da letra C"
+            },
+            {
+              "letter": "I",
+              "image": "assets/signs/letra-i.png",
+              "libras": "Sinal da letra I"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            }
+          ],
+          "braille": "⠍⠑⠇⠁⠝⠉⠊⠁",
+          "context_sentences": [
+            {
+              "text": "A está bem docinha e vermelha.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "No verão uma fatia gelada é tudo.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Essa tem muitas sementes pretas.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
           ]
         }
       ]
@@ -339,89 +1932,973 @@
       "cards": [
         {
           "word": "Cachorro",
-          "image": "assets/images/cachorro.jpg?v=2",
-          "sign_description": "Duas mãos como patinhas, braços embaixo das axilas, movendo para cima e para baixo",
-          "sign_video_qr": "assets/qrcodes/cachorro.png?v=2",
-          "audio_description_qr": "https://deivi.tech/libras/qrcode/cachorro-audio",
+          "image": "assets/images/cachorro.jpg",
+          "sign_description": "Duas mãos abertas, dedos unidos, movimento para cima e para baixo (patas).",
+          "libras_params": {
+            "cm": "Duas mãos abertas, dedos unidos",
+            "pa": "Na altura do peito, axilas",
+            "mo": "Movimento para cima e para baixo (patas)",
+            "op": "Palmas para dentro",
+            "efc": "Sorriso aberto, expressão de carinho, olhar brincalhão"
+          },
+          "sign_video_qr": "assets/qrcodes/cachorro.png",
+          "audio_description_qr": "assets/qrcodes/cachorro-audio.png",
+          "audio_file": "assets/audio/cachorro.mp3",
           "fingerspelling": [
             {
               "letter": "C",
-              "image": "assets/signs/letra-c.svg",
-              "libras": "Dedos curvados formando C"
+              "image": "assets/signs/letra-c.png",
+              "libras": "Sinal da letra C"
             },
             {
               "letter": "A",
-              "image": "assets/signs/letra-a.svg",
-              "libras": "Punho fechado, polegar na lateral"
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
             },
             {
               "letter": "C",
-              "image": "assets/signs/letra-c.svg",
-              "libras": "Dedos curvados formando C"
+              "image": "assets/signs/letra-c.png",
+              "libras": "Sinal da letra C"
             },
             {
               "letter": "H",
-              "image": "assets/signs/letra-h.svg",
-              "libras": "Indicador e médio apontando lado"
+              "image": "assets/signs/letra-h.png",
+              "libras": "Sinal da letra H"
             },
             {
               "letter": "O",
-              "image": "assets/signs/letra-o.svg",
-              "libras": "Dedos arredondados tocando ponta do polegar"
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
             },
             {
               "letter": "R",
-              "image": "assets/signs/letra-r.svg",
-              "libras": "Indicador cruzado sobre médio"
+              "image": "assets/signs/letra-r.png",
+              "libras": "Sinal da letra R"
             },
             {
               "letter": "R",
-              "image": "assets/signs/letra-r.svg",
-              "libras": "Indicador cruzado sobre médio"
+              "image": "assets/signs/letra-r.png",
+              "libras": "Sinal da letra R"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
             }
           ],
-          "braille": "⠉⠁⠉⠓⠕⠗⠗",
-          "audio_file": "assets/audio/cachorro.mp3?v=2",
+          "braille": "⠉⠁⠉⠓⠕⠗⠗⠕",
           "context_sentences": [
-            "É o animal que faz au au e balança o rabo de felicidade.",
-            "É conhecido como o melhor amigo do ser humano.",
-            "Tem pelagem, orelhas e gosta de brincar de buscar a bola."
+            {
+              "text": "O pastor alemão é bem grande e peludo.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Ela tem um vira-lata caramelo muito amigável.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Passear com o é a melhor parte do dia.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
           ]
         },
         {
           "word": "Gato",
-          "image": "assets/images/gato.jpg?v=2",
-          "sign_description": "Mão aberta perto do rosto, dedos se fechando como garras de gato",
-          "sign_video_qr": "assets/qrcodes/gato.png?v=2",
-          "audio_description_qr": "https://deivi.tech/libras/qrcode/gato-audio",
+          "image": "assets/images/gato.jpg",
+          "sign_description": "Mão aberta em garra na altura do rosto, fechando os dedos (agarrar).",
+          "libras_params": {
+            "cm": "Mão aberta em garra",
+            "pa": "Na altura do rosto",
+            "mo": "Fechar os dedos (agarrar)",
+            "op": "Palma para frente",
+            "efc": "Expressão de elegância, olhar focado, movimentos suaves"
+          },
+          "sign_video_qr": "assets/qrcodes/gato.png",
+          "audio_description_qr": "assets/qrcodes/gato-audio.png",
+          "audio_file": "assets/audio/gato.mp3",
           "fingerspelling": [
             {
               "letter": "G",
-              "image": "assets/signs/letra-g.svg",
-              "libras": "Indicador apontando, polegar embaixo"
+              "image": "assets/signs/letra-g.png",
+              "libras": "Sinal da letra G"
             },
             {
               "letter": "A",
-              "image": "assets/signs/letra-a.svg",
-              "libras": "Punho fechado, polegar na lateral"
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
             },
             {
               "letter": "T",
-              "image": "assets/signs/letra-t.svg",
-              "libras": "Dedo polegar entre indicador e médio"
+              "image": "assets/signs/letra-t.png",
+              "libras": "Sinal da letra T"
             },
             {
               "letter": "O",
-              "image": "assets/signs/letra-o.svg",
-              "libras": "Dedos arredondados tocando ponta do polegar"
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
             }
           ],
           "braille": "⠛⠁⠞⠕",
-          "audio_file": "assets/audio/gato.mp3?v=2",
           "context_sentences": [
-            "É o animal que faz miau e tem bigodes no rosto.",
-            "Gosta de dormir no sol e se espreguiçar no sofá.",
-            "Quando está bravo, arranha e mostra as garras."
+            {
+              "text": "O siamês é mais quieto que o persa.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Ela tem três filhotes recém-nascidos.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "O ronrona quando faz carinho.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Leão",
+          "image": "assets/images/leao.jpg",
+          "sign_description": "Mão aberta na frente do rosto, dedos curvados como garras, expressão facial de rugido (ENM importante).",
+          "libras_params": {
+            "cm": "Mão aberta em garra na frente do rosto",
+            "pa": "Na altura do rosto",
+            "mo": "Abrir e fechar a mão (garra)",
+            "op": "Palma para frente",
+            "enm": "Expressão facial de rugido, olhos arregalados",
+            "efc": "Expressão de majestade, olhar forte, postura imponente"
+          },
+          "sign_video_qr": "assets/qrcodes/leao.png",
+          "audio_description_qr": "assets/qrcodes/leao-audio.png",
+          "audio_file": "assets/audio/leao.mp3",
+          "fingerspelling": [
+            {
+              "letter": "L",
+              "image": "assets/signs/letra-l.png",
+              "libras": "Sinal da letra L"
+            },
+            {
+              "letter": "E",
+              "image": "assets/signs/letra-e.png",
+              "libras": "Sinal da letra E"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            }
+          ],
+          "braille": "⠇⠑⠡⠕",
+          "context_sentences": [
+            {
+              "text": "O é o rei da selva, todo mundo respeita.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "No zoológico o estava bem preguiçoso.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "A juba do macho é bem volumosa.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Elefante",
+          "image": "assets/images/elefante.jpg",
+          "sign_description": "Mão fechada na frente do nariz, braço estendido para frente simulando a tromba.",
+          "libras_params": {
+            "cm": "Mão fechada (tromba)",
+            "pa": "Na frente do nariz, braço estendido",
+            "mo": "Movimento ondulatório do braço (tromba balançando)",
+            "op": "Palma para baixo",
+            "efc": ""
+          },
+          "sign_video_qr": "assets/qrcodes/elefante.png",
+          "audio_description_qr": "assets/qrcodes/elefante-audio.png",
+          "audio_file": "assets/audio/elefante.mp3",
+          "fingerspelling": [
+            {
+              "letter": "E",
+              "image": "assets/signs/letra-e.png",
+              "libras": "Sinal da letra E"
+            },
+            {
+              "letter": "L",
+              "image": "assets/signs/letra-l.png",
+              "libras": "Sinal da letra L"
+            },
+            {
+              "letter": "E",
+              "image": "assets/signs/letra-e.png",
+              "libras": "Sinal da letra E"
+            },
+            {
+              "letter": "F",
+              "image": "assets/signs/letra-f.png",
+              "libras": "Sinal da letra F"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            },
+            {
+              "letter": "N",
+              "image": "assets/signs/letra-n.png",
+              "libras": "Sinal da letra N"
+            },
+            {
+              "letter": "T",
+              "image": "assets/signs/letra-t.png",
+              "libras": "Sinal da letra T"
+            },
+            {
+              "letter": "E",
+              "image": "assets/signs/letra-e.png",
+              "libras": "Sinal da letra E"
+            }
+          ],
+          "braille": "⠑⠇⠑⠋⠁⠝⠞⠑",
+          "context_sentences": [
+            {
+              "text": "O africano é maior que o asiático.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "No safári vimos um com filhote.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "A tromba do é forte o bastante pra levantar troncos.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Cavalo",
+          "image": "assets/images/cavalo.jpg",
+          "sign_description": "Mão aberta na testa, dedos para baixo (crina), movimento de galope com o braço.",
+          "libras_params": {
+            "cm": "Mão aberta na testa (crina)",
+            "pa": "Na testa",
+            "mo": "Movimento de galope (braço balançando)",
+            "op": "Palma para trás",
+            "efc": "Expressão de energia, olhar para frente, postura ereta"
+          },
+          "sign_video_qr": "assets/qrcodes/cavalo.png",
+          "audio_description_qr": "assets/qrcodes/cavalo-audio.png",
+          "audio_file": "assets/audio/cavalo.mp3",
+          "fingerspelling": [
+            {
+              "letter": "C",
+              "image": "assets/signs/letra-c.png",
+              "libras": "Sinal da letra C"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            },
+            {
+              "letter": "V",
+              "image": "assets/signs/letra-v.png",
+              "libras": "Sinal da letra V"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            },
+            {
+              "letter": "L",
+              "image": "assets/signs/letra-l.png",
+              "libras": "Sinal da letra L"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            }
+          ],
+          "braille": "⠉⠁⠧⠁⠇⠕",
+          "context_sentences": [
+            {
+              "text": "O branco correu solto no campo.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Ela monta desde criança, tem seu próprio.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "O relincha quando vê o dono chegando.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Vaca",
+          "image": "assets/images/vaca.jpg",
+          "sign_description": "Mão em chifre (indicador e mindinho estendidos) na lateral da cabeça.",
+          "libras_params": {
+            "cm": "Mão em chifre (indicador e mindinho)",
+            "pa": "Lateral da cabeça",
+            "mo": "Movimento leve da cabeça (chifres)",
+            "op": "Palma para frente",
+            "efc": "Expressão neutra e calma, movimento lento"
+          },
+          "sign_video_qr": "assets/qrcodes/vaca.png",
+          "audio_description_qr": "assets/qrcodes/vaca-audio.png",
+          "audio_file": "assets/audio/vaca.mp3",
+          "fingerspelling": [
+            {
+              "letter": "V",
+              "image": "assets/signs/letra-v.png",
+              "libras": "Sinal da letra V"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            },
+            {
+              "letter": "C",
+              "image": "assets/signs/letra-c.png",
+              "libras": "Sinal da letra C"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            }
+          ],
+          "braille": "⠧⠁⠉⠁",
+          "context_sentences": [
+            {
+              "text": "A malhada pastava no campo tranquila.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "O leite da é mais cremoso.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "No sítio do vô tem várias.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Porco",
+          "image": "assets/images/porco.jpg",
+          "sign_description": "Mão fechada na frente do nariz (focinho), movimento circular (focinho mexendo).",
+          "libras_params": {
+            "cm": "Mão fechada (focinho)",
+            "pa": "Na frente do nariz",
+            "mo": "Movimento circular (focinho)",
+            "op": "Palma para baixo",
+            "efc": "Sorriso divertido, expressão de comilança"
+          },
+          "sign_video_qr": "assets/qrcodes/porco.png",
+          "audio_description_qr": "assets/qrcodes/porco-audio.png",
+          "audio_file": "assets/audio/porco.mp3",
+          "fingerspelling": [
+            {
+              "letter": "P",
+              "image": "assets/signs/letra-p.png",
+              "libras": "Sinal da letra P"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            },
+            {
+              "letter": "R",
+              "image": "assets/signs/letra-r.png",
+              "libras": "Sinal da letra R"
+            },
+            {
+              "letter": "C",
+              "image": "assets/signs/letra-c.png",
+              "libras": "Sinal da letra C"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            }
+          ],
+          "braille": "⠏⠕⠗⠉⠕",
+          "context_sentences": [
+            {
+              "text": "O da fazenda está bem gordo.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Os filhotes são muito engraçadinhos.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "No sítio tem vários no chiqueiro.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Galinha",
+          "image": "assets/images/galinha.jpg",
+          "sign_description": "Mão em bico (polegar e indicador), movimento no cotovelo como se estivesse ciscando.",
+          "libras_params": {
+            "cm": "Mão em bico",
+            "pa": "Na altura da cintura, braço dobrado",
+            "mo": "Movimento de ciscar (bater asas)",
+            "op": "Palma para baixo",
+            "efc": "Expressão atenta, cabeça virando de lado"
+          },
+          "sign_video_qr": "assets/qrcodes/galinha.png",
+          "audio_description_qr": "assets/qrcodes/galinha-audio.png",
+          "audio_file": "assets/audio/galinha.mp3",
+          "fingerspelling": [
+            {
+              "letter": "G",
+              "image": "assets/signs/letra-g.png",
+              "libras": "Sinal da letra G"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            },
+            {
+              "letter": "L",
+              "image": "assets/signs/letra-l.png",
+              "libras": "Sinal da letra L"
+            },
+            {
+              "letter": "I",
+              "image": "assets/signs/letra-i.png",
+              "libras": "Sinal da letra I"
+            },
+            {
+              "letter": "N",
+              "image": "assets/signs/letra-n.png",
+              "libras": "Sinal da letra N"
+            },
+            {
+              "letter": "H",
+              "image": "assets/signs/letra-h.png",
+              "libras": "Sinal da letra H"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            }
+          ],
+          "braille": "⠛⠁⠇⠊⠝⠓⠁",
+          "context_sentences": [
+            {
+              "text": "A carijó botou dois ovos hoje.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "As ciscam o quintal o dia inteiro.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "O frango caipira é mais saboroso.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Pato",
+          "image": "assets/images/pato.jpg",
+          "sign_description": "Mão em bico aberto (polegar e indicador abrindo e fechando), movimento de nadar.",
+          "libras_params": {
+            "cm": "Mão em bico aberto",
+            "pa": "Espaço neutro à frente",
+            "mo": "Abrir e fechar o bico + balançar o corpo",
+            "op": "Palma para baixo",
+            "efc": "Boca em bico, expressão de nadar, movimento lateral"
+          },
+          "sign_video_qr": "assets/qrcodes/pato.png",
+          "audio_description_qr": "assets/qrcodes/pato-audio.png",
+          "audio_file": "assets/audio/pato.mp3",
+          "fingerspelling": [
+            {
+              "letter": "P",
+              "image": "assets/signs/letra-p.png",
+              "libras": "Sinal da letra P"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            },
+            {
+              "letter": "T",
+              "image": "assets/signs/letra-t.png",
+              "libras": "Sinal da letra T"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            }
+          ],
+          "braille": "⠏⠁⠞⠕",
+          "context_sentences": [
+            {
+              "text": "O nada no lago do parque.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Os filhotes seguem a mãe em fileira.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "O grasna bem alto de manhã.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Cobra",
+          "image": "assets/images/cobra.jpg",
+          "sign_description": "Mão aberta com dedos unidos, movimento ondulatório do braço (serpente).",
+          "libras_params": {
+            "cm": "Mão aberta, dedos unidos",
+            "pa": "Espaço neutro à frente do corpo",
+            "mo": "Movimento ondulatório (rastejar)",
+            "op": "Palma para baixo",
+            "efc": ""
+          },
+          "sign_video_qr": "assets/qrcodes/cobra.png",
+          "audio_description_qr": "assets/qrcodes/cobra-audio.png",
+          "audio_file": "assets/audio/cobra.mp3",
+          "fingerspelling": [
+            {
+              "letter": "C",
+              "image": "assets/signs/letra-c.png",
+              "libras": "Sinal da letra C"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            },
+            {
+              "letter": "B",
+              "image": "assets/signs/letra-b.png",
+              "libras": "Sinal da letra B"
+            },
+            {
+              "letter": "R",
+              "image": "assets/signs/letra-r.png",
+              "libras": "Sinal da letra R"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            }
+          ],
+          "braille": "⠉⠕⠃⠗⠁",
+          "context_sentences": [
+            {
+              "text": "A cascavel tem chocalho no rabo.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "No zoológico a estava enrolada no galho.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "A coral é linda mas muito venenosa.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Macaco",
+          "image": "assets/images/macaco.jpg",
+          "sign_description": "Mãos fechadas nas axilas, movimento de balançar o corpo e coçar a cabeça.",
+          "libras_params": {
+            "cm": "Mãos fechadas nas axilas",
+            "pa": "Axilas e cabeça",
+            "mo": "Balançar o corpo e coçar a cabeça",
+            "op": "Palmas para dentro",
+            "efc": "Expressão travessa, sorriso aberto, movimentos ágeis"
+          },
+          "sign_video_qr": "assets/qrcodes/macaco.png",
+          "audio_description_qr": "assets/qrcodes/macaco-audio.png",
+          "audio_file": "assets/audio/macaco.mp3",
+          "fingerspelling": [
+            {
+              "letter": "M",
+              "image": "assets/signs/letra-m.png",
+              "libras": "Sinal da letra M"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            },
+            {
+              "letter": "C",
+              "image": "assets/signs/letra-c.png",
+              "libras": "Sinal da letra C"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            },
+            {
+              "letter": "C",
+              "image": "assets/signs/letra-c.png",
+              "libras": "Sinal da letra C"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            }
+          ],
+          "braille": "⠍⠁⠉⠁⠉⠕",
+          "context_sentences": [
+            {
+              "text": "O pulava de galho em galho na floresta.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Ela imitou o na brincadeira.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "O é muito inteligente, usa ferramentas.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Coelho",
+          "image": "assets/images/coelho.jpg",
+          "sign_description": "Mãos abertas ao lado da cabeça com dedos estendidos (orelhas), movimento de pular.",
+          "libras_params": {
+            "cm": "Mãos abertas ao lado da cabeça (orelhas)",
+            "pa": "Ao lado da cabeça",
+            "mo": "Movimento para cima e para baixo (pular)",
+            "op": "Palmas para trás",
+            "efc": "Expressão de surpresa, orelhas imaginárias, sorriso travesso"
+          },
+          "sign_video_qr": "assets/qrcodes/coelho.png",
+          "audio_description_qr": "assets/qrcodes/coelho-audio.png",
+          "audio_file": "assets/audio/coelho.mp3",
+          "fingerspelling": [
+            {
+              "letter": "C",
+              "image": "assets/signs/letra-c.png",
+              "libras": "Sinal da letra C"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            },
+            {
+              "letter": "E",
+              "image": "assets/signs/letra-e.png",
+              "libras": "Sinal da letra E"
+            },
+            {
+              "letter": "L",
+              "image": "assets/signs/letra-l.png",
+              "libras": "Sinal da letra L"
+            },
+            {
+              "letter": "H",
+              "image": "assets/signs/letra-h.png",
+              "libras": "Sinal da letra H"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            }
+          ],
+          "braille": "⠉⠕⠑⠇⠓⠕",
+          "context_sentences": [
+            {
+              "text": "O branco tem olhos vermelhos.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Na Páscoa o traz os ovos de chocolate.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "O pula longe quando assusta.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Rato",
+          "image": "assets/images/rato.jpg",
+          "sign_description": "Mão fechada, indicador estendido na frente do nariz (focinho), vibrar rapidamente.",
+          "libras_params": {
+            "cm": "Mão fechada, indicador estendido",
+            "pa": "Na frente do nariz",
+            "mo": "Vibrar o indicador (focinho farejando)",
+            "op": "Palma para baixo",
+            "efc": ""
+          },
+          "sign_video_qr": "assets/qrcodes/rato.png",
+          "audio_description_qr": "assets/qrcodes/rato-audio.png",
+          "audio_file": "assets/audio/rato.mp3",
+          "fingerspelling": [
+            {
+              "letter": "R",
+              "image": "assets/signs/letra-r.png",
+              "libras": "Sinal da letra R"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            },
+            {
+              "letter": "T",
+              "image": "assets/signs/letra-t.png",
+              "libras": "Sinal da letra T"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            }
+          ],
+          "braille": "⠗⠁⠞⠕",
+          "context_sentences": [
+            {
+              "text": "O apareceu na cozinha ontem à noite.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "O escondeu no buraco da parede.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "O de laboratório ajuda na ciência.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Tartaruga",
+          "image": "assets/images/tartaruga.jpg",
+          "sign_description": "Mão fechada (casco), a outra mão aberta por cima, movimento lento de andar.",
+          "libras_params": {
+            "cm": "Mão fechada (casco) com a outra por cima",
+            "pa": "Espaço neutro",
+            "mo": "Movimento muito lento para frente",
+            "op": "Palma para cima (casco)",
+            "efc": "Expressão lenta e calma, movimentos reduzidos"
+          },
+          "sign_video_qr": "assets/qrcodes/tartaruga.png",
+          "audio_description_qr": "assets/qrcodes/tartaruga-audio.png",
+          "audio_file": "assets/audio/tartaruga.mp3",
+          "fingerspelling": [
+            {
+              "letter": "T",
+              "image": "assets/signs/letra-t.png",
+              "libras": "Sinal da letra T"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            },
+            {
+              "letter": "R",
+              "image": "assets/signs/letra-r.png",
+              "libras": "Sinal da letra R"
+            },
+            {
+              "letter": "T",
+              "image": "assets/signs/letra-t.png",
+              "libras": "Sinal da letra T"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            },
+            {
+              "letter": "R",
+              "image": "assets/signs/letra-r.png",
+              "libras": "Sinal da letra R"
+            },
+            {
+              "letter": "U",
+              "image": "assets/signs/letra-u.png",
+              "libras": "Sinal da letra U"
+            },
+            {
+              "letter": "G",
+              "image": "assets/signs/letra-g.png",
+              "libras": "Sinal da letra G"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            }
+          ],
+          "braille": "⠞⠁⠗⠞⠁⠗⠥⠛⠁",
+          "context_sentences": [
+            {
+              "text": "A marinha vive muitos anos.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Ela recolhe a cabeça quando assusta.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "A anda devagar mas chega lá.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
+          ]
+        },
+        {
+          "word": "Borboleta",
+          "image": "assets/images/borboleta.jpg",
+          "sign_description": "Polegares cruzados na frente do peito, mãos abertas batendo como asas.",
+          "libras_params": {
+            "cm": "Mãos abertas, polegares cruzados",
+            "pa": "Na altura do peito",
+            "mo": "Bater as mãos (asas)",
+            "op": "Palmas para frente",
+            "efc": ""
+          },
+          "sign_video_qr": "assets/qrcodes/borboleta.png",
+          "audio_description_qr": "assets/qrcodes/borboleta-audio.png",
+          "audio_file": "assets/audio/borboleta.mp3",
+          "fingerspelling": [
+            {
+              "letter": "B",
+              "image": "assets/signs/letra-b.png",
+              "libras": "Sinal da letra B"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            },
+            {
+              "letter": "R",
+              "image": "assets/signs/letra-r.png",
+              "libras": "Sinal da letra R"
+            },
+            {
+              "letter": "B",
+              "image": "assets/signs/letra-b.png",
+              "libras": "Sinal da letra B"
+            },
+            {
+              "letter": "O",
+              "image": "assets/signs/letra-o.png",
+              "libras": "Sinal da letra O"
+            },
+            {
+              "letter": "L",
+              "image": "assets/signs/letra-l.png",
+              "libras": "Sinal da letra L"
+            },
+            {
+              "letter": "E",
+              "image": "assets/signs/letra-e.png",
+              "libras": "Sinal da letra E"
+            },
+            {
+              "letter": "T",
+              "image": "assets/signs/letra-t.png",
+              "libras": "Sinal da letra T"
+            },
+            {
+              "letter": "A",
+              "image": "assets/signs/letra-a.png",
+              "libras": "Sinal da letra A"
+            }
+          ],
+          "braille": "⠃⠕⠗⠃⠕⠇⠑⠞⠁",
+          "context_sentences": [
+            {
+              "text": "A azul pousou na flor do jardim.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "Na primavera vemos muitas no parque.",
+              "audio_qr": "",
+              "video_qr": ""
+            },
+            {
+              "text": "A tem asas coloridas e delicadas.",
+              "audio_qr": "",
+              "video_qr": ""
+            }
           ]
         }
       ]

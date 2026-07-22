@@ -1,224 +1,33 @@
 /* ============================================
-   Librapp - Editor Styles
+   Librapp - Editor Styles (v2 - Festa theme)
+   ============================================
+   Most styles are now inline in editor.html.
+   This file provides the print and EFC styles.
    ============================================ */
 
-.editor-layout {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  min-height: calc(100vh - 60px);
-}
+/* EFC param color */
+.param-label-editor.efc { color: #e91e63; }
 
-@media (max-width: 900px) {
-  .editor-layout {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Sidebar */
-.editor-sidebar {
-  background: var(--surface);
-  border-right: 1px solid var(--border);
-  padding: var(--space-lg);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-lg);
-}
-
-.sidebar-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.sidebar-title {
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: 1rem;
-}
-
-/* Categories List */
-.categories-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
-
-.category-item {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  padding: var(--space-sm) var(--space-md);
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  transition: all var(--duration) var(--ease);
-  border: 1px solid transparent;
-}
-
-.category-item:hover {
-  background: var(--elevated);
-}
-
-.category-item.active {
-  background: var(--elevated);
-  border-color: var(--accent);
-}
-
-.category-item .category-icon {
-  font-size: 1.5rem;
-}
-
-.category-item .category-name {
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.category-item .category-count {
-  margin-left: auto;
-  font-size: 0.75rem;
-  color: var(--muted);
-}
-
-/* Cards List */
-.cards-section {
-  margin-top: var(--space-lg);
-}
-
-.cards-section-title {
-  font-family: var(--display);
-  font-size: 0.8rem;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: var(--space-sm);
-}
-
-.cards-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-}
-
-.card-item {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  padding: var(--space-sm);
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  transition: background var(--duration) var(--ease);
-}
-
-.card-item:hover {
-  background: var(--elevated);
-}
-
-.card-item .card-word {
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.card-item .card-braille {
-  font-size: 0.9rem;
-  color: var(--muted);
-  margin-left: auto;
-}
-
-.editor-hint {
-  display: block;
-  font-size: 0.7rem;
-  color: var(--muted-dark);
-  margin-top: 4px;
-  font-style: italic;
-}
-
-/* Main Editor Area */
-.editor-main {
-  padding: var(--space-xl);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-lg);
-}
-
-.editor-main h2 {
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: 1.3rem;
-}
-
-/* Fingerspelling Row */
-.fingerspelling-row {
-  display: flex;
-  gap: var(--space-sm);
-  margin-bottom: var(--space-sm);
-  align-items: center;
-}
-
-.fingerspelling-row .letter-input {
-  width: 60px;
-  text-align: center;
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: 1.2rem;
-}
-
-.fingerspelling-row .editor-input {
-  flex: 1;
-}
-
-/* Editor Actions */
-.editor-actions {
-  display: flex;
-  gap: var(--space-md);
-  margin-top: var(--space-lg);
-  flex-wrap: wrap;
-}
-
-/* Preview Panel */
-.preview-panel {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-lg);
-}
-
-.preview-title {
-  font-family: var(--display);
-  font-size: 0.8rem;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: var(--space-md);
-}
-
-/* Print Button */
-.print-btn {
-  position: fixed;
-  bottom: var(--space-xl);
-  right: var(--space-xl);
-  z-index: 100;
-}
-
-/* Print Styles */
+/* Print */
 @media print {
+  .header,
   .editor-sidebar,
   .editor-actions,
-  .header,
   .no-print {
     display: none !important;
   }
-  
-  .editor-layout {
+
+  .editor-wrapper {
     display: block;
   }
-  
+
   .editor-main {
     padding: 0;
   }
-  
-  .print-card {
-    page-break-inside: avoid;
-    border: 2px solid #000;
-    margin: 20px;
-    padding: 20px;
+
+  .editor-panel {
+    break-inside: avoid;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
   }
 }

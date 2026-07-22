@@ -1,78 +1,355 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Librapp — Editor de Cartas | deivi.tech/libras</title>
-  <meta name="description" content="Crie e edite cartas para o jogo de LIBRAS.">
+  <title>Editor de Cartas — Librapp | deivi.tech/libras</title>
+  <meta name="description" content="Editor de cartas do jogo Librapp. Crie e edite cartas de LIBRAS.">
+
+  <!-- PWA / Mobile -->
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#ff6b35">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Librapp">
+  <link rel="apple-touch-icon" href="../assets/icons/icon-192.png">
+  <meta name="mobile-web-app-capable" content="yes">
+
   <base href="./">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/style.css?v=6">
-  <link rel="stylesheet" href="editor.css?v=2">
+  <link rel="stylesheet" href="editor.css?v=3">
+  <style>
+    /* Editor-specific additions */
+    .editor-wrapper {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      min-height: calc(100vh - 64px);
+    }
+
+    @media (max-width: 900px) {
+      .editor-wrapper {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .editor-sidebar {
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    .sidebar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sidebar-title {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .categories-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .category-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all var(--duration) var(--ease);
+      border: 1px solid transparent;
+    }
+
+    .category-item:hover {
+      background: var(--surface-hover);
+    }
+
+    .category-item.active {
+      background: var(--surface-hover);
+      border-color: var(--orange);
+    }
+
+    .category-item .category-icon { font-size: 1.5rem; }
+    .category-item .category-name { font-weight: 600; font-size: 0.9rem; }
+    .category-item .category-count {
+      margin-left: auto;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .cards-section-title {
+      font-family: var(--display);
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-sm);
+    }
+
+    .cards-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .card-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-sm);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: background var(--duration) var(--ease);
+    }
+
+    .card-item:hover { background: var(--surface-hover); }
+    .card-item .card-word { font-weight: 600; font-size: 0.9rem; }
+    .card-item .card-braille {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-left: auto;
+    }
+
+    .editor-main {
+      padding: var(--space-xl);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    .editor-main h2 {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+
+    .editor-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+    }
+
+    .editor-panel h3 {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: var(--space-lg);
+    }
+
+    .editor-field {
+      margin-bottom: var(--space-md);
+    }
+
+    .editor-label {
+      display: block;
+      font-family: var(--display);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: var(--space-xs);
+    }
+
+    .editor-hint {
+      display: block;
+      font-size: 0.7rem;
+      color: var(--muted-dark);
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    /* Params Grid (editor) */
+    .params-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+    }
+
+    @media (max-width: 600px) {
+      .params-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .param-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .param-label-editor {
+      font-size: 0.7rem;
+      font-weight: 600;
+      font-family: var(--display);
+    }
+
+    .param-label-editor.cm { color: var(--blue); }
+    .param-label-editor.pa { color: var(--green); }
+    .param-label-editor.mo { color: var(--purple); }
+    .param-label-editor.op { color: var(--orange); }
+
+    /* Fingerspelling */
+    .fingerspelling-row {
+      display: flex;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-sm);
+      align-items: center;
+    }
+
+    .fingerspelling-row .letter-input {
+      width: 60px;
+      text-align: center;
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .fingerspelling-row .editor-input { flex: 1; }
+
+    .editor-actions {
+      display: flex;
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+      flex-wrap: wrap;
+    }
+  </style>
 </head>
 <body>
+  <!-- Header -->
   <header class="header">
     <a href="../index.html" class="logo">&lt;Deivi<b>Tech</b>/libras&gt;</a>
     <nav class="header-nav">
       <a href="../index.html">Início</a>
-      <a href="../game/">🎮 Jogar</a>
+      <a href="../game/">Jogar</a>
       <a href="editor.html" class="btn btn-ghost">✏️ Editor</a>
+      <button class="theme-toggle" id="theme-toggle-btn" onclick="toggleTheme()" aria-label="Alternar tema">☀️</button>
     </nav>
   </header>
 
-  <div class="editor-layout">
+  <!-- Editor Layout -->
+  <div class="editor-wrapper">
     <!-- Sidebar -->
     <aside class="editor-sidebar">
       <div class="sidebar-header">
-        <span class="sidebar-title">Categorias</span>
-        <button class="btn btn-ghost btn-sm" onclick="editor.createNewCategory()">
-          + Nova
-        </button>
+        <span class="sidebar-title">📂 Categorias</span>
+        <button class="btn btn-secondary btn-sm" onclick="editor.createNewCategory()">+ Nova</button>
       </div>
 
       <div class="categories-list" id="categories-list">
-        <!-- Categorias serão renderizadas via JS -->
+        <!-- Rendered by JS -->
       </div>
 
       <div class="cards-section">
         <div class="cards-section-title">Cartas</div>
         <div class="cards-list" id="cards-list">
-          <!-- Cartas serão listadas via JS -->
+          <!-- Rendered by JS -->
         </div>
-        <button class="btn btn-secondary btn-sm mt-sm" onclick="editor.addNewCard()">
+        <button class="btn btn-secondary btn-sm mt-md" onclick="editor.addNewCard()" style="width:100%">
           + Nova Carta
         </button>
       </div>
 
-      <div class="mt-auto">
-        <button class="btn btn-primary" onclick="editor.saveToFile()">
-          💾 Salvar Tudo
+      <div style="margin-top: auto; border-top: 1px solid var(--border); padding-top: var(--space-md)">
+        <button class="btn btn-primary btn-sm" onclick="editor.saveToFile()" style="width:100%">
+          📦 Exportar JSON
         </button>
       </div>
     </aside>
 
-    <!-- Main Editor -->
+    <!-- Main -->
     <main class="editor-main">
       <h2>✏️ Editor de Cartas</h2>
-      <p class="text-muted">
-        Crie e edite cartas para o jogo de LIBRAS. Cada carta representa uma palavra 
-        com imagem, sinal, datilologia e Braille.
-      </p>
-
       <div id="card-form">
-        <div class="editor-panel">
-          <p class="text-muted text-center">
-            Selecione uma categoria e carta ao lado para editar, 
-            ou crie uma nova categoria/carta.
-          </p>
+        <div class="editor-panel" style="text-align:center; padding: var(--space-2xl); color: var(--muted);">
+          <div style="font-size: 3rem; margin-bottom: var(--space-md);">🃏</div>
+          <p>Selecione uma categoria e uma carta para editar,<br>ou crie uma nova carta.</p>
         </div>
       </div>
     </main>
   </div>
 
-  <button class="btn btn-secondary print-btn" onclick="window.print()">
-    🖨️ Imprimir
-  </button>
+  <!-- PWA Install Bar -->
+  <div id="pwa-install-btn" class="pwa-install-bar hidden">
+    <span class="pwa-install-icon">🎮</span>
+    <div class="pwa-install-text">
+      Instalar Librapp
+      <small>Jogo de LIBRAS direto na tela inicial</small>
+    </div>
+    <button class="btn btn-primary btn-sm" onclick="installPWA()">Instalar</button>
+    <button class="pwa-install-close" onclick="this.parentElement.classList.add('hidden')">✕</button>
+  </div>
+
+  <style>
+    body {
+      padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    }
+    .header {
+      padding-top: calc(var(--space-md) + env(safe-area-inset-top, 0px));
+    }
+    .pwa-install-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      padding: var(--space-sm) var(--space-md);
+      padding-bottom: calc(var(--space-sm) + env(safe-area-inset-bottom, 0px));
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      backdrop-filter: blur(12px);
+      animation: slideUp 0.4s var(--ease);
+    }
+    .pwa-install-bar.hidden { display: none; }
+    .pwa-install-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .pwa-install-text { flex: 1; font-size: 0.8rem; font-weight: 500; }
+    .pwa-install-text small { display: block; color: var(--muted); font-weight: 400; font-size: 0.7rem; }
+    .pwa-install-close {
+      background: none; border: none; color: var(--muted); font-size: 1.2rem; cursor: pointer; padding: 4px;
+    }
+    .btn, button {
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+  </style>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('librapp-theme', next);
+      const btn = document.getElementById('theme-toggle-btn');
+      if (btn) btn.textContent = next === 'dark' ? '🌙' : '☀️';
+    }
+
+    (function() {
+      const saved = localStorage.getItem('librapp-theme') || 'light';
+      document.documentElement.setAttribute('data-theme', saved);
+      const btn = document.getElementById('theme-toggle-btn');
+      if (btn) btn.textContent = saved === 'dark' ? '🌙' : '☀️';
+    })();
+  </script>
 
   <script src="editor.js?v=6"></script>
+  <script src="../assets/pwa.js?v=2"></script>
 </body>
 </html>
