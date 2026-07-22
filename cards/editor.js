@@ -38,13 +38,32 @@ class CardEditor {
     };
   }
 
+  STORAGE_KEY = 'librapp-cards-data';
+
   async loadCards() {
+    // 1) tenta localStorage (dados salvos pelo editor)
+    const cached = localStorage.getItem(this.STORAGE_KEY);
+    if (cached) {
+      try {
+        const data = JSON.parse(cached);
+        this.allCards = data.categories || [];
+        if (this.allCards.length) { this.renderCategories(); return; }
+      } catch {}
+    }
+    // 2) fallback: carrega do arquivo original
     try {
       const resp = await fetch('../data/cards.json?v=7');
       const data = await resp.json();
-      this.allCards = data.categories;
+      this.allCards = data.categories || [];
     } catch { this.allCards = []; }
+    this.persist();
     this.renderCategories();
+  }
+
+  persist() {
+    try {
+      localStorage.setItem(this.STORAGE_KEY, JSON.stringify({ version: '3.0', categories: this.allCards }));
+    } catch {}
   }
 
   /* ── sidebar ── */
@@ -344,6 +363,7 @@ class CardEditor {
       if (textEl) textEl.innerHTML = `<div class="upload-filename">📎 ${this.esc(filename)}</div>`;
     }
 
+    this.persist();
     this.renderPreview();
   }
 
@@ -400,22 +420,26 @@ class CardEditor {
     };
     c.braille = document.getElementById('f-braille')?.value?.trim() || '';
 
+    // Salva QRs existentes ANTES de limpar (handleFile joga dados aqui)
+    const existingSentences = (c.context_sentences || []).map(s => typeof s === 'object' ? s : {});
+
     // Collect sentences
     c.context_sentences = [];
     for (let i = 0; i < 3; i++) {
       const txt = document.getElementById(`f-ctx-${i}`)?.value?.trim() || '';
       if (txt) {
-        const existing = this.currentCard.context_sentences[i] || {};
+        const prev = existingSentences[i] || {};
         c.context_sentences.push({
           text: txt,
-          audio_qr: typeof existing === 'object' ? (existing.audio_qr || '') : '',
-          video_qr: typeof existing === 'object' ? (existing.video_qr || '') : ''
+          audio_qr: prev.audio_qr || '',
+          video_qr: prev.video_qr || ''
         });
       }
     }
 
     this.renderCards();
     this.renderPreview();
+    this.persist();
     alert('✅ Carta salva!');
   }
 
@@ -425,6 +449,7 @@ class CardEditor {
     this.currentCategory.cards.splice(this.currentIndex, 1);
     this.currentCard = null;
     this.currentIndex = -1;
+    this.persist();
     this.renderCards();
     this.renderForm();
   }
@@ -436,6 +461,7 @@ class CardEditor {
     this.currentCategory.cards.push(dup);
     this.currentIndex = this.currentCategory.cards.length - 1;
     this.currentCard = dup;
+    this.persist();
     this.renderCards();
     this.renderForm();
   }
@@ -447,6 +473,7 @@ class CardEditor {
     this.currentIndex = this.currentCategory.cards.length - 1;
     this.currentCard = card;
     this.activePhase = 1;
+    this.persist();
     this.renderCards();
     this.renderForm();
   }
@@ -457,6 +484,7 @@ class CardEditor {
     const icon = prompt('Ícone da categoria (emoji):', '📚') || '📚';
     this.allCards.push({ id: this.toSlug(name), name, icon, cards: [] });
     this.currentCategory = this.allCards[this.allCards.length - 1];
+    this.persist();
     this.renderCategories();
   }
 
@@ -468,6 +496,47 @@ class CardEditor {
     const a = document.createElement('a');
     a.href = url; a.download = 'cards.json'; a.click();
     URL.revokeObjectURL(url);
+  }
+
+  importFromFile(input) {
+    const file = input.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const data = JSON.parse(e.target.result);
+        if (data.categories && Array.isArray(data.categories)) {
+          this.allCards = data.categories;
+        } else if (Array.isArray(data)) {
+          this.allCards = data;
+        } else {
+          alert('Formato JSON inválido. Esperado: { categories: [...] }');
+          return;
+        }
+        this.currentCard = null;
+        this.currentIndex = -1;
+        this.currentCategory = null;
+        this.persist();
+        this.renderCategories();
+        alert(`✅ Importado! ${this.allCards.length} categorias carregadas.`);
+      } catch (err) {
+        alert('❌ Erro ao ler JSON: ' + err.message);
+      }
+    };
+    reader.readAsText(file);
+    input.value = '';
+  }
+
+  clearAll() {
+    if (!confirm('⚠️ Tem certeza? Isso vai apagar TODAS as cartas e categorias do editor.')) return;
+    if (!confirm('Última chance! Confirma limpar tudo?')) return;
+    this.allCards = [];
+    this.currentCard = null;
+    this.currentCategory = null;
+    this.currentIndex = -1;
+    this.persist();
+    this.renderCategories();
+    this.renderForm();
   }
 
   /* ── preview ── */

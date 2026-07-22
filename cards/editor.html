@@ -140,6 +140,20 @@
     .field textarea { resize: vertical; min-height: 80px; }
     .field .hint { font-size: 0.7rem; color: var(--muted); font-style: italic; }
 
+    /* Danger button */
+    .btn-danger {
+      background: var(--red) !important; color: #fff !important;
+      border-color: var(--red) !important;
+    }
+    .btn-danger:hover { filter: brightness(1.1); }
+
+    /* Clear warning */
+    .clear-warning {
+      background: var(--red); color: #fff; font-size: 0.75rem;
+      padding: 8px 16px; border-radius: var(--radius-md); text-align: center;
+      animation: slideDown 0.3s var(--ease);
+    }
+
     /* Param badges */
     .param-cm label { color: var(--blue); }
     .param-pa label { color: var(--green); }
@@ -250,8 +264,15 @@
         <button class="btn btn-primary btn-sm" onclick="editor.saveToFile()" style="width:100%">
           📦 Exportar JSON
         </button>
+        <button class="btn btn-secondary btn-sm" onclick="document.getElementById('import-json').click()" style="width:100%">
+          📥 Importar JSON
+        </button>
+        <input type="file" id="import-json" accept=".json" style="display:none" onchange="editor.importFromFile(this)">
         <button class="btn btn-ghost btn-sm" onclick="editor.printCard()" style="width:100%">
           🖨️ Imprimir Carta
+        </button>
+        <button class="btn btn-danger btn-sm" onclick="editor.clearAll()" style="width:100%">
+          🗑️ Limpar Tudo
         </button>
       </div>
     </aside>
