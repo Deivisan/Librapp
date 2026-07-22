@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#F0F7FF"/>
+  <rect x="50" y="60" width="300" height="220" rx="8" fill="#2ECC71"/>
+  <rect x="60" y="70" width="280" height="200" rx="4" fill="#1EA85B"/>
+  <text x="90" y="140" font-family="sans-serif" font-size="28" fill="white" font-weight="bold">2 + 2 = 4</text>
+  <text x="90" y="190" font-family="sans-serif" font-size="24" fill="white">A B C</text>
+  <rect x="50" y="280" width="300" height="8" rx="2" fill="#27AE60"/>
+  <rect x="160" y="288" width="80" height="60" rx="4" fill="#1EA85B"/>
+</svg>

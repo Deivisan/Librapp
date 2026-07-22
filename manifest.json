@@ -1,0 +1,79 @@
+{
+  "name": "Librapp — Jogo de LIBRAS",
+  "short_name": "Librapp",
+  "description": "Jogo interativo para aprender e praticar a Língua Brasileira de Sinais (LIBRAS) de forma divertida com cartas, parâmetros e datilologia.",
+  "start_url": "/libras/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone"],
+  "orientation": "portrait",
+  "background_color": "#fff8f5",
+  "theme_color": "#ff6b35",
+  "categories": ["education", "games"],
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "scope": "/libras/",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "assets/icons/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "assets/icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/images/tesoura.jpg",
+      "sizes": "960x1280",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Card do jogo mostrando imagem, palavra e parâmetros LIBRAS"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Jogar Agora",
+      "short_name": "Jogar",
+      "description": "Iniciar o jogo rapidamente",
+      "url": "/libras/game/",
+      "icons": [{ "src": "assets/icons/icon-96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Editor de Cartas",
+      "short_name": "Editor",
+      "description": "Criar e editar cartas",
+      "url": "/libras/cards/editor.html",
+      "icons": [{ "src": "assets/icons/icon-96.png", "sizes": "96x96" }]
+    }
+  ]
+}
