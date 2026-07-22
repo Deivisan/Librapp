@@ -140,6 +140,20 @@ class CardEditor {
     }
 
     el.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:var(--space-sm);flex-wrap:wrap;margin-bottom:var(--space-md);">
+        <div style="font-family:var(--display);font-weight:700;font-size:1.1rem;">Editar Carta</div>
+        <div style="display:flex;gap:var(--space-sm);">
+          <button class="btn btn-secondary btn-sm" onclick="editor.quickCard()">✨ Carta Rápida</button>
+          <button class="btn btn-primary btn-sm" onclick="editor.saveCard()">💾 Salvar</button>
+        </div>
+      </div>
+
+      <!-- Preview sticky -->
+      <div class="preview-sticky" style="margin-bottom:var(--space-lg);">
+        <div style="font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:var(--space-sm);">Pré-visualização</div>
+        <div id="preview-content"></div>
+      </div>
+
       <!-- Phase Tabs -->
       <div class="phase-tabs" id="phase-tabs">
         <div class="phase-tab ${this.activePhase===1?'active':''}" data-phase="1">
@@ -191,6 +205,9 @@ class CardEditor {
           </div>
         </div>
 
+        <button class="btn btn-ghost btn-sm" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none';this.textContent=this.textContent==='🛠️ Mostrar detalhes técnicos'?'🛠️ Ocultar detalhes técnicos':'🛠️ Mostrar detalhes técnicos';">🛠️ Mostrar detalhes técnicos</button>
+        <div id="libras-params-section" style="display:none;">
+
         <div style="font-weight:700;font-size:0.8rem;color:var(--muted);margin:var(--space-md) 0 var(--space-sm);text-transform:uppercase;letter-spacing:0.06em;">
           Parâmetros da LIBRAS
         </div>
@@ -240,6 +257,7 @@ class CardEditor {
               <div class="upload-text">${c.audio_description_qr ? '<div class="upload-filename">📎 ' + this.esc(this.shortPath(c.audio_description_qr)) + '</div>' : 'Imagem do QR Code (áudio)'}</div>
             </div>
           </div>
+        </div>
         </div>
       </div>
 
@@ -334,12 +352,6 @@ class CardEditor {
             <span class="hint">Use o botão para gerar automaticamente, ou cole o Braille manualmente</span>
           </div>
         </div>
-      </div>
-
-      <!-- Preview -->
-      <div class="phase-section" id="card-preview">
-        <h3>👁️ Preview da Carta</h3>
-        <div id="preview-content"></div>
       </div>
 
       <!-- Actions -->
@@ -507,6 +519,25 @@ class CardEditor {
     this.renderPreview();
     this.persist();
     alert('✅ Carta salva!');
+  }
+
+  quickCard() {
+    if (!this.currentCategory) { alert('Selecione uma categoria primeiro!'); return; }
+    const card = this.getEmptyCard();
+    card.word = 'Nova carta';
+    card.sign_description = 'Descreva como fazer o sinal em LIBRAS.';
+    card.context_sentences = [
+      { text: 'Frase contextualizada 1', audio_qr: '', video_qr: '' },
+      { text: 'Frase contextualizada 2', audio_qr: '', video_qr: '' },
+      { text: 'Frase contextualizada 3', audio_qr: '', video_qr: '' }
+    ];
+    this.currentCategory.cards.push(card);
+    this.currentIndex = this.currentCategory.cards.length - 1;
+    this.currentCard = card;
+    this.activePhase = 1;
+    this.persist();
+    this.renderCards();
+    this.renderForm();
   }
 
   deleteCard() {

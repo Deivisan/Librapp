@@ -77,6 +77,18 @@
       max-width: 900px;
     }
 
+    /* Preview sticky */
+    .preview-sticky {
+      position: sticky;
+      top: calc(64px + var(--space-sm));
+      z-index: 9;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-lg);
+    }
+    #preview-content { max-height: 70vh; overflow: auto; }
+
     /* Phase Tabs */
     .phase-tabs {
       display: flex; gap: var(--space-xs); flex-wrap: wrap;
