@@ -22,11 +22,13 @@ class CardEditor {
   getEmptyCard() {
     return {
       word: '',
-      image: '',
+      image: '',           // imagem ilustrativa da palavra
+      sign_image: '',      // foto do sinal sendo feito (Fase 1)
       sign_description: '',
       libras_params: { cm: '', pa: '', mo: '', op: '', efc: '' },
       sign_video_qr: '',
       audio_description_qr: '',
+      context_final_qr: '', // QR final da interpretação completa (Fase 2)
       audio_file: '',
       fingerspelling: [],
       braille: '',
@@ -177,6 +179,18 @@ class CardEditor {
           <span class="hint">Como executar o sinal — para quem não enxerga ou está aprendendo</span>
         </div>
 
+        <div class="field-row">
+          <div class="field">
+            <label>📸 Foto do Sinal</label>
+            <div class="file-upload" id="upload-sign-image" onclick="this.querySelector('input').click()">
+              <input type="file" accept="image/*" data-field="sign_image" onchange="editor.handleFile(this)">
+              <div class="upload-icon">🖐️</div>
+              <div class="upload-text">${c.sign_image ? '<div class="upload-filename">📎 ' + this.esc(this.shortPath(c.sign_image)) + '</div>' : 'Foto do sinal sendo feito'}</div>
+            </div>
+            <span class="hint">Imagem mostrando como fazer o sinal em LIBRAS</span>
+          </div>
+        </div>
+
         <div style="font-weight:700;font-size:0.8rem;color:var(--muted);margin:var(--space-md) 0 var(--space-sm);text-transform:uppercase;letter-spacing:0.06em;">
           Parâmetros da LIBRAS
         </div>
@@ -267,6 +281,18 @@ class CardEditor {
             </div>
           </div>`;
         }).join('')}
+
+        <div class="field-row full" style="margin-top:var(--space-md);">
+          <div class="field">
+            <label style="font-weight:700;color:var(--orange);">🎬 QR Code Final — Vídeo da Frase Completa (Interpretação)</label>
+            <div class="file-upload" style="padding:var(--space-md)" onclick="this.querySelector('input').click()">
+              <input type="file" accept="image/*" data-field="context_final_qr" onchange="editor.handleFile(this)">
+              <div class="upload-icon">🎬</div>
+              <div class="upload-text">${c.context_final_qr ? '<div class="upload-filename">📎 QR final carregado</div>' : 'QR Code com interpretação completa da frase'}</div>
+            </div>
+            <span class="hint">Vídeo com a frase completa sendo sinalizada em LIBRAS</span>
+          </div>
+        </div>
       </div>
 
       <!-- PHASE 3: Datilologia + Braille -->
@@ -282,6 +308,10 @@ class CardEditor {
             <div class="fs-chip" data-i="${i}">
               <span class="letter">${f.letter}</span>
               <input type="text" value="${this.esc(f.libras)}" placeholder="Desc." data-fi="${i}" onchange="editor.updateFS(this)">
+              <div class="file-upload" style="padding:2px 4px;border-width:1px;border-radius:4px;" onclick="event.stopPropagation();this.querySelector('input').click()">
+                <input type="file" accept="image/*" data-field="fs-${i}" onchange="editor.handleFile(this)" style="display:none">
+                <div style="font-size:0.55rem;color:var(--muted);">${f.image && !f.image.startsWith('assets/') ? '📱' : 'QR'}</div>
+              </div>
               <button class="remove-letter" onclick="editor.removeFS(${i})">✕</button>
             </div>
           `).join('')}
@@ -342,29 +372,39 @@ class CardEditor {
     const file = input.files[0];
     if (!file) return;
     const field = input.dataset.field;
-    const filename = file.name; // <-- só o nome, sem path
 
-    // Store just filename
-    if (field.startsWith('ctx-')) {
-      const [, type, idx] = field.split('-');
-      const c = this.currentCard;
-      if (!c.context_sentences[+idx]) c.context_sentences[+idx] = { text:'', audio_qr:'', video_qr:'' };
-      if (type === 'vqr') c.context_sentences[+idx].video_qr = filename;
-      if (type === 'aqr') c.context_sentences[+idx].audio_qr = filename;
-    } else {
-      this.currentCard[field] = filename;
-    }
+    // Embed image as dataURL so it works in print/preview/export
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const dataUrl = e.target.result;
 
-    // Show uploaded preview on the upload area
-    const upload = input.closest('.file-upload');
-    if (upload) {
-      upload.classList.add('has-file');
-      const textEl = upload.querySelector('.upload-text');
-      if (textEl) textEl.innerHTML = `<div class="upload-filename">📎 ${this.esc(filename)}</div>`;
-    }
+      if (field.startsWith('ctx-')) {
+        const [, type, idx] = field.split('-');
+        const c = this.currentCard;
+        if (!c.context_sentences[+idx]) c.context_sentences[+idx] = { text:'', audio_qr:'', video_qr:'' };
+        if (type === 'vqr') c.context_sentences[+idx].video_qr = dataUrl;
+        if (type === 'aqr') c.context_sentences[+idx].audio_qr = dataUrl;
+      } else if (field.startsWith('fs-')) {
+        const [, , idx] = field.split('-');
+        if (this.currentCard.fingerspelling[+idx]) {
+          this.currentCard.fingerspelling[+idx].image = dataUrl;
+        }
+      } else {
+        this.currentCard[field] = dataUrl;
+      }
 
-    this.persist();
-    this.renderPreview();
+      // Show uploaded preview on the upload area
+      const upload = input.closest('.file-upload');
+      if (upload) {
+        upload.classList.add('has-file');
+        const textEl = upload.querySelector('.upload-text');
+        if (textEl) textEl.innerHTML = `<div class="upload-filename">📎 ${file.name}</div>`;
+      }
+
+      this.persist();
+      this.renderPreview();
+    };
+    reader.readAsDataURL(file);
   }
 
   /* ── datilologia helpers ── */
@@ -411,6 +451,11 @@ class CardEditor {
     const c = this.currentCard;
     c.word = document.getElementById('f-word')?.value?.trim() || c.word;
     c.sign_description = document.getElementById('f-desc')?.value?.trim() || '';
+    c.sign_image = c.sign_image || ''; // já preenchido pelo handleFile
+    c.sign_video_qr = c.sign_video_qr || '';
+    c.audio_description_qr = c.audio_description_qr || '';
+    c.context_final_qr = c.context_final_qr || '';
+
     c.libras_params = {
       cm: document.getElementById('f-cm')?.value?.trim() || '',
       pa: document.getElementById('f-pa')?.value?.trim() || '',
@@ -563,13 +608,16 @@ class CardEditor {
 
         ${c.sign_description ? `<div style="font-size:0.75rem;color:var(--muted);margin-bottom:var(--space-md);font-style:italic;">"${this.esc(c.sign_description)}"</div>` : ''}
 
-        ${(c.context_sentences||[]).length ? `
+        ${c.sign_image ? `<div style="text-align:center;margin-bottom:var(--space-md);"><img src="${c.sign_image.startsWith('data:') ? c.sign_image : '../' + c.sign_image}" style="max-width:200px;max-height:120px;border-radius:8px;border:1px solid var(--border);"></div>` : ''}
+
+        ${(c.context_sentences||[]).filter(s => typeof s === 'string' ? s : s.text).length ? `
         <div style="margin-bottom:var(--space-md);">
           <div style="font-size:0.7rem;font-weight:700;color:var(--muted);margin-bottom:4px;">💬 CONTEXTOS</div>
-          ${c.context_sentences.map((s,i) => {
-            const txt = typeof s === 'string' ? s : s.text;
-            return txt ? `<div style="font-size:0.8rem;margin-bottom:2px;">${i+1}. ${this.esc(txt)}</div>` : '';
+          ${c.context_sentences.filter(s => typeof s === 'string' ? s : s.text).map(s => {
+            const text = typeof s === 'string' ? s : s.text;
+            return `<div style="font-size:0.8rem;margin-bottom:2px;">💬 ${this.esc(text)}</div>`;
           }).join('')}
+          ${c.context_final_qr ? '<div style="font-size:0.65rem;color:var(--orange);margin-top:4px;">🎬 QR Final: interpretação completa</div>' : ''}
         </div>` : ''}
 
         ${(c.fingerspelling||[]).length ? `

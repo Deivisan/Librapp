@@ -1,62 +1,169 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Librapp — Jogar | deivi.tech/libras</title>
   <meta name="description" content="Jogo de LIBRAS: aprenda sinais de forma divertida com cartas interativas.">
+
+  <!-- PWA / Mobile -->
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#ff6b35">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Librapp">
+  <link rel="apple-touch-icon" href="../assets/icons/icon-192.png">
+  <meta name="mobile-web-app-capable" content="yes">
+
   <base href="./">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/style.css?v=6">
-  <link rel="stylesheet" href="game.css?v=2">
+  <link rel="stylesheet" href="game.css?v=7">
+  <style>
+    /* Mobile safe areas + touch */
+    body {
+      padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    }
+    .header {
+      padding-top: calc(var(--space-md) + env(safe-area-inset-top, 0px));
+    }
+
+    /* PWA Install Bar */
+    .pwa-install-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      padding: var(--space-sm) var(--space-md);
+      padding-bottom: calc(var(--space-sm) + env(safe-area-inset-bottom, 0px));
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      backdrop-filter: blur(12px);
+      animation: slideUp 0.4s var(--ease);
+    }
+    .pwa-install-bar.hidden { display: none; }
+    .pwa-install-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .pwa-install-text { flex: 1; font-size: 0.8rem; font-weight: 500; }
+    .pwa-install-text small { display: block; color: var(--muted); font-weight: 400; font-size: 0.7rem; }
+    .pwa-install-close {
+      background: none; border: none; color: var(--muted); font-size: 1.2rem; cursor: pointer; padding: 4px;
+    }
+
+    /* Touch */
+    .btn, button, a, .category-btn, .deck-btn, .player-btn {
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .game-card-image img, .qr-img, .letter-image {
+      pointer-events: none;
+      -webkit-user-drag: none;
+      user-select: none;
+    }
+    #categories-screen, #game-screen {
+      -webkit-overflow-scrolling: touch;
+    }
+  </style>
 </head>
-<body>
+<body class="game-page">
+  <!-- Header -->
   <header class="header">
     <a href="../index.html" class="logo">&lt;Deivi<b>Tech</b>/libras&gt;</a>
     <nav class="header-nav">
       <a href="../index.html">Início</a>
       <a href="../cards/">Editor</a>
       <a href="index.html" class="btn btn-ghost">🎮 Jogar</a>
+      <button class="theme-toggle" id="theme-toggle-btn" onclick="toggleTheme()" aria-label="Alternar tema">☀️</button>
     </nav>
   </header>
 
-  <div class="game-container">
-    <!-- Tela de Categorias -->
-    <div id="categories-screen">
-      <div class="categories-header">
-        <span class="badge">Escolha uma categoria</span>
-        <h1>Jogo de <span class="grad">LIBRAS</span></h1>
-        <p>Selecione uma categoria para começar a jogar</p>
+  <!-- ========== CATEGORIES SCREEN ========== -->
+  <div id="categories-screen">
+    <div class="categories-hero">
+      <h1>Jogo de <span>LIBRAS</span></h1>
+      <p>Escolha uma categoria e comece a jogar!</p>
+
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-number" id="total-cards-stat">9</span>
+          <span class="stat-label">Cartas</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" id="total-categories-stat">3</span>
+          <span class="stat-label">Categorias</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">3</span>
+          <span class="stat-label">Fases</span>
+        </div>
       </div>
-      
-      <div class="categories-grid" id="categories">
-        <!-- Categorias serão renderizadas via JS -->
+
+      <!-- Deck Selector (future) -->
+      <div class="deck-selector">
+        <button class="deck-btn active" data-level="all" onclick="game.selectDeck('all')">📚 Todos</button>
+        <button class="deck-btn" data-level="easy" onclick="game.selectDeck('easy')">🌟 Iniciante</button>
+        <button class="deck-btn" data-level="medium" onclick="game.selectDeck('medium')">🔥 Médio</button>
+        <button class="deck-btn" data-level="hard" onclick="game.selectDeck('hard')">💀 Difícil</button>
+      </div>
+
+      <!-- Player Counter -->
+      <div class="player-counter no-print">
+        <span class="player-counter-label">👥 Jogadores</span>
+        <button class="player-btn" onclick="game.changePlayers(-1)">−</button>
+        <span class="player-counter-value" id="player-count">2</span>
+        <button class="player-btn" onclick="game.changePlayers(1)">+</button>
       </div>
     </div>
 
-    <!-- Tela do Jogo -->
-    <div id="game-screen" class="hidden">
-      <div class="game-header">
-        <span class="game-title" id="category-name"></span>
-        <div class="phase-dots">
-          <span class="phase-dot active" data-phase="1"></span>
-          <span class="phase-dot" data-phase="2"></span>
-          <span class="phase-dot" data-phase="3"></span>
+    <div id="categories">
+      <!-- Categories rendered by JS -->
+    </div>
+  </div>
+
+  <!-- ========== GAME SCREEN ========== -->
+  <div id="game-screen" class="hidden">
+    <div class="game-layout">
+      <!-- Top Bar -->
+      <div class="game-topbar">
+        <div class="game-topbar-left">
+          <button class="game-back-btn" onclick="game.backToCategories()" title="Voltar">←</button>
+          <span class="game-category-tag" id="game-category-icon"></span>
+          <span class="game-category-tag" id="game-category-tag"></span>
         </div>
-        <span class="game-score" id="score">0/0</span>
-      </div>
-      
-      <div class="game-progress">
-        <div class="game-progress-bar" id="progress" style="width: 0%"></div>
+        <div class="game-topbar-right">
+          <span class="game-score">Pontos: <strong id="score-value">0/0</strong></span>
+        </div>
       </div>
 
-      <div class="game-main">
-        <div id="game-card-container">
-          <!-- Card do jogo será renderizado via JS -->
+      <!-- Progress Bar -->
+      <div class="game-progress">
+        <div class="game-progress-bar" id="progress-bar" style="width: 0%"></div>
+      </div>
+
+      <!-- Card Container -->
+      <div id="game-card-container">
+        <!-- Card rendered by JS -->
+      </div>
+
+      <!-- PWA Install Bar -->
+      <div id="pwa-install-btn" class="pwa-install-bar hidden">
+        <span class="pwa-install-icon">🎮</span>
+        <div class="pwa-install-text">
+          Instalar Librapp
+          <small>Jogo de LIBRAS direto na tela inicial</small>
         </div>
+        <button class="btn btn-primary btn-sm" onclick="installPWA()">Instalar</button>
+        <button class="pwa-install-close" onclick="this.parentElement.classList.add('hidden')">✕</button>
       </div>
     </div>
   </div>
 
-  <script src="game.js?v=11"></script>
+  <script src="game.js?v=13"></script>
+  <script src="../assets/pwa.js?v=2"></script>
 </body>
 </html>
