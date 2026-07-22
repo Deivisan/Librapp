@@ -24,37 +24,44 @@
             {
               "letter": "T",
               "image": "assets/signs/letra-t.png",
-              "libras": "Sinal da letra T"
+              "libras": "Sinal da letra T",
+              "qr": ""
             },
             {
               "letter": "E",
               "image": "assets/signs/letra-e.png",
-              "libras": "Sinal da letra E"
+              "libras": "Sinal da letra E",
+              "qr": ""
             },
             {
               "letter": "S",
               "image": "assets/signs/letra-s.png",
-              "libras": "Sinal da letra S"
+              "libras": "Sinal da letra S",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             },
             {
               "letter": "U",
               "image": "assets/signs/letra-u.png",
-              "libras": "Sinal da letra U"
+              "libras": "Sinal da letra U",
+              "qr": ""
             },
             {
               "letter": "R",
               "image": "assets/signs/letra-r.png",
-              "libras": "Sinal da letra R"
+              "libras": "Sinal da letra R",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             }
           ],
           "braille": "⠞⠑⠎⠕⠥⠗⠁",
@@ -74,7 +81,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Lápis",
@@ -94,27 +103,32 @@
             {
               "letter": "L",
               "image": "assets/signs/letra-l.png",
-              "libras": "Sinal da letra L"
+              "libras": "Sinal da letra L",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "P",
               "image": "assets/signs/letra-p.png",
-              "libras": "Sinal da letra P"
+              "libras": "Sinal da letra P",
+              "qr": ""
             },
             {
               "letter": "I",
               "image": "assets/signs/letra-i.png",
-              "libras": "Sinal da letra I"
+              "libras": "Sinal da letra I",
+              "qr": ""
             },
             {
               "letter": "S",
               "image": "assets/signs/letra-s.png",
-              "libras": "Sinal da letra S"
+              "libras": "Sinal da letra S",
+              "qr": ""
             }
           ],
           "braille": "⠇⠷⠏⠊⠎",
@@ -134,7 +148,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Borracha",
@@ -154,42 +170,50 @@
             {
               "letter": "B",
               "image": "assets/signs/letra-b.png",
-              "libras": "Sinal da letra B"
+              "libras": "Sinal da letra B",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             },
             {
               "letter": "R",
               "image": "assets/signs/letra-r.png",
-              "libras": "Sinal da letra R"
+              "libras": "Sinal da letra R",
+              "qr": ""
             },
             {
               "letter": "R",
               "image": "assets/signs/letra-r.png",
-              "libras": "Sinal da letra R"
+              "libras": "Sinal da letra R",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "C",
               "image": "assets/signs/letra-c.png",
-              "libras": "Sinal da letra C"
+              "libras": "Sinal da letra C",
+              "qr": ""
             },
             {
               "letter": "H",
               "image": "assets/signs/letra-h.png",
-              "libras": "Sinal da letra H"
+              "libras": "Sinal da letra H",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             }
           ],
           "braille": "⠃⠕⠗⠗⠁⠉⠓⠁",
@@ -209,7 +233,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Caderno",
@@ -229,37 +255,44 @@
             {
               "letter": "C",
               "image": "assets/signs/letra-c.png",
-              "libras": "Sinal da letra C"
+              "libras": "Sinal da letra C",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "D",
               "image": "assets/signs/letra-d.png",
-              "libras": "Sinal da letra D"
+              "libras": "Sinal da letra D",
+              "qr": ""
             },
             {
               "letter": "E",
               "image": "assets/signs/letra-e.png",
-              "libras": "Sinal da letra E"
+              "libras": "Sinal da letra E",
+              "qr": ""
             },
             {
               "letter": "R",
               "image": "assets/signs/letra-r.png",
-              "libras": "Sinal da letra R"
+              "libras": "Sinal da letra R",
+              "qr": ""
             },
             {
               "letter": "N",
               "image": "assets/signs/letra-n.png",
-              "libras": "Sinal da letra N"
+              "libras": "Sinal da letra N",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             }
           ],
           "braille": "⠉⠁⠙⠑⠗⠝⠕",
@@ -279,7 +312,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Régua",
@@ -299,27 +334,32 @@
             {
               "letter": "R",
               "image": "assets/signs/letra-r.png",
-              "libras": "Sinal da letra R"
+              "libras": "Sinal da letra R",
+              "qr": ""
             },
             {
               "letter": "E",
               "image": "assets/signs/letra-e.png",
-              "libras": "Sinal da letra E"
+              "libras": "Sinal da letra E",
+              "qr": ""
             },
             {
               "letter": "G",
               "image": "assets/signs/letra-g.png",
-              "libras": "Sinal da letra G"
+              "libras": "Sinal da letra G",
+              "qr": ""
             },
             {
               "letter": "U",
               "image": "assets/signs/letra-u.png",
-              "libras": "Sinal da letra U"
+              "libras": "Sinal da letra U",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             }
           ],
           "braille": "⠗⠿⠛⠥⠁",
@@ -339,7 +379,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Mesa",
@@ -359,22 +401,26 @@
             {
               "letter": "M",
               "image": "assets/signs/letra-m.png",
-              "libras": "Sinal da letra M"
+              "libras": "Sinal da letra M",
+              "qr": ""
             },
             {
               "letter": "E",
               "image": "assets/signs/letra-e.png",
-              "libras": "Sinal da letra E"
+              "libras": "Sinal da letra E",
+              "qr": ""
             },
             {
               "letter": "S",
               "image": "assets/signs/letra-s.png",
-              "libras": "Sinal da letra S"
+              "libras": "Sinal da letra S",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             }
           ],
           "braille": "⠍⠑⠎⠁",
@@ -394,7 +440,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Cadeira",
@@ -414,37 +462,44 @@
             {
               "letter": "C",
               "image": "assets/signs/letra-c.png",
-              "libras": "Sinal da letra C"
+              "libras": "Sinal da letra C",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "D",
               "image": "assets/signs/letra-d.png",
-              "libras": "Sinal da letra D"
+              "libras": "Sinal da letra D",
+              "qr": ""
             },
             {
               "letter": "E",
               "image": "assets/signs/letra-e.png",
-              "libras": "Sinal da letra E"
+              "libras": "Sinal da letra E",
+              "qr": ""
             },
             {
               "letter": "I",
               "image": "assets/signs/letra-i.png",
-              "libras": "Sinal da letra I"
+              "libras": "Sinal da letra I",
+              "qr": ""
             },
             {
               "letter": "R",
               "image": "assets/signs/letra-r.png",
-              "libras": "Sinal da letra R"
+              "libras": "Sinal da letra R",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             }
           ],
           "braille": "⠉⠁⠙⠑⠊⠗⠁",
@@ -464,7 +519,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Quadro",
@@ -484,32 +541,38 @@
             {
               "letter": "Q",
               "image": "assets/signs/letra-q.png",
-              "libras": "Sinal da letra Q"
+              "libras": "Sinal da letra Q",
+              "qr": ""
             },
             {
               "letter": "U",
               "image": "assets/signs/letra-u.png",
-              "libras": "Sinal da letra U"
+              "libras": "Sinal da letra U",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "D",
               "image": "assets/signs/letra-d.png",
-              "libras": "Sinal da letra D"
+              "libras": "Sinal da letra D",
+              "qr": ""
             },
             {
               "letter": "R",
               "image": "assets/signs/letra-r.png",
-              "libras": "Sinal da letra R"
+              "libras": "Sinal da letra R",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             }
           ],
           "braille": "⠟⠥⠁⠙⠗⠕",
@@ -529,7 +592,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Mochila",
@@ -549,37 +614,44 @@
             {
               "letter": "M",
               "image": "assets/signs/letra-m.png",
-              "libras": "Sinal da letra M"
+              "libras": "Sinal da letra M",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             },
             {
               "letter": "C",
               "image": "assets/signs/letra-c.png",
-              "libras": "Sinal da letra C"
+              "libras": "Sinal da letra C",
+              "qr": ""
             },
             {
               "letter": "H",
               "image": "assets/signs/letra-h.png",
-              "libras": "Sinal da letra H"
+              "libras": "Sinal da letra H",
+              "qr": ""
             },
             {
               "letter": "I",
               "image": "assets/signs/letra-i.png",
-              "libras": "Sinal da letra I"
+              "libras": "Sinal da letra I",
+              "qr": ""
             },
             {
               "letter": "L",
               "image": "assets/signs/letra-l.png",
-              "libras": "Sinal da letra L"
+              "libras": "Sinal da letra L",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             }
           ],
           "braille": "⠍⠕⠉⠓⠊⠇⠁",
@@ -599,7 +671,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Caneta",
@@ -619,32 +693,38 @@
             {
               "letter": "C",
               "image": "assets/signs/letra-c.png",
-              "libras": "Sinal da letra C"
+              "libras": "Sinal da letra C",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "N",
               "image": "assets/signs/letra-n.png",
-              "libras": "Sinal da letra N"
+              "libras": "Sinal da letra N",
+              "qr": ""
             },
             {
               "letter": "E",
               "image": "assets/signs/letra-e.png",
-              "libras": "Sinal da letra E"
+              "libras": "Sinal da letra E",
+              "qr": ""
             },
             {
               "letter": "T",
               "image": "assets/signs/letra-t.png",
-              "libras": "Sinal da letra T"
+              "libras": "Sinal da letra T",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             }
           ],
           "braille": "⠉⠁⠝⠑⠞⠁",
@@ -664,7 +744,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Livro",
@@ -684,27 +766,32 @@
             {
               "letter": "L",
               "image": "assets/signs/letra-l.png",
-              "libras": "Sinal da letra L"
+              "libras": "Sinal da letra L",
+              "qr": ""
             },
             {
               "letter": "I",
               "image": "assets/signs/letra-i.png",
-              "libras": "Sinal da letra I"
+              "libras": "Sinal da letra I",
+              "qr": ""
             },
             {
               "letter": "V",
               "image": "assets/signs/letra-v.png",
-              "libras": "Sinal da letra V"
+              "libras": "Sinal da letra V",
+              "qr": ""
             },
             {
               "letter": "R",
               "image": "assets/signs/letra-r.png",
-              "libras": "Sinal da letra R"
+              "libras": "Sinal da letra R",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             }
           ],
           "braille": "⠇⠊⠧⠗⠕",
@@ -724,7 +811,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Apontador",
@@ -744,47 +833,56 @@
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "P",
               "image": "assets/signs/letra-p.png",
-              "libras": "Sinal da letra P"
+              "libras": "Sinal da letra P",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             },
             {
               "letter": "N",
               "image": "assets/signs/letra-n.png",
-              "libras": "Sinal da letra N"
+              "libras": "Sinal da letra N",
+              "qr": ""
             },
             {
               "letter": "T",
               "image": "assets/signs/letra-t.png",
-              "libras": "Sinal da letra T"
+              "libras": "Sinal da letra T",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "D",
               "image": "assets/signs/letra-d.png",
-              "libras": "Sinal da letra D"
+              "libras": "Sinal da letra D",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             },
             {
               "letter": "R",
               "image": "assets/signs/letra-r.png",
-              "libras": "Sinal da letra R"
+              "libras": "Sinal da letra R",
+              "qr": ""
             }
           ],
           "braille": "⠁⠏⠕⠝⠞⠁⠙⠕⠗",
@@ -804,7 +902,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Compasso",
@@ -824,42 +924,50 @@
             {
               "letter": "C",
               "image": "assets/signs/letra-c.png",
-              "libras": "Sinal da letra C"
+              "libras": "Sinal da letra C",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             },
             {
               "letter": "M",
               "image": "assets/signs/letra-m.png",
-              "libras": "Sinal da letra M"
+              "libras": "Sinal da letra M",
+              "qr": ""
             },
             {
               "letter": "P",
               "image": "assets/signs/letra-p.png",
-              "libras": "Sinal da letra P"
+              "libras": "Sinal da letra P",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "S",
               "image": "assets/signs/letra-s.png",
-              "libras": "Sinal da letra S"
+              "libras": "Sinal da letra S",
+              "qr": ""
             },
             {
               "letter": "S",
               "image": "assets/signs/letra-s.png",
-              "libras": "Sinal da letra S"
+              "libras": "Sinal da letra S",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             }
           ],
           "braille": "⠉⠕⠍⠏⠁⠎⠎⠕",
@@ -879,7 +987,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Cola",
@@ -899,22 +1009,26 @@
             {
               "letter": "C",
               "image": "assets/signs/letra-c.png",
-              "libras": "Sinal da letra C"
+              "libras": "Sinal da letra C",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             },
             {
               "letter": "L",
               "image": "assets/signs/letra-l.png",
-              "libras": "Sinal da letra L"
+              "libras": "Sinal da letra L",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             }
           ],
           "braille": "⠉⠕⠇⠁",
@@ -934,7 +1048,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Grampeador",
@@ -954,52 +1070,62 @@
             {
               "letter": "G",
               "image": "assets/signs/letra-g.png",
-              "libras": "Sinal da letra G"
+              "libras": "Sinal da letra G",
+              "qr": ""
             },
             {
               "letter": "R",
               "image": "assets/signs/letra-r.png",
-              "libras": "Sinal da letra R"
+              "libras": "Sinal da letra R",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "M",
               "image": "assets/signs/letra-m.png",
-              "libras": "Sinal da letra M"
+              "libras": "Sinal da letra M",
+              "qr": ""
             },
             {
               "letter": "P",
               "image": "assets/signs/letra-p.png",
-              "libras": "Sinal da letra P"
+              "libras": "Sinal da letra P",
+              "qr": ""
             },
             {
               "letter": "E",
               "image": "assets/signs/letra-e.png",
-              "libras": "Sinal da letra E"
+              "libras": "Sinal da letra E",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "D",
               "image": "assets/signs/letra-d.png",
-              "libras": "Sinal da letra D"
+              "libras": "Sinal da letra D",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             },
             {
               "letter": "R",
               "image": "assets/signs/letra-r.png",
-              "libras": "Sinal da letra R"
+              "libras": "Sinal da letra R",
+              "qr": ""
             }
           ],
           "braille": "⠛⠗⠁⠍⠏⠑⠁⠙⠕⠗",
@@ -1019,7 +1145,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         }
       ]
     },
@@ -1046,22 +1174,26 @@
             {
               "letter": "M",
               "image": "assets/signs/letra-m.png",
-              "libras": "Sinal da letra M"
+              "libras": "Sinal da letra M",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "C",
               "image": "assets/signs/letra-c.png",
-              "libras": "Sinal da letra C"
+              "libras": "Sinal da letra C",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             }
           ],
           "braille": "⠍⠁⠯⠡",
@@ -1081,7 +1213,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Banana",
@@ -1101,32 +1235,38 @@
             {
               "letter": "B",
               "image": "assets/signs/letra-b.png",
-              "libras": "Sinal da letra B"
+              "libras": "Sinal da letra B",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "N",
               "image": "assets/signs/letra-n.png",
-              "libras": "Sinal da letra N"
+              "libras": "Sinal da letra N",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "N",
               "image": "assets/signs/letra-n.png",
-              "libras": "Sinal da letra N"
+              "libras": "Sinal da letra N",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             }
           ],
           "braille": "⠃⠁⠝⠁⠝⠁",
@@ -1146,7 +1286,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Arroz",
@@ -1166,27 +1308,32 @@
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "R",
               "image": "assets/signs/letra-r.png",
-              "libras": "Sinal da letra R"
+              "libras": "Sinal da letra R",
+              "qr": ""
             },
             {
               "letter": "R",
               "image": "assets/signs/letra-r.png",
-              "libras": "Sinal da letra R"
+              "libras": "Sinal da letra R",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             },
             {
               "letter": "Z",
               "image": "assets/signs/letra-z.png",
-              "libras": "Sinal da letra Z"
+              "libras": "Sinal da letra Z",
+              "qr": ""
             }
           ],
           "braille": "⠁⠗⠗⠕⠵",
@@ -1206,7 +1353,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Feijão",
@@ -1226,32 +1375,38 @@
             {
               "letter": "F",
               "image": "assets/signs/letra-f.png",
-              "libras": "Sinal da letra F"
+              "libras": "Sinal da letra F",
+              "qr": ""
             },
             {
               "letter": "E",
               "image": "assets/signs/letra-e.png",
-              "libras": "Sinal da letra E"
+              "libras": "Sinal da letra E",
+              "qr": ""
             },
             {
               "letter": "I",
               "image": "assets/signs/letra-i.png",
-              "libras": "Sinal da letra I"
+              "libras": "Sinal da letra I",
+              "qr": ""
             },
             {
               "letter": "J",
               "image": "assets/signs/letra-j.png",
-              "libras": "Sinal da letra J"
+              "libras": "Sinal da letra J",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             }
           ],
           "braille": "⠋⠑⠊⠚⠡⠕",
@@ -1271,7 +1426,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Pão",
@@ -1291,17 +1448,20 @@
             {
               "letter": "P",
               "image": "assets/signs/letra-p.png",
-              "libras": "Sinal da letra P"
+              "libras": "Sinal da letra P",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             }
           ],
           "braille": "⠏⠡⠕",
@@ -1321,7 +1481,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Leite",
@@ -1341,27 +1503,32 @@
             {
               "letter": "L",
               "image": "assets/signs/letra-l.png",
-              "libras": "Sinal da letra L"
+              "libras": "Sinal da letra L",
+              "qr": ""
             },
             {
               "letter": "E",
               "image": "assets/signs/letra-e.png",
-              "libras": "Sinal da letra E"
+              "libras": "Sinal da letra E",
+              "qr": ""
             },
             {
               "letter": "I",
               "image": "assets/signs/letra-i.png",
-              "libras": "Sinal da letra I"
+              "libras": "Sinal da letra I",
+              "qr": ""
             },
             {
               "letter": "T",
               "image": "assets/signs/letra-t.png",
-              "libras": "Sinal da letra T"
+              "libras": "Sinal da letra T",
+              "qr": ""
             },
             {
               "letter": "E",
               "image": "assets/signs/letra-e.png",
-              "libras": "Sinal da letra E"
+              "libras": "Sinal da letra E",
+              "qr": ""
             }
           ],
           "braille": "⠇⠑⠊⠞⠑",
@@ -1381,7 +1548,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Ovo",
@@ -1401,17 +1570,20 @@
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             },
             {
               "letter": "V",
               "image": "assets/signs/letra-v.png",
-              "libras": "Sinal da letra V"
+              "libras": "Sinal da letra V",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             }
           ],
           "braille": "⠕⠧⠕",
@@ -1431,7 +1603,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Queijo",
@@ -1451,32 +1625,38 @@
             {
               "letter": "Q",
               "image": "assets/signs/letra-q.png",
-              "libras": "Sinal da letra Q"
+              "libras": "Sinal da letra Q",
+              "qr": ""
             },
             {
               "letter": "U",
               "image": "assets/signs/letra-u.png",
-              "libras": "Sinal da letra U"
+              "libras": "Sinal da letra U",
+              "qr": ""
             },
             {
               "letter": "E",
               "image": "assets/signs/letra-e.png",
-              "libras": "Sinal da letra E"
+              "libras": "Sinal da letra E",
+              "qr": ""
             },
             {
               "letter": "I",
               "image": "assets/signs/letra-i.png",
-              "libras": "Sinal da letra I"
+              "libras": "Sinal da letra I",
+              "qr": ""
             },
             {
               "letter": "J",
               "image": "assets/signs/letra-j.png",
-              "libras": "Sinal da letra J"
+              "libras": "Sinal da letra J",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             }
           ],
           "braille": "⠟⠥⠑⠊⠚⠕",
@@ -1496,7 +1676,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Carne",
@@ -1516,27 +1698,32 @@
             {
               "letter": "C",
               "image": "assets/signs/letra-c.png",
-              "libras": "Sinal da letra C"
+              "libras": "Sinal da letra C",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "R",
               "image": "assets/signs/letra-r.png",
-              "libras": "Sinal da letra R"
+              "libras": "Sinal da letra R",
+              "qr": ""
             },
             {
               "letter": "N",
               "image": "assets/signs/letra-n.png",
-              "libras": "Sinal da letra N"
+              "libras": "Sinal da letra N",
+              "qr": ""
             },
             {
               "letter": "E",
               "image": "assets/signs/letra-e.png",
-              "libras": "Sinal da letra E"
+              "libras": "Sinal da letra E",
+              "qr": ""
             }
           ],
           "braille": "⠉⠁⠗⠝⠑",
@@ -1556,7 +1743,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Frango",
@@ -1576,32 +1765,38 @@
             {
               "letter": "F",
               "image": "assets/signs/letra-f.png",
-              "libras": "Sinal da letra F"
+              "libras": "Sinal da letra F",
+              "qr": ""
             },
             {
               "letter": "R",
               "image": "assets/signs/letra-r.png",
-              "libras": "Sinal da letra R"
+              "libras": "Sinal da letra R",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "N",
               "image": "assets/signs/letra-n.png",
-              "libras": "Sinal da letra N"
+              "libras": "Sinal da letra N",
+              "qr": ""
             },
             {
               "letter": "G",
               "image": "assets/signs/letra-g.png",
-              "libras": "Sinal da letra G"
+              "libras": "Sinal da letra G",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             }
           ],
           "braille": "⠋⠗⠁⠝⠛⠕",
@@ -1621,7 +1816,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Peixe",
@@ -1641,27 +1838,32 @@
             {
               "letter": "P",
               "image": "assets/signs/letra-p.png",
-              "libras": "Sinal da letra P"
+              "libras": "Sinal da letra P",
+              "qr": ""
             },
             {
               "letter": "E",
               "image": "assets/signs/letra-e.png",
-              "libras": "Sinal da letra E"
+              "libras": "Sinal da letra E",
+              "qr": ""
             },
             {
               "letter": "I",
               "image": "assets/signs/letra-i.png",
-              "libras": "Sinal da letra I"
+              "libras": "Sinal da letra I",
+              "qr": ""
             },
             {
               "letter": "X",
               "image": "assets/signs/letra-x.png",
-              "libras": "Sinal da letra X"
+              "libras": "Sinal da letra X",
+              "qr": ""
             },
             {
               "letter": "E",
               "image": "assets/signs/letra-e.png",
-              "libras": "Sinal da letra E"
+              "libras": "Sinal da letra E",
+              "qr": ""
             }
           ],
           "braille": "⠏⠑⠊⠭⠑",
@@ -1681,7 +1883,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Suco",
@@ -1701,22 +1905,26 @@
             {
               "letter": "S",
               "image": "assets/signs/letra-s.png",
-              "libras": "Sinal da letra S"
+              "libras": "Sinal da letra S",
+              "qr": ""
             },
             {
               "letter": "U",
               "image": "assets/signs/letra-u.png",
-              "libras": "Sinal da letra U"
+              "libras": "Sinal da letra U",
+              "qr": ""
             },
             {
               "letter": "C",
               "image": "assets/signs/letra-c.png",
-              "libras": "Sinal da letra C"
+              "libras": "Sinal da letra C",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             }
           ],
           "braille": "⠎⠥⠉⠕",
@@ -1736,7 +1944,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Bolo",
@@ -1756,22 +1966,26 @@
             {
               "letter": "B",
               "image": "assets/signs/letra-b.png",
-              "libras": "Sinal da letra B"
+              "libras": "Sinal da letra B",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             },
             {
               "letter": "L",
               "image": "assets/signs/letra-l.png",
-              "libras": "Sinal da letra L"
+              "libras": "Sinal da letra L",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             }
           ],
           "braille": "⠃⠕⠇⠕",
@@ -1791,7 +2005,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Café",
@@ -1811,22 +2027,26 @@
             {
               "letter": "C",
               "image": "assets/signs/letra-c.png",
-              "libras": "Sinal da letra C"
+              "libras": "Sinal da letra C",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "F",
               "image": "assets/signs/letra-f.png",
-              "libras": "Sinal da letra F"
+              "libras": "Sinal da letra F",
+              "qr": ""
             },
             {
               "letter": "E",
               "image": "assets/signs/letra-e.png",
-              "libras": "Sinal da letra E"
+              "libras": "Sinal da letra E",
+              "qr": ""
             }
           ],
           "braille": "⠉⠁⠋⠿",
@@ -1846,7 +2066,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Melancia",
@@ -1866,42 +2088,50 @@
             {
               "letter": "M",
               "image": "assets/signs/letra-m.png",
-              "libras": "Sinal da letra M"
+              "libras": "Sinal da letra M",
+              "qr": ""
             },
             {
               "letter": "E",
               "image": "assets/signs/letra-e.png",
-              "libras": "Sinal da letra E"
+              "libras": "Sinal da letra E",
+              "qr": ""
             },
             {
               "letter": "L",
               "image": "assets/signs/letra-l.png",
-              "libras": "Sinal da letra L"
+              "libras": "Sinal da letra L",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "N",
               "image": "assets/signs/letra-n.png",
-              "libras": "Sinal da letra N"
+              "libras": "Sinal da letra N",
+              "qr": ""
             },
             {
               "letter": "C",
               "image": "assets/signs/letra-c.png",
-              "libras": "Sinal da letra C"
+              "libras": "Sinal da letra C",
+              "qr": ""
             },
             {
               "letter": "I",
               "image": "assets/signs/letra-i.png",
-              "libras": "Sinal da letra I"
+              "libras": "Sinal da letra I",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             }
           ],
           "braille": "⠍⠑⠇⠁⠝⠉⠊⠁",
@@ -1921,7 +2151,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         }
       ]
     },
@@ -1948,42 +2180,50 @@
             {
               "letter": "C",
               "image": "assets/signs/letra-c.png",
-              "libras": "Sinal da letra C"
+              "libras": "Sinal da letra C",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "C",
               "image": "assets/signs/letra-c.png",
-              "libras": "Sinal da letra C"
+              "libras": "Sinal da letra C",
+              "qr": ""
             },
             {
               "letter": "H",
               "image": "assets/signs/letra-h.png",
-              "libras": "Sinal da letra H"
+              "libras": "Sinal da letra H",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             },
             {
               "letter": "R",
               "image": "assets/signs/letra-r.png",
-              "libras": "Sinal da letra R"
+              "libras": "Sinal da letra R",
+              "qr": ""
             },
             {
               "letter": "R",
               "image": "assets/signs/letra-r.png",
-              "libras": "Sinal da letra R"
+              "libras": "Sinal da letra R",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             }
           ],
           "braille": "⠉⠁⠉⠓⠕⠗⠗⠕",
@@ -2003,7 +2243,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Gato",
@@ -2023,22 +2265,26 @@
             {
               "letter": "G",
               "image": "assets/signs/letra-g.png",
-              "libras": "Sinal da letra G"
+              "libras": "Sinal da letra G",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "T",
               "image": "assets/signs/letra-t.png",
-              "libras": "Sinal da letra T"
+              "libras": "Sinal da letra T",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             }
           ],
           "braille": "⠛⠁⠞⠕",
@@ -2058,7 +2304,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Leão",
@@ -2079,22 +2327,26 @@
             {
               "letter": "L",
               "image": "assets/signs/letra-l.png",
-              "libras": "Sinal da letra L"
+              "libras": "Sinal da letra L",
+              "qr": ""
             },
             {
               "letter": "E",
               "image": "assets/signs/letra-e.png",
-              "libras": "Sinal da letra E"
+              "libras": "Sinal da letra E",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             }
           ],
           "braille": "⠇⠑⠡⠕",
@@ -2114,7 +2366,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Elefante",
@@ -2134,42 +2388,50 @@
             {
               "letter": "E",
               "image": "assets/signs/letra-e.png",
-              "libras": "Sinal da letra E"
+              "libras": "Sinal da letra E",
+              "qr": ""
             },
             {
               "letter": "L",
               "image": "assets/signs/letra-l.png",
-              "libras": "Sinal da letra L"
+              "libras": "Sinal da letra L",
+              "qr": ""
             },
             {
               "letter": "E",
               "image": "assets/signs/letra-e.png",
-              "libras": "Sinal da letra E"
+              "libras": "Sinal da letra E",
+              "qr": ""
             },
             {
               "letter": "F",
               "image": "assets/signs/letra-f.png",
-              "libras": "Sinal da letra F"
+              "libras": "Sinal da letra F",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "N",
               "image": "assets/signs/letra-n.png",
-              "libras": "Sinal da letra N"
+              "libras": "Sinal da letra N",
+              "qr": ""
             },
             {
               "letter": "T",
               "image": "assets/signs/letra-t.png",
-              "libras": "Sinal da letra T"
+              "libras": "Sinal da letra T",
+              "qr": ""
             },
             {
               "letter": "E",
               "image": "assets/signs/letra-e.png",
-              "libras": "Sinal da letra E"
+              "libras": "Sinal da letra E",
+              "qr": ""
             }
           ],
           "braille": "⠑⠇⠑⠋⠁⠝⠞⠑",
@@ -2189,7 +2451,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Cavalo",
@@ -2209,32 +2473,38 @@
             {
               "letter": "C",
               "image": "assets/signs/letra-c.png",
-              "libras": "Sinal da letra C"
+              "libras": "Sinal da letra C",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "V",
               "image": "assets/signs/letra-v.png",
-              "libras": "Sinal da letra V"
+              "libras": "Sinal da letra V",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "L",
               "image": "assets/signs/letra-l.png",
-              "libras": "Sinal da letra L"
+              "libras": "Sinal da letra L",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             }
           ],
           "braille": "⠉⠁⠧⠁⠇⠕",
@@ -2254,7 +2524,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Vaca",
@@ -2274,22 +2546,26 @@
             {
               "letter": "V",
               "image": "assets/signs/letra-v.png",
-              "libras": "Sinal da letra V"
+              "libras": "Sinal da letra V",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "C",
               "image": "assets/signs/letra-c.png",
-              "libras": "Sinal da letra C"
+              "libras": "Sinal da letra C",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             }
           ],
           "braille": "⠧⠁⠉⠁",
@@ -2309,7 +2585,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Porco",
@@ -2329,27 +2607,32 @@
             {
               "letter": "P",
               "image": "assets/signs/letra-p.png",
-              "libras": "Sinal da letra P"
+              "libras": "Sinal da letra P",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             },
             {
               "letter": "R",
               "image": "assets/signs/letra-r.png",
-              "libras": "Sinal da letra R"
+              "libras": "Sinal da letra R",
+              "qr": ""
             },
             {
               "letter": "C",
               "image": "assets/signs/letra-c.png",
-              "libras": "Sinal da letra C"
+              "libras": "Sinal da letra C",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             }
           ],
           "braille": "⠏⠕⠗⠉⠕",
@@ -2369,7 +2652,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Galinha",
@@ -2389,37 +2674,44 @@
             {
               "letter": "G",
               "image": "assets/signs/letra-g.png",
-              "libras": "Sinal da letra G"
+              "libras": "Sinal da letra G",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "L",
               "image": "assets/signs/letra-l.png",
-              "libras": "Sinal da letra L"
+              "libras": "Sinal da letra L",
+              "qr": ""
             },
             {
               "letter": "I",
               "image": "assets/signs/letra-i.png",
-              "libras": "Sinal da letra I"
+              "libras": "Sinal da letra I",
+              "qr": ""
             },
             {
               "letter": "N",
               "image": "assets/signs/letra-n.png",
-              "libras": "Sinal da letra N"
+              "libras": "Sinal da letra N",
+              "qr": ""
             },
             {
               "letter": "H",
               "image": "assets/signs/letra-h.png",
-              "libras": "Sinal da letra H"
+              "libras": "Sinal da letra H",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             }
           ],
           "braille": "⠛⠁⠇⠊⠝⠓⠁",
@@ -2439,7 +2731,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Pato",
@@ -2459,22 +2753,26 @@
             {
               "letter": "P",
               "image": "assets/signs/letra-p.png",
-              "libras": "Sinal da letra P"
+              "libras": "Sinal da letra P",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "T",
               "image": "assets/signs/letra-t.png",
-              "libras": "Sinal da letra T"
+              "libras": "Sinal da letra T",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             }
           ],
           "braille": "⠏⠁⠞⠕",
@@ -2494,7 +2792,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Cobra",
@@ -2514,27 +2814,32 @@
             {
               "letter": "C",
               "image": "assets/signs/letra-c.png",
-              "libras": "Sinal da letra C"
+              "libras": "Sinal da letra C",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             },
             {
               "letter": "B",
               "image": "assets/signs/letra-b.png",
-              "libras": "Sinal da letra B"
+              "libras": "Sinal da letra B",
+              "qr": ""
             },
             {
               "letter": "R",
               "image": "assets/signs/letra-r.png",
-              "libras": "Sinal da letra R"
+              "libras": "Sinal da letra R",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             }
           ],
           "braille": "⠉⠕⠃⠗⠁",
@@ -2554,7 +2859,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Macaco",
@@ -2574,32 +2881,38 @@
             {
               "letter": "M",
               "image": "assets/signs/letra-m.png",
-              "libras": "Sinal da letra M"
+              "libras": "Sinal da letra M",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "C",
               "image": "assets/signs/letra-c.png",
-              "libras": "Sinal da letra C"
+              "libras": "Sinal da letra C",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "C",
               "image": "assets/signs/letra-c.png",
-              "libras": "Sinal da letra C"
+              "libras": "Sinal da letra C",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             }
           ],
           "braille": "⠍⠁⠉⠁⠉⠕",
@@ -2619,7 +2932,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Coelho",
@@ -2639,32 +2954,38 @@
             {
               "letter": "C",
               "image": "assets/signs/letra-c.png",
-              "libras": "Sinal da letra C"
+              "libras": "Sinal da letra C",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             },
             {
               "letter": "E",
               "image": "assets/signs/letra-e.png",
-              "libras": "Sinal da letra E"
+              "libras": "Sinal da letra E",
+              "qr": ""
             },
             {
               "letter": "L",
               "image": "assets/signs/letra-l.png",
-              "libras": "Sinal da letra L"
+              "libras": "Sinal da letra L",
+              "qr": ""
             },
             {
               "letter": "H",
               "image": "assets/signs/letra-h.png",
-              "libras": "Sinal da letra H"
+              "libras": "Sinal da letra H",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             }
           ],
           "braille": "⠉⠕⠑⠇⠓⠕",
@@ -2684,7 +3005,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Rato",
@@ -2704,22 +3027,26 @@
             {
               "letter": "R",
               "image": "assets/signs/letra-r.png",
-              "libras": "Sinal da letra R"
+              "libras": "Sinal da letra R",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "T",
               "image": "assets/signs/letra-t.png",
-              "libras": "Sinal da letra T"
+              "libras": "Sinal da letra T",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             }
           ],
           "braille": "⠗⠁⠞⠕",
@@ -2739,7 +3066,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Tartaruga",
@@ -2759,47 +3088,56 @@
             {
               "letter": "T",
               "image": "assets/signs/letra-t.png",
-              "libras": "Sinal da letra T"
+              "libras": "Sinal da letra T",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "R",
               "image": "assets/signs/letra-r.png",
-              "libras": "Sinal da letra R"
+              "libras": "Sinal da letra R",
+              "qr": ""
             },
             {
               "letter": "T",
               "image": "assets/signs/letra-t.png",
-              "libras": "Sinal da letra T"
+              "libras": "Sinal da letra T",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             },
             {
               "letter": "R",
               "image": "assets/signs/letra-r.png",
-              "libras": "Sinal da letra R"
+              "libras": "Sinal da letra R",
+              "qr": ""
             },
             {
               "letter": "U",
               "image": "assets/signs/letra-u.png",
-              "libras": "Sinal da letra U"
+              "libras": "Sinal da letra U",
+              "qr": ""
             },
             {
               "letter": "G",
               "image": "assets/signs/letra-g.png",
-              "libras": "Sinal da letra G"
+              "libras": "Sinal da letra G",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             }
           ],
           "braille": "⠞⠁⠗⠞⠁⠗⠥⠛⠁",
@@ -2819,7 +3157,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         },
         {
           "word": "Borboleta",
@@ -2839,47 +3179,56 @@
             {
               "letter": "B",
               "image": "assets/signs/letra-b.png",
-              "libras": "Sinal da letra B"
+              "libras": "Sinal da letra B",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             },
             {
               "letter": "R",
               "image": "assets/signs/letra-r.png",
-              "libras": "Sinal da letra R"
+              "libras": "Sinal da letra R",
+              "qr": ""
             },
             {
               "letter": "B",
               "image": "assets/signs/letra-b.png",
-              "libras": "Sinal da letra B"
+              "libras": "Sinal da letra B",
+              "qr": ""
             },
             {
               "letter": "O",
               "image": "assets/signs/letra-o.png",
-              "libras": "Sinal da letra O"
+              "libras": "Sinal da letra O",
+              "qr": ""
             },
             {
               "letter": "L",
               "image": "assets/signs/letra-l.png",
-              "libras": "Sinal da letra L"
+              "libras": "Sinal da letra L",
+              "qr": ""
             },
             {
               "letter": "E",
               "image": "assets/signs/letra-e.png",
-              "libras": "Sinal da letra E"
+              "libras": "Sinal da letra E",
+              "qr": ""
             },
             {
               "letter": "T",
               "image": "assets/signs/letra-t.png",
-              "libras": "Sinal da letra T"
+              "libras": "Sinal da letra T",
+              "qr": ""
             },
             {
               "letter": "A",
               "image": "assets/signs/letra-a.png",
-              "libras": "Sinal da letra A"
+              "libras": "Sinal da letra A",
+              "qr": ""
             }
           ],
           "braille": "⠃⠕⠗⠃⠕⠇⠑⠞⠁",
@@ -2899,7 +3248,9 @@
               "audio_qr": "",
               "video_qr": ""
             }
-          ]
+          ],
+          "sign_image": "",
+          "context_final_qr": ""
         }
       ]
     }
